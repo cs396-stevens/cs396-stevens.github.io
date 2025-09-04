@@ -1,4 +1,7 @@
-# cs396
+statically serving cs396 files since f25
+
+
+# Files
 
 - [syllabus](./syllabus.html)
 
