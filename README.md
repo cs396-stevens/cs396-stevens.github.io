@@ -9,6 +9,7 @@ statically serving cs396 files since f25
 ## lab
 
 - [lab0](./lab/lab0.html)
+- [lab1](./lab/lab1.html)
 
 
 ## hw
@@ -24,5 +25,7 @@ statically serving cs396 files since f25
 - [lec2-d](./lec-notes/lec2-d.svg)
 - [lec3-a](./lec-notes/lec3-a.svg)
 - [lec3-d](./lec-notes/lec3-d.svg)
+- [lec4-a](./lec-notes/lec4-a.svg)
+- [lec4-d](./lec-notes/lec4-d.svg)
 
 
