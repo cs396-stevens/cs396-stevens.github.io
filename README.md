@@ -29,3 +29,8 @@ statically serving cs396 files since f25
 - [lec4-d](./lec-notes/lec4-d.svg)
 
 
+## scripts
+
+- [validate-hw-zip](./scripts/validate-hw-zip.py)
+
+
