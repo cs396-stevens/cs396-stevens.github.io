@@ -1114,39 +1114,43 @@
     <p>Now that you've created your account (see <code>lab0</code> if you haven't already) and added yourself to the <a href="https://pwn.college/cs396-import~f5a7ca5b/">cs396 dojo</a>, you are ready to start learning how the dojo system works.</p>
     <p><em>Note: the cs396 dojo is hidden by default so that strangers are not able to see it on the front page of the website. You should save the link for later access, or refer back to these instructions where th link is embedded.</em></p>
     <p>As you will see in this module, each dojo is composed of modules, and each modules has a set of videos and challenges. The videos are pre-recorded lectures created by faculty at ASU for their own courses, and you are not required to watch them to complete the lab (though they may contain useful and relevant information). The challenges are so-called "capture-the-flag" (CTF) puzzles that occur in a virtual machine hosted on the <code>pwn.college</code> servers. To complete them, your goal will always be to obtain the contents of the <code>flag</code> file in the root directory of the VM.</p>
-    <h3>Tasks</h3>
-    <ol>
-      <li>
-        <p>Complete the following challenges in the "Using the Dojo" module:</p>
-        <ul>
-          <li>
-            <p>Interacting with the Dojo:</p>
-            <ul>
-              <li><em>Using the Terminal</em></li>
-              <li><em>Using the VSCode Workspace</em></li>
-              <li><em>Restarting Challenges</em></li>
-            </ul>
-          </li>
-          <li>
-            <p>The Challenge Environment:</p>
-            <ul>
-              <li><em>Challenge Programs</em></li>
-              <li><em>The Flag File</em></li>
-              <li><em>Using Privileged Mode</em></li>
-              <li><em>Persistent Home Directories - One</em></li>
-              <li><em>Persistent Home Directories - Two</em></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ol>
+    <div style="background-color:rgb(0,191,255,0.5);padding:20px;margin:10px;">
+      <h3>Tasks</h3>
+      <ol>
+        <li>
+          <p>Complete the following challenges in the "Using the Dojo" module:</p>
+          <ul>
+            <li>
+              <p>Interacting with the Dojo:</p>
+              <ul>
+                <li><em>Using the Terminal</em></li>
+                <li><em>Using the VSCode Workspace</em></li>
+                <li><em>Restarting Challenges</em></li>
+              </ul>
+            </li>
+            <li>
+              <p>The Challenge Environment:</p>
+              <ul>
+                <li><em>Challenge Programs</em></li>
+                <li><em>The Flag File</em></li>
+                <li><em>Using Privileged Mode</em></li>
+                <li><em>Persistent Home Directories - One</em></li>
+                <li><em>Persistent Home Directories - Two</em></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
     <h2>Access Control</h2>
     <p>In class you learned about the Access Control Matrix and the typical access rights that subjects can have over objects. Now you will get to see how access control has been implemented practically in Linux.</p>
     <p>The challenges in the Access Control module on <code>pwn.college</code> are divided into two categories: manipulating access rights via <code>bash</code>, and answering questions about the Bell-LaPadula confidentiality policy. For now we are only focused on the former.</p>
-    <h3>Tasks</h3>
-    <ol>
-      <li>Complete Levels 1-12 of the "Access Control" module.</li>
-    </ol>
+    <div style="background-color:rgb(0,191,255,0.5);padding:20px;margin:10px;">
+      <h3>Tasks</h3>
+      <ol>
+        <li>Complete Levels 1-12 of the "Access Control" module.</li>
+      </ol>
+    </div>
     <h2>Hack 'n' Bash</h2>
     <p>You'll be using the <code>pwn.college</code> platform a lot this semester, and it would be good to understand a little more about the Linux terminal that you complete the challenges in.</p>
     <p>When you open a terminal, the program that provides the user interface is called a "shell" and you issue commands in the Shell Command Language (<code>sh</code>) or a variant of it. One of the most popular shell programs, and the shell being used in <code>pwn.college</code>, is called <a href="https://www.gnu.org/software/bash/"><code>bash</code></a> (Bourne Again Shell), and while there are subtle <a href="https://stackoverflow.com/questions/5725296/">differences</a> between <code>/bin/bash</code> and <code>/bin/sh</code>, we won't concern ourselves with them here.</p>
@@ -1158,19 +1162,21 @@
     <pre>export PATH=/home/hacker/scripts:$PATH</pre>
     <p>Note that the elements of the list are separated with a colon <code>:</code>.</p>
     <p>You will likely need to write scripts and get them onto the VM instance. If you do not know <a href="https://github.com/iggredible/Learn-Vim">how to use <code>vim</code></a> (it would make things much quicker if you learned just the basics), you should still be able to use the desktop version of the challenges.</p>
-    <h3>Tasks</h3>
-    <ol>
-      <li>
-        <p>Complete all challenges of the "Silly Shenanigans" module:</p>
-        <ul>
-          <li><em>Bashrc Backdoor</em></li>
-          <li><em>Sniffing Input</em></li>
-          <li><em>Overshared Directories</em></li>
-          <li><em>Tricky Linking</em> (Hint: use the <a href="https://man7.org/linux/man-pages/man1/ln.1.html"><code>ln</code></a> command to create a soft link)</li>
-          <li><em>Sniffing Process Arguments</em> (Hint: the <a href="https://www.man7.org/linux/man-pages/man1/watch.1.html"><code>watch</code></a> command might be useful here)</li>
-          <li><em>Snooping on Configurations</em></li>
-        </ul>
-      </li>
-    </ol>
+    <div style="background-color:rgb(0,191,255,0.5);padding:20px;margin:10px;">
+      <h3>Tasks</h3>
+      <ol>
+        <li>
+          <p>Complete all challenges of the "Silly Shenanigans" module:</p>
+          <ul>
+            <li><em>Bashrc Backdoor</em></li>
+            <li><em>Sniffing Input</em></li>
+            <li><em>Overshared Directories</em></li>
+            <li><em>Tricky Linking</em> (Hint: use the <a href="https://man7.org/linux/man-pages/man1/ln.1.html"><code>ln</code></a> command to create a soft link)</li>
+            <li><em>Sniffing Process Arguments</em> (Hint: the <a href="https://www.man7.org/linux/man-pages/man1/watch.1.html"><code>watch</code></a> command might be useful here)</li>
+            <li><em>Snooping on Configurations</em></li>
+          </ul>
+        </li>
+      </ol>
+    </div>
   </article>
 </html>
