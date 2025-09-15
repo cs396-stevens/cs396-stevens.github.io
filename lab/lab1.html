@@ -1114,6 +1114,7 @@
     <p>Now that you've created your account (see <code>lab0</code> if you haven't already) and added yourself to the <a href="https://pwn.college/cs396-import~f5a7ca5b/">cs396 dojo</a>, you are ready to start learning how the dojo system works.</p>
     <p><em>Note: the cs396 dojo is hidden by default so that strangers are not able to see it on the front page of the website. You should save the link for later access, or refer back to these instructions where th link is embedded.</em></p>
     <p>As you will see in this module, each dojo is composed of modules, and each modules has a set of videos and challenges. The videos are pre-recorded lectures created by faculty at ASU for their own courses, and you are not required to watch them to complete the lab (though they may contain useful and relevant information). The challenges are so-called "capture-the-flag" (CTF) puzzles that occur in a virtual machine hosted on the <code>pwn.college</code> servers. To complete them, your goal will always be to obtain the contents of the <code>flag</code> file in the root directory of the VM.</p>
+    <p>To begin a challenge, select the challenge and click the "Start" button to create a VM interface. In general, you should check the contents of the <code>/challenge</code> directory to look for the relevant files. When there is a <code>/challenge/run</code> script, as there will be for the Access Control tasks, you should run that script.</p>
     <div style="background-color:rgb(0,191,255,0.5);padding:20px;margin:10px;">
       <h3>Tasks</h3>
       <ol>
@@ -1145,10 +1146,21 @@
     <h2>Access Control</h2>
     <p>In class you learned about the Access Control Matrix and the typical access rights that subjects can have over objects. Now you will get to see how access control has been implemented practically in Linux.</p>
     <p>The challenges in the Access Control module on <code>pwn.college</code> are divided into two categories: manipulating access rights via <code>bash</code>, and answering questions about the Bell-LaPadula confidentiality policy. For now we are only focused on the former.</p>
+    <p>Some helpful reading:</p>
+    <ul>
+      <li><a href="https://www.linuxfoundation.org/blog/blog/classic-sysadmin-understanding-linux-file-permissions">Understanding Linux File Permissions</a></li>
+      <li><a href="https://github.com/RehanSaeed/Bash-Cheat-Sheet">Bash Cheatsheet 1</a></li>
+      <li><a href="https://devhints.io/bash">Bash Cheatsheet 2</a></li>
+    </ul>
     <div style="background-color:rgb(0,191,255,0.5);padding:20px;margin:10px;">
       <h3>Tasks</h3>
       <ol>
-        <li>Complete Levels 1-12 of the "Access Control" module.</li>
+        <li>
+          <p>Complete Levels 1-12 of the "Access Control" module.</p>
+          <ul>
+            <li><em>Level 5 Hint</em>: Look up the <code>SETUID</code> bit. Experiment with <code>cp</code> to find out what the default permissions are when a file is copied. Check the <code>cp</code> manpage for a way to copy with the permissions that you want.</li>
+          </ul>
+        </li>
       </ol>
     </div>
     <h2>Hack 'n' Bash</h2>
