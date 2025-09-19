@@ -37,6 +37,8 @@ statically serving cs396 files since f25
 - [lec7-a](./lec-notes/lec7-a.svg)
 - [lec7-d](./lec-notes/lec7-d.svg)
 - [lec8-template](./lec-notes/lec8-template.svg)
+- [lec8-a](./lec-notes/lec8-a.svg)
+- [lec8-d](./lec-notes/lec8-d.svg)
 
 
 ## scripts
