@@ -36,10 +36,16 @@ statically serving cs396 files since f25
 - [lec7-template](./lec-notes/lec7-template.svg)
 - [lec7-a](./lec-notes/lec7-a.svg)
 - [lec7-d](./lec-notes/lec7-d.svg)
+- [lec8-template](./lec-notes/lec8-template.svg)
 
 
 ## scripts
 
 - [validate-hw-zip](./scripts/validate-hw-zip.py)
+
+
+## src
+
+- [robust](./src/robust.zip)
 
 
