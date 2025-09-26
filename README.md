@@ -17,6 +17,9 @@ statically serving cs396 files since f25
 ## hw
 
 - [hw1](./hw/hw1.html)
+- [hw1](./hw/hw1.pdf)
+- [hw2](./hw/hw2.html)
+- [hw2](./hw/hw2.pdf)
 
 
 ## lec-notes

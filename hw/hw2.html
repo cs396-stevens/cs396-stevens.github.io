@@ -1104,8 +1104,8 @@
       </style>
   </head>
   <article class="markdown-body">
-    <h2><strong>Homework 1</strong></h2>
-    <p><strong>Due Date</strong>: <strong>Wednesday, 9/24, 11:59pm</strong></p>
+    <h2><strong>Homework 2</strong></h2>
+    <p><strong>Due Date</strong>: <strong>Friday, 10/10, 11:59pm</strong></p>
     <h2>Instructions</h2>
     <ol>
       <li>Unless otherwise specified, any assignment involving programming may be completed with the programming language of your choice. If asked, you should be able to explain the details of your source code (e.g. program design and implementation decisions).</li>
@@ -1117,23 +1117,90 @@
         <p>There is a <a href="https://cs396-stevens.github.io/scripts/validate-hw-zip.py">python validation script</a> you should use to confirm it is correct.</p>
       </li>
     </ol>
-    <h2><strong>Problem 1 -</strong> (<em>30 pts</em>) Equifax Case Study</h2>
-    <p>Complete Questions <strong>2.1</strong>, <strong>2.2</strong>, and <strong>2.5</strong> from the Vallor Cybersecurity Ethics reading posted on Canvas. Each question is worth 10 points and is graded on quality of argument.</p>
-    <h2><strong>Problem 2 -</strong> (<em>40 pts</em>) Bell-LaPadula Answering Script</h2>
-    <p>Complete Level 19 of the <em>Access Control</em> module on <code>pwn.college</code>.</p>
-    <p>Describe the design of your code here, from how inputs were obtained, to how they were processed, and how you constructed the output. If your process was iterative, describe the design changes you made at each step.</p>
-    <p>Submit the source code of your final program as a separate file or folder of files named <code>lvl19</code>, with the appropriate file extension as needed.</p>
-    <h2><strong>Problem 3 -</strong> (<em>30 pts</em>) Copying Rights</h2>
-    <p>Suppose Alice has <em>r</em> and <em>w</em> rights over the file <em>book</em>. Alice wants to copy the <em>r</em> right over <em>book</em> to Bob.</p>
+    <h2><strong>Problem 1 -</strong> (<em>25 pts</em>) Robust Refactor</h2>
+    <p>Complete <em>Exercise 16</em> from the <em>Robust Programming</em> reading. You may base your code on the <code>qlib</code> implementation in the <a href="https://cs396-stevens.github.io/src/robust.zip"><code>robust.zip</code></a> files, but that is not guaranteed to be free of issues.</p>
+    <ul>
+      <li><strong>Report what changes you made to the library and why, noting any new sanity and consistency checks you needed to make in particular.</strong></li>
+      <li><em>Include your header and source files in your submission, with the names <code>dqlib.h</code> and <code>dqlib.c</code>, respectively.</em></li>
+      <li><strong>Bonus (2pts):</strong> What is wrong with the <code>qlib</code> implementation as provided?</li>
+    </ul>
+    <h2><strong>Problem 2 -</strong> (<em>25 pts</em>) Bypassing Memory Safety Features</h2>
+    <p>Consider the following code snippet:</p>
+    <pre>void foo(void) {<br>  char foobuf[256];<br>  fgets(foobuf, 257, stdin);<br>}<br><br>void bar(void) {<br>  foo();<br>}<br><br>void main(void) {<br>  char * buf = (char *) malloc(128);<br>  fgets(buf, 128, stdin);<br>  printf("%p", buf);<br>  bar();<br>}</pre>
+    <p>Assume the following:</p>
+    <ul>
+      <li><strong>ASLR is enabled</strong>.</li>
+      <li>All other memory safety features disabled.</li>
+      <li>Assume ASLR will always randomize the value of the saved base pointer of <code>foo</code> to have a LSB in the inclusive range <code>0x20 - 0xf8</code>.</li>
+      <li>You can represent the output of <code>printf</code> on line 13 with a variable <code>ADDRESS</code>. This is an 8-byte, little-endian byte string.</li>
+      <li>You can represent shellcode with a variable <code>SHELLCODE</code>, which has a maximum length of 120 bytes.</li>
+      <li><em>Note: SFP = saved frame pointer = saved base pointer (rbp)</em></li>
+    </ul>
+    <p>Answer the following questions:</p>
     <ol>
       <li>
-        <p>Assume the copy right <em>c</em> exists in the system . Write a protection state transition command that a subject <em>p</em> can use to copy the <em>r</em> right over an object <em>f</em> to another subject <em>q</em> if <em>p</em> is allowed to do so.</p>
+        <p><strong>(6pts)</strong> Complete the following stack diagram assuming the program is paused at line 3 (before <code>fgets</code> is called).</p>
+        <figure>
+          <img src="img/aslr-stack.svg">
+          <figcaption>Figure 1: Stack state at line 3</figcaption>
+        </figure>
       </li>
       <li>
-        <p>Now assume the system does not implement the copy right, but a copy flag; for example, the right <em>r</em> would be written as <em>r(c)</em> if the copy flag is set for it. Write a command that a subject <em>p</em> can use to copy the <em>r(c)</em> right over an object <em>f</em> to another subject <em>q</em> if <em>p</em> is allowed to do so.</p>
+        <p><strong>(8pts)</strong> Provide the byte string inputs to <code>fgets</code> on line 12 and <code>fgets</code> on line 3 that will lead to shellcode execution. You can craft these inputs using Python syntax. For example:</p>
+        <pre>>>> b'\x31' * 8 + b'\x0b\xad\xc0\xde'<br>b'11111111\x0b\xad\xc0\xde'<br>>>> ADDR = b'\x00\x00\x7f\xff\xff\xff\x80\x80'<br>>>> ADDR + b'\xc0\xde'<br>b'\x00\x00\x7f\xff\xff\xff\x80\x80\x00\xc0\xde'</pre>
       </li>
       <li>
-        <p>With the same assumption, write a command that would only grant the <em>r</em> right without the copy flag. If Alice had <em>r(c)w</em> rights and used this command for <em>book</em> with Bob, what would Bob be able to do with <em>book</em>?</p>
+        <p><strong>(11pts)</strong> Explain why this exploit is only guaranteed to work if the saved base pointer of <code>foo</code> has a LSB in the range <code>0x20 - 0xf8</code>.</p>
+      </li>
+    </ol>
+    <h2><strong>Problem 3 -</strong> (<em>25 pts</em>) No Overflow?</h2>
+    <p>Consider the following CTF challenge:</p>
+    <pre>void challenge(void) {<br>  int8_t size;<br>  char flag[16];<br>  char buf[128];<br><br>  // implementation not shown<br>  load_flag(flag);<br><br>  memset(buf, 0, 128);<br><br>  fread(&amp;size, 1, 1, stdin);<br><br>  if (size >= 128) {<br>    return;<br>  }<br><br>  fread(buf, size, 1, stdin);<br>  printf("%s", buf);<br>}</pre>
+    <p>The <code>load_flag</code> function loads the flag data from an access-controlled file on the system.</p>
+    <p>Answer the following questions:</p>
+    <ol>
+      <li>
+        <p><strong>(5pts)</strong> Complete the following stack diagram assuming the program is paused at line 8.</p>
+        <figure>
+          <img src="img/int-ovf-stack.svg">
+          <figcaption>Figure 2: Stack state at line 8</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p><strong>(5pts)</strong> Provide the byte string inputs to <code>fread</code> on line 11 and <code>fread</code> on line 17 that will give you the flag.</p>
+      </li>
+      <li>
+        <p><strong>(5pts)</strong> Explain how your solution to the previous part works.</p>
+      </li>
+      <li>
+        <p><strong>(5pts)</strong> Provide the byte string inputs to <code>fread</code> on line 11 and <code>fread</code> on line 17 that would allow you to execute the largest possible shellcode payload. Assume all memory safety features are disabled and the compiler allocates 8 bytes of space for <code>size</code>.</p>
+        <ul>
+          <li><em>Use a variable named <code>SHELLCODE</code> that contains the shellcode payload as a byte string.</em></li>
+          <li><em>Use a variable named <code>BUF_ADDRESS</code> that contains the address of <code>buf</code> as a byte string (presumably reverse-engineered with <code>gdb</code>).</em></li>
+          <li><em>You must specify the length of <code>SHELLCODE</code>.</em></li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>(5pts)</strong> Explain how your solution to the previous part works.</p>
+      </li>
+    </ol>
+    <h2><strong>Problem 4 -</strong> (<em>25 pts</em>) Python has Problems Too</h2>
+    <p>Just because we've been mostly looking at problems in C doesn't mean other languages don't have their own problems.</p>
+    <p>A well-known dangerous implement in Python (aside from the use of the <code>eval</code> function) is the <code>pickle</code> library. The <a href="https://docs.python.org/3/library/pickle.html"><code>pickle</code></a> library is Python's native module for <em>serializing</em> and <em>deserializing</em> its objects, which can be quite useful for caching purposes.</p>
+    <p>Per the documentation, however, unpickling an object may also involve executing arbitrary code. You'll be crafting a pickle-based attack in this problem and creating a short vulnerability report and description of your exploit.</p>
+    <ol>
+      <li>
+        <p><strong>(15pts)</strong> Complete the <em>Pickle Rick</em> challenge in the <em>Pickle</em> module (originally part of the <em>Hanto Dojo</em>).</p>
+        <ul>
+          <li><strong>Hint 1</strong>: Find out how pickle exploits work (Google it), then read the <code>pickle-rick.py</code> source code to find out how the pickled data is given to the program.</li>
+          <li><strong>Hint 2</strong>: Your goal is still to read <code>/flag</code>.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>(10pts)</strong> Describe the vulnerability in the <code>pickle-rick.py</code> script and the steps you took to exploit it.</p>
+        <ul>
+          <li><em>The "Vulnerability Description" section <a href="https://www.binarly.io/advisories/brly-2025-009">here</a> and the "Real World Demonstration" section <a href="https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents">here</a> are good examples of what we'd be looking for: point out the affected code, what input the attacker controls, and describe the steps taken to reproduce the exploit.</em></li>
+        </ul>
       </li>
     </ol>
   </article>
