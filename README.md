@@ -17,47 +17,48 @@ statically serving cs396 files since f25
 ## hw
 
 - [hw1](./hw/hw1.html)
-- [hw1](./hw/hw1.pdf)
+- [hw1.pdf](./hw/hw1.pdf)
 - [hw2](./hw/hw2.html)
-- [hw2](./hw/hw2.pdf)
+- [hw2.pdf](./hw/hw2.pdf)
 
 
 ## lec-notes
 
-- [lec1-a](./lec-notes/lec1-a.svg)
-- [lec1-d](./lec-notes/lec1-d.svg)
-- [lec2-a](./lec-notes/lec2-a.svg)
-- [lec2-d](./lec-notes/lec2-d.svg)
-- [lec3-a](./lec-notes/lec3-a.svg)
-- [lec3-d](./lec-notes/lec3-d.svg)
-- [lec4-a](./lec-notes/lec4-a.svg)
-- [lec4-d](./lec-notes/lec4-d.svg)
-- [lec5-a](./lec-notes/lec5-a.svg)
-- [lec5-d](./lec-notes/lec5-d.svg)
-- [lec6-template](./lec-notes/lec6-template.svg)
-- [lec6-a](./lec-notes/lec6-a.svg)
-- [lec6-d](./lec-notes/lec6-d.svg)
-- [lec7-template](./lec-notes/lec7-template.svg)
-- [lec7-a](./lec-notes/lec7-a.svg)
-- [lec7-d](./lec-notes/lec7-d.svg)
-- [lec8-template](./lec-notes/lec8-template.svg)
-- [lec8-a](./lec-notes/lec8-a.svg)
-- [lec8-d](./lec-notes/lec8-d.svg)
-- [lec9-template](./lec-notes/lec9-template.svg)
-- [lec9-a](./lec-notes/lec9-a.svg)
-- [lec9-d](./lec-notes/lec9-d.svg)
-- [lec10-d](./lec-notes/lec10-d.svg)
-- [lec11-template](./lec-notes/lec11-template.svg)
+- [lec1-a.svg](./lec-notes/lec1-a.svg)
+- [lec1-d.svg](./lec-notes/lec1-d.svg)
+- [lec2-a.svg](./lec-notes/lec2-a.svg)
+- [lec2-d.svg](./lec-notes/lec2-d.svg)
+- [lec3-a.svg](./lec-notes/lec3-a.svg)
+- [lec3-d.svg](./lec-notes/lec3-d.svg)
+- [lec4-a.svg](./lec-notes/lec4-a.svg)
+- [lec4-d.svg](./lec-notes/lec4-d.svg)
+- [lec5-a.svg](./lec-notes/lec5-a.svg)
+- [lec5-d.svg](./lec-notes/lec5-d.svg)
+- [lec6-template.svg](./lec-notes/lec6-template.svg)
+- [lec6-a.svg](./lec-notes/lec6-a.svg)
+- [lec6-d.svg](./lec-notes/lec6-d.svg)
+- [lec7-template.svg](./lec-notes/lec7-template.svg)
+- [lec7-a.svg](./lec-notes/lec7-a.svg)
+- [lec7-d.svg](./lec-notes/lec7-d.svg)
+- [lec8-template.svg](./lec-notes/lec8-template.svg)
+- [lec8-a.svg](./lec-notes/lec8-a.svg)
+- [lec8-d.svg](./lec-notes/lec8-d.svg)
+- [lec9-template.svg](./lec-notes/lec9-template.svg)
+- [lec9-a.svg](./lec-notes/lec9-a.svg)
+- [lec9-d.svg](./lec-notes/lec9-d.svg)
+- [lec10-d.svg](./lec-notes/lec10-d.svg)
+- [lec11-template.svg](./lec-notes/lec11-template.svg)
+- [lec11-d.svg](./lec-notes/lec11-d.svg)
 
 
 ## scripts
 
-- [validate-hw-zip](./scripts/validate-hw-zip.py)
+- [validate-hw-zip.py](./scripts/validate-hw-zip.py)
 
 
 ## src
 
-- [robust](./src/robust.zip)
-- [buf-overflow](./src/buf-overflow.zip)
+- [robust.zip](./src/robust.zip)
+- [buf-overflow.zip](./src/buf-overflow.zip)
 
 
