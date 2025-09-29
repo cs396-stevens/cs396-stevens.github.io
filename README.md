@@ -50,6 +50,8 @@ statically serving cs396 files since f25
 - [lec11-template.svg](./lec-notes/lec11-template.svg)
 - [lec11-d.svg](./lec-notes/lec11-d.svg)
 - [lec12-template.svg](./lec-notes/lec12-template.svg)
+- [lec12-a.svg](./lec-notes/lec12-a.svg)
+- [lec12-d.svg](./lec-notes/lec12-d.svg)
 
 
 ## scripts
@@ -61,5 +63,6 @@ statically serving cs396 files since f25
 
 - [robust.zip](./src/robust.zip)
 - [buf-overflow.zip](./src/buf-overflow.zip)
+- [shellcode.zip](./src/shellcode.zip)
 
 
