@@ -73,13 +73,10 @@ def build_tree(paths):
     for path in paths:
         parts = path.strip("/").split("/")
         node = tree
-        for i in range(len(parts) - 1):
-            parent = parts[i]
-            child = parts[i+1]
+        while parts:
+            parent = parts.pop(0)
             if parent not in node:
                 node[parent] = {}
-            if child not in node[parent]:
-                node[parent][child] = {}
             node = node[parent]
     return tree
 
