@@ -2,9 +2,63 @@ import os
 import argparse
 import re
 import zipfile
+import json
 from pathlib import Path
+from enum import Enum
 
 ZIP_DIR_PTRN = re.compile(r"(?P<last>[a-z\-]+)_(?P<first>[a-z\-]+)(:?_(?P<other>[a-z\-]+))?\.hw(?P<hw>\d+)")
+
+LOG = False
+
+def log(*args, **kwargs):
+    if LOG: print(*args, **kwargs)
+
+class Status(Enum):
+    OK          =  0
+    BADZIP      = -1
+    DNE         = -2
+    CORRUPTED   = -3
+    EMPTY       = -4
+    MULTDIRS    = -5
+    BADNAME     = -6
+    NOSOLUTIONS = -7
+    SOLUTIONDIR = -8
+    MULTCHILD   = -9
+    BADPATHS    = -10
+
+    @property
+    def ok(self):
+        return self == Status.OK
+
+    @property
+    def code(self):
+        return self.value
+
+    @property
+    def msg(self):
+        match self:
+            case Status.BADZIP:
+                return "not a zip file"
+            case Status.DNE:
+                return "file does not exist"
+            case Status.CORRUPTED:
+                return "file is corrupted"
+            case Status.EMPTY:
+                return "file is empty"
+            case Status.MULTDIRS:
+                return "file has too many top-level directories"
+            case Status.BADNAME:
+                return "internal directory has invalid naming convention"
+            case Status.NOSOLUTIONS:
+                return "missing solutions.pdf"
+            case Status.SOLUTIONDIR:
+                return "'solutions.pdf' is a directory"
+            case Status.MULTCHILD:
+                return "only 'solutions.pdf' and 'src/' allowed in zipfile"
+            case Status.BADPATHS:
+                return "invalid zipfile paths"
+            case _:
+                return "zipfile ok!"
 
 def build_tree(paths):
     """
@@ -39,20 +93,19 @@ def validate_zip(zip_path):
         expected_structure (list[str], optional): List of expected file/folder paths.
 
     Returns:
-        bool: True if validation passes, False otherwise.
+        Status: validation status
+        dict:   zipfile internal directory structure if available
     """
     zip_path = Path(zip_path)
 
     if not zip_path.exists():
-        print(f"Error: {zip_path} does not exist.")
-        return False
+        return (Status.DNE, None)
 
     try:
         with zipfile.ZipFile(zip_path, 'r') as zf:
             # Check CRC integrity
             if (bad_file := zf.testzip()):
-                print(f"Integrity check failed: {bad_file} is corrupted.")
-                return False
+                return (Status.CORRUPTED, None)
             # else:
             #     print("Integrity check passed (no CRC errors).")
 
@@ -60,42 +113,40 @@ def validate_zip(zip_path):
             # print(f"Files in archive: {len(actual_files)}")
 
             paths = zf.namelist()
+            log(json.dumps(paths, indent=2))
 
             if not paths:
-                print(f"{str(zip_path)} is empty.")
-                return False
+                return (Status.EMPTY, None)
 
             zip_tree = build_tree(paths)
 
+            if not zip_tree:
+                return (Status.BADPATHS, paths)
+
             if len(zip_tree) > 1:
-                print(f"{str(zip_path)} has too many top-level directories.")
-                return False
+                return (Status.MULTDIRS, zip_tree)
 
             root_dir = next(iter(zip_tree.keys()))
 
             if not (match := ZIP_DIR_PTRN.search(root_dir)):
-                print(f"invalid naming convention: {root_dir}")
-                print("must be all lowercase, spaces replaced with '_'.")
-                return False
+                return (Status.BADNAME, zip_tree)
 
             if "solutions.pdf" not in zip_tree[root_dir]:
-                print(f"missing '{root_dir}/solutions.pdf'")
-                return False
+                return (Status.NOSOLUTIONS, zip_tree)
 
             if zip_tree[root_dir]["solutions.pdf"]:
-                print("'solutions.pdf' is a directory")
-                return False
+                return (Status.SOLUTIONDIR, zip_tree)
 
             children = list(zip_tree[root_dir].keys())
             if 'src' not in children or len(children) > 2:
-                print(f"only 'solutions.pdf' and 'src/' allowed in zipfile")
-                return False
+                return (Status.MULTCHILD, zip_tree)
 
-            return True
     except zipfile.BadZipFile:
-        print("Error: Not a valid ZIP file.")
-        return False
+        return (Status.BADZIP, None)
+    except Exception as e:
+        return (Status.UNEXPECTED, None)
 
+    return (Status.OK, zip_tree)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -112,7 +163,7 @@ if __name__ == "__main__":
     #     with open(args.expected, "r") as f:
     #         expected = [line.strip() for line in f if line.strip()]
 
-    if (ok := validate_zip(args.zipfile)):
-        print(f"{args.zipfile} ok!")
-    exit(0 if ok else 2)
+    status, _ = validate_zip(args.zipfile)
+    print(status.msg)
+    exit(status.code)
 
