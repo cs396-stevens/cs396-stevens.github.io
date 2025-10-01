@@ -1133,6 +1133,32 @@
         <p>It is a good idea to take notes as you reverse engineer binaries, as you will need to remember many important addresses and details that can be difficult to hold in your head all at once.</p>
       </li>
     </ul>
+    <h3>pwntools</h3>
+    <p>At a certain point, it is probably easier to interact with the challenge using the <code>pwntools</code> package in python, since you will be able to programmatically craft inputs and interact with the running challenge.</p>
+    <p>We have provided some <a href="https://cs396-stevens.github.io/scripts/pwn-scripts.zip">helpful scripts</a> that can be used to launch the challenge program in <code>gdb</code> using pwntools.</p>
+    <p>The workflow looks something like this:</p>
+    <ol>
+      <li>Run <code>tmux</code></li>
+      <li>
+        <p>Run <code>./launch-pwn.py</code></p>
+        <ul>
+          <li>This will open a second tmux "pane" that has gdb attached to the program</li>
+          <li>The first pane will have an IPython interpreter containing <code>pwn.tubes.process</code> object in a global variable named <code>p</code>.</li>
+        </ul>
+      </li>
+      <li>
+        <p>Introspect the program with gdb</p>
+        <ul>
+          <li><a href="https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf">gdb cheetsheet</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>print output in python using <code>recv()</code> and send input using <code>p.send()</code>.</p>
+        <ul>
+          <li><a href="https://docs.pwntools.com/en/stable/intro.html#making-connections">pwntools documentation</a></li>
+        </ul>
+      </li>
+    </ol>
     <h2>Binary Exploitation (Part 2)</h2>
     <p>This week we'll be constructing more complex attacks using buffer overflows and shellcode injection, culminating in a classic hijack-to-shellcode attack.</p>
     <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
