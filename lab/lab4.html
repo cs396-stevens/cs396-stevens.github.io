@@ -1107,7 +1107,7 @@
     <h2><strong>Lab 4</strong></h2>
     <p><strong>Reminder:</strong> Labs are meant to be completed in-person, collaboratively. You should not generally need to watch the videos to complete the labs unless otherwise specified. (Though they can be quite helpful should you need help later)</p>
     <p><strong>Make sure to read and follow the written instructions in the <code>pwn.college</code> challenges where relevant, as the platform may be updated.</strong> <strong>They can also often have helpful hints for the challenges</strong></p>
-    <h3>Handy Tricks</h3>
+    <h3>Handy Tricks and Resources</h3>
     <ul>
       <li>
         <p>Writing arbitrary bytes to <code>stdin</code> in <code>gdb</code>: <code>r &lt; &lt;(printf "\x00\x00\x00\x00\xef\xbe\xad\xde")</code></p>
@@ -1131,6 +1131,14 @@
       </li>
       <li>
         <p>It is a good idea to take notes as you reverse engineer binaries, as you will need to remember many important addresses and details that can be difficult to hold in your head all at once.</p>
+      </li>
+      <li>
+        <p>Helpful links for shellcoding:</p>
+        <ul>
+          <li><a href="https://x64.syscall.sh/">x64.syscall.sh</a></li>
+          <li><a href="https://man7.org/linux/man-pages/man2/syscalls.2.html">syscalls manpage</a></li>
+          <li><a href="https://www.felixcloutier.com/x86/">unofficial x86 instruction reference</a></li>
+        </ul>
       </li>
     </ul>
     <h3>pwntools</h3>
@@ -1167,7 +1175,12 @@
         <li>Complete <em>Variable Control (hard)</em>.</li>
         <li>Complete <em>Control Hijack (easy + hard)</em>.</li>
         <li>Complete <em>Tricky Control Hijack (easy)</em>.</li>
-        <li>Complete <em>Basic Shellcode</em>.</li>
+        <li>
+          <p>Complete <em>Basic Shellcode</em>.</p>
+          <ul>
+            <li><strong>Hint 1</strong>: You may want to watch the <em>Shellcode Injection: Introduction</em> video, from about 16:30 to 32:00. See above for helpful links about syscalls and x86.</li>
+          </ul>
+        </li>
         <li>
           <p>Complete <em>Hijack to (Mapped) Shellcode (easy)</em>.</p>
           <ul>
