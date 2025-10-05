@@ -1106,7 +1106,11 @@
   <article class="markdown-body">
     <p><strong>Syllabus</strong><br><em>CS 396 - Security, Privacy, and Society</em></p>
     <p><strong>DISCLAIMER: This syllabus is a living document. I reserve the right to update policies as needed to adapt to changing circumstances. While policies are unlikely to change dramatically, I reserve the right to do so if I deem it necessary. Policy changes will appear here and be communicated both here and via Canvas Announcements.</strong></p>
-    <p><strong>9/17/25</strong>: Updated lab policy. <strong>9/27/25</strong>: Updated list of CAs, added exam dates, slip days applied automatically.</p>
+    <ul>
+      <li><strong>9/17/25</strong>: Updated lab policy.</li>
+      <li><strong>9/27/25</strong>: Updated list of CAs, added exam dates, slip days applied automatically.</li>
+      <li><strong>10/4/25</strong>: Finally added tentative content schedule.</li>
+    </ul>
     <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;ctz=America%2FNew_York&amp;showPrint=0&amp;mode=WEEK&amp;showCalendars=0&amp;src=Y18yMmE3MjhlMzU2YTZhZDlhNTU0YjdjMTZiMzFhODNkMjYxYzZjOWJlMGEyMzVkNWJiMTk2ZDU0MzQ2ZThiODBhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23616161" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     <h2>Course Description</h2>
     <table>
@@ -1207,6 +1211,236 @@
       <li>(<em>Social Impact</em>) Describe the implications of malicious attacks on computer systems to individuals, organizations, and society. [<strong>Professionalism</strong>]</li>
       <li>(<em>Ethics</em>) Explain ethical issues in cybersecurity and state how the job of a typical IT professional might be connected to major technology-related ethical issues of the day. [<strong>Professionalism</strong>]</li>
     </ul>
+    <h2>Tentative Schedule</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Lecture</th>
+          <th>Reading</th>
+          <th>Lab</th>
+          <th>Homework</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">1</td>
+          <td>9/3 - 1: Intro, Pre-Assessment, Syllabus</td>
+          <td></td>
+          <td rowspan="2"><a href="https://cs396-stevens.github.io/lab/lab0.html">lab0</a></td>
+          <td rowspan="2"></td>
+        </tr>
+        <tr>
+          <td>9/5 - 2: Basic Security Properties, Policies vs. Mechanisms, Assurance, Challenges</td>
+          <td>Bishop 1.1-1.7</td>
+        </tr>
+        <tr>
+          <td rowspan="3">2</td>
+          <td>9/8 - 3: Cybersecurity Ethics Overview</td>
+          <td>Vallor P.1 - P.4</td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/lab/lab1.html">lab1</a></td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td>9/10 - 4: Protection States, Access Control Matrix, Protection State Transitions, Special Rights</td>
+          <td>Bishop 2.1-2.4</td>
+        </tr>
+        <tr>
+          <td>9/12 - 5: Defining Security Policies, Types of Access Control, Lattices</td>
+          <td>Bishop 4.1 - 4.2, 4.4, Appx. A</td>
+        </tr>
+        <tr>
+          <td rowspan="3">3</td>
+          <td>9/15 - 6: Confidentiality (Bell-LaPadula) Model</td>
+          <td>Bishop 5.2</td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/lab/lab2.html">lab2</a></td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td>9/17 - 7: Integrity (Biba) Model, Common Program Vulnerability Classes</td>
+          <td>Bishop 6.2, 24.4</td>
+        </tr>
+        <tr>
+          <td>9/19 - 8: Robust Programming</td>
+          <td>Bishop Robust Programming</td>
+        </tr>
+        <tr>
+          <td rowspan="3">4</td>
+          <td>9/22 - 9: Robust Programming</td>
+          <td>Bishop Robust Programming</td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/lab/lab3.html">lab3</a></td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/hw/hw1.html">hw1</a> due 9/24</td>
+        </tr>
+        <tr>
+          <td>9/24 - 10: Memory and Buffer Overflows</td>
+          <td rowspan="2">Wagner et al. <a href="https://textbook.cs161.org/memory-safety/">Memory Safety</a></td>
+        </tr>
+        <tr>
+          <td>9/26 - 11: More Memory Vulnerabilities</td>
+        </tr>
+        <tr>
+          <td rowspan="3">5</td>
+          <td>9/29 - 12: Memory Exploits, Memory Defenses</td>
+          <td rowspan="2">Wagner et al. <a href="https://textbook.cs161.org/memory-safety/">Memory Safety</a></td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/lab/lab4.html">lab4</a></td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td>10/1 - 13: Memory Defense Subversion, Pwntools Demo</td>
+        </tr>
+        <tr>
+          <td>10/3 - 14: System Design Principles, Identity</td>
+          <td>Bishop 14.1 - 14.2, 15.2 - 15.4</td>
+        </tr>
+        <tr>
+          <td rowspan="3">6</td>
+          <td>10/6 - 15: Access Control Mechanisms</td>
+          <td>Bishop 16.1 - 16.5</td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/lab/lab5.html">lab5</a></td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/hw/hw2.html">hw2</a> due 10/8</td>
+        </tr>
+        <tr>
+          <td>10/8 - 16: Information Flow</td>
+          <td>Bishop 17.1 - 17.2</td>
+        </tr>
+        <tr>
+          <td>10/10 - 17: Confinement Problem</td>
+          <td>Bishop 18.1 - Bishop 18.3</td>
+        </tr>
+        <tr>
+          <td rowspan="3">7</td>
+          <td>10/14 - 18: Sandboxing</td>
+          <td></td>
+          <td rowspan="3">lab6</td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td>10/15 - 19: System Vulnerabilities</td>
+          <td>Bishop 24.3 - 24.5</td>
+        </tr>
+        <tr>
+          <td>10/17 - 20: Authentication, Passwords, 2FA</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">8</td>
+          <td>10/20 - 21: (Buffer Lecture)</td>
+          <td></td>
+          <td rowspan="3">n/a</td>
+          <td rowspan="3"><a href="https://cs396-stevens.github.io/hw/hw3.html">hw3</a> due 10/20</td>
+        </tr>
+        <tr>
+          <td>10/22 - <strong>Midterm</strong></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10/24 - 22: Symmetric Encryption: Securing Communication, Formal Definition, Simple Ciphers, OTP</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">9</td>
+          <td>10/27 - 23: Symmetric Encryption: Stream vs Block Ciphers, DES vs AES</td>
+          <td></td>
+          <td rowspan="3">lab7</td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td>10/29 - 24: Symmetric Encryption: Weaknesses</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10/31 - 25: (Buffer Lecture)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">10</td>
+          <td>11/3 - 26: Asymmetric Encryption: Formal Definition, Public-Key Cryptography</td>
+          <td></td>
+          <td rowspan="3">lab8</td>
+          <td rowspan="3">hw4 due 11/5</td>
+        </tr>
+        <tr>
+          <td>11/5 - 27: Asymmetric Encryption: El Gamal, RSA, Elliptic Curve</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>11/7 - 28: Asymmetric Encryption: Weaknesses</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">11</td>
+          <td>11/10 - 29: Hashing: Formal Definition, Examples, HMAC</td>
+          <td></td>
+          <td rowspan="3">lab9</td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td>11/12 - 30: Key Management: Digital Signatures and PKI</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>11/14 - 31: (Buffer Lecture)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">12</td>
+          <td>11/17 - 32: Network Protocols: Refresher, TCP, UDP, HTTP</td>
+          <td></td>
+          <td rowspan="3">lab10</td>
+          <td rowspan="3">hw5 due 11/19</td>
+        </tr>
+        <tr>
+          <td>11/19 - 33: Network Protocols: E2E vs Link Encryption, SSL/TLS, SSH</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>11/21 - 34: Network Defense: VPNs, Onion Routing, and Firewalls</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">13</td>
+          <td>11/24 - 35: Web Security: Browsers, Javascript, and App Security</td>
+          <td></td>
+          <td rowspan="3">n/a</td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Thanksgiving Break</td>
+          <td rowspan="2"></td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td rowspan="3">14</td>
+          <td>12/1 - 36: Web Security: Injection</td>
+          <td></td>
+          <td rowspan="3">lab11</td>
+          <td rowspan="3">hw6 due 12/3</td>
+        </tr>
+        <tr>
+          <td>12/3 - 37: Web Security: XSS, CSRF</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>12/5 - 38: (Buffer Lecture)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">15</td>
+          <td>12/8 - 39: Social Engineering</td>
+          <td></td>
+          <td rowspan="3">lab12 (maybe)</td>
+          <td rowspan="3"></td>
+        </tr>
+        <tr>
+          <td>12/10 - 40: Advanced Program Testing and Analysis</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>12/12 - 41: (Buffer Lecture)</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
     <h2>Grading</h2>
     <p>Your course grade is broken down as follows:</p>
     <table>
