@@ -67,6 +67,7 @@ statically serving cs396 files since f25
 ## scripts
 
 - [validate-hw-zip.py](./scripts/validate-hw-zip.py)
+- [zip-hw.py](./scripts/zip-hw.py)
 - [pwn-scripts.zip](./scripts/pwn-scripts.zip)
 
 
