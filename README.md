@@ -14,6 +14,7 @@ statically serving cs396 files since f25
 - [lab3](./lab/lab3.html)
 - [lab4](./lab/lab4.html)
 - [lab5](./lab/lab5.html)
+- [lab6](./lab/lab6.html)
 
 
 ## hw
@@ -66,6 +67,8 @@ statically serving cs396 files since f25
 - [lec16-d.svg](./lec-notes/lec16-d.svg)
 - [lec17-a.svg](./lec-notes/lec17-a.svg)
 - [lec17-d.svg](./lec-notes/lec17-d.svg)
+- [lec18-a.svg](./lec-notes/lec18-a.svg)
+- [lec18-d.svg](./lec-notes/lec18-d.svg)
 
 
 ## scripts
