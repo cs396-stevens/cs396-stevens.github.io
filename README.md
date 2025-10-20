@@ -23,6 +23,8 @@ statically serving cs396 files since f25
 - [hw1.pdf](./hw/hw1.pdf)
 - [hw2](./hw/hw2.html)
 - [hw2.pdf](./hw/hw2.pdf)
+- [hw2-q2-sol.pdf](./hw/hw2-q2-sol.pdf)
+- [hw2-q3-sol.pdf](./hw/hw2-q3-sol.pdf)
 - [hw3](./hw/hw3.html)
 - [hw3.pdf](./hw/hw3.pdf)
 
@@ -71,6 +73,8 @@ statically serving cs396 files since f25
 - [lec18-d.svg](./lec-notes/lec18-d.svg)
 - [lec19-a.svg](./lec-notes/lec19-a.svg)
 - [lec19-d.svg](./lec-notes/lec19-d.svg)
+- [lec20-a.svg](./lec-notes/lec20-a.svg)
+- [lec20-d.svg](./lec-notes/lec20-d.svg)
 
 
 ## scripts
