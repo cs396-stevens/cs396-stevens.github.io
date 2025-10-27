@@ -92,5 +92,7 @@ statically serving cs396 files since f25
 - [robust.zip](./src/robust.zip)
 - [buf-overflow.zip](./src/buf-overflow.zip)
 - [shellcode.zip](./src/shellcode.zip)
+- [ret-libc.zip](./src/ret-libc.zip)
+- [race.zip](./src/race.zip)
 
 
