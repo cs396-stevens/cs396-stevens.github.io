@@ -28,6 +28,8 @@ statically serving cs396 files since f25
 - [hw2-q3-sol.pdf](./hw/hw2-q3-sol.pdf)
 - [hw3](./hw/hw3.html)
 - [hw3.pdf](./hw/hw3.pdf)
+- [hw4](./hw/hw4.html)
+- [hw4.pdf](./hw/hw4.pdf)
 
 
 ## lec-notes
