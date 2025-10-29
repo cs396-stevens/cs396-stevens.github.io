@@ -1104,99 +1104,82 @@
       </style>
   </head>
   <article class="markdown-body">
-    <h2><strong>Lab 6</strong></h2>
+    <h2><strong>Lab 7</strong></h2>
     <p><strong>Reminder:</strong> Labs are meant to be completed in-person, collaboratively. You should not generally need to watch the videos to complete the labs unless otherwise specified. (Though they can be quite helpful should you need help later)</p>
     <p><strong>Make sure to read and follow the written instructions in the <code>pwn.college</code> challenges where relevant, as the platform may be updated.</strong> <strong>They can also often have helpful hints for the challenges</strong></p>
-    <h2>Linux Lunacy: File Descriptors</h2>
-    <p>We've got another one for you.</p>
-    <h3>Background</h3>
-    <p>Refer to the background in <a href="https://cs396-stevens.github.io/lab/lab5.html">lab5</a> if you've forgotten what a file descriptor is. <strong>Additional important note: file descriptors refer <em>directly</em> to the file, regardless of where it is located.</strong></p>
-    <p>In this challenge you'll also need to be aware of the difference between <em>relative</em> paths and <em>absolute</em> paths. An absolute path always starts with a <code>/</code>. Anything else is considered a relative path and is located with respect to the directory that the current process was invoked in.</p>
-    <h3>Challenge Details</h3>
-    <p>The <code>/challenge/run</code> executable is a bash script that looks like the following:</p>
-    <pre>#!/usr/bin/env -iS /opt/pwn.college/bash<br><br>PATH=/usr/bin<br><br>read DEST &lt; &lt;(head -n 1 | tr -cd "[a-z0-9/]")<br>[[ "$DEST" == /* ]] || exit 1<br><br>mkdir -p "$DEST" || exit 2<br><br>OLDIFS="$IFS"<br>IFS="/"<br>FILE=""<br>for FRAGMENT in $DEST<br>do<br>        [ -z "$FRAGMENT" ] &amp;&amp; continue<br>        FILE="$FILE/$FRAGMENT"<br>        [ -L "$FILE" ] &amp;&amp; exit 3<br>        chown root:root "$FILE"<br>        chmod 000 "$FILE"<br>done<br>IFS="$OLDIFS"<br><br>rm -f out<br>read SRC &lt; &lt;(head -n 1 | tr -cd "[a-z0-9/]")<br>cat $SRC > $DEST/out</pre>
-    <p>The script takes in a single alphanumeric path from <code>stdin</code> that is stored in <code>DEST</code>. The path must be an absolute (start with <code>/</code>).</p>
-    <p>The script will create the <code>DEST</code> directory (including all parents) if it does not exist.</p>
-    <p>It will then loop through the directories in the path, in order, and set every directory to be owned by root with no allowed permissions on it. <strong><em>DO NOT GIVE ANY PATH THAT STARTS WITH <code>/home</code> TO THIS SCRIPT, AS THE SCRIPT WILL MAKE IT AND EVERYTHING INSIDE OF IT INVISIBLE</em></strong>.</p>
-    <p>The script will then delete the "out" file from the <em>current working directory</em>, then read in another line as an alphanumeric path to a file, and cat the contents of that file into <code>$DEST/out</code></p>
-    <p><strong>Useful Links:</strong></p>
-    <ul>
-      <li><code>unistd.h</code> <a href="https://pubs.opengroup.org/onlinepubs/7908799/xsh/unistd.h.html">documentation</a></li>
-      <li><code>fcntl.h</code> <a href="https://pubs.opengroup.org/onlinepubs/7908799/xsh/fcntl.h.html">documentation</a></li>
-    </ul>
+    <h2>XOR and OTP</h2>
+    <p>We've been talking in lecture about symmetric encryption techniques, <code>xor</code>, and the one-time pad (OTP).</p>
+    <p>In this week's lab, we'll apply what we've been learning a little bit more directly and starting to complete the challenges in the <em>Cryptography</em> module of <em>Intro to Cybersecurity</em>.</p>
+    <p>We did the first 3 challenges, <em>XOR</em>, <em>XORing Hex</em>, and <em>XORing ASCII</em>, together in lecture. If you have not completed them yet, it is recommended that you do so, so that you do not get lost.</p>
+    <h2>XORing ASCII Strings</h2>
+    <p>In this challenge, you will be using <code>xor</code> to decrypt ascii strings given a key string.</p>
+    <p>Concretely, each byte of the decrypted string is the result of computing the <code>xor</code> between the corresponding bytes in the encrypted string and the key string.</p>
+    <p>To complete this, you will be running the <code>/challenge/run</code> script, which looks as follows:</p>
+    <pre>#!/usr/bin/exec-suid -- /usr/bin/python3 -I<br><br>import random<br>import string<br>import sys<br><br>from Crypto.Util.strxor import strxor<br><br>valid_keys = "!#$%&amp;()"<br>valid_chars = ''.join(<br>    c for c in string.ascii_letters<br>    if all(chr(ord(k)^ord(c)) in string.ascii_letters for k in valid_keys)<br>)<br><br>print(valid_keys, valid_chars)<br><br>for n in range(1, 10):<br>    print(f"Challenge number {n}...")<br><br>    key_str = ''.join(random.sample(valid_keys*10, 10))<br>    pt_str = ''.join(random.sample(valid_chars*10, 10))<br>    ct_str = strxor(pt_str.encode(), key_str.encode()).decode()<br><br>    print(f"- Encrypted String: {ct_str}")<br>    print(f"- XOR Key String: {key_str}")<br>    answer = input("- Decrypted String? ").strip()<br>    if answer != pt_str:<br>        print("Incorrect!")<br>        sys.exit(1)<br><br>    print("Correct! Moving on.")<br><br>print("You have mastered XORing ASCII! Your flag:")<br>print(open("/flag").read())</pre>
+    <p>This script will give you an encrypted string and a key string and ask you for the decrypted result.</p>
+    <p>You will need to answer 10 of these questions to get the flag.</p>
+    <p><strong>Note that you do not need to compute the xor of each character yourself, as the <code>strxor</code> function is provided and can be imported as shown in Line 7</strong>.</p>
     <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
       <h3>Tasks</h3>
-      <p>From the <em>File Descriptors</em> module of Linux Lunacy:</p>
-      <ol>
-        <li>
-          <p>Complete <em>Wild Directories</em></p>
-          <ul>
-            <li><strong>Hint 1</strong>: The idea here is similar to the <em>Only Files</em> challenge. You will want to open the file <code>$DEST/out</code> (you control the value of <code>$DEST</code>) in C or Python to get a file descriptor, and use the file descriptor to read the file even after it and all of its parent directories have been made invisible.</li>
-            <li><strong>Hint 2</strong>: <code>rm -f out</code> deletes <code>out</code> in the <em>current working directory</em>, since it is specified as a relative path.</li>
-            <li><strong>Hint 3</strong>: If the directory and <code>out</code> file do not exist before you run the <code>/challenge/run</code> script, you won't be able open the file.</li>
-          </ul>
-        </li>
-      </ol>
+      <p>Complete the <em>XORing ASCII Strings</em> challenge in the <em>Cryptography</em> module.</p>
+      <ul>
+        <li><strong>Hint 0</strong>: The <code>pwn.college</code> prompt for this challenge talks a lot about conversion between Python's string and byte-string formats. It is interesting and useful information, but should not significantly affect you for this challenge. It suffices to know that <code>.encode('utf-8')</code> can be used to convert a Python string to bytes, and <code>.decode('utf-8')</code> can be used to convert bytes to a string in most cases.</li>
+        <li><strong>Hint 1</strong>: You can use <code>tmux</code> to open another terminal to copy and start a Python interpretor. You can then copy and paste the encrypted strings, keys, and decrypted results between the <code>tmux</code> windows after you've computed them using <code>strxor</code> in Python.</li>
+        <li><strong>Hint 2</strong>: Remember that <code>strxor</code> takes 2 byte strings of equal length. Anything else will not work.</li>
+        <li><strong>Optional</strong>: Rather than answer 10 questions, you could also write 1 python script with <code>pwntools</code> to answer them all for you.</li>
+      </ul>
     </div>
-    <h2>System Security: Race Conditions</h2>
-    <p>Time to exploit some more file race conditions.</p>
-    <h3>Level 1.0</h3>
-    <p>The challenge <code>/challenge/babyrace_level1.0</code> takes a single argument: a path to a file.</p>
-    <p>It is a pre-compiled program and there is no compiled source code.</p>
-    <p>When completed, this should be is its output:</p>
-    <pre>###<br>### Welcome to /challenge/babyrace_level1.0!<br>###<br><br>Through this series of challenges, you will become familiar with the concept of race conditions. This challenge allows<br>you to open a single file, as specified by the first argument to the program (argv[1]).<br><br>The file opened will be be sent to you.<br><br>This challenge will verify that the file's path does not include "flag".<br>This challenge will verify that the file is not a symlink.<br>Calling lstat (does not follow symlinks) on the path.<br><br>Paused (press enter to continue)<br><br>Sleeping for 10000us!<br><br>Paused (press enter to continue)<br><br>pwn.college{your flag here}<br>### Goodbye!</pre>
-    <p>When the program is run, roughly these things happen in this order:</p>
-    <ol>
-      <li>the program checks if "flag" is a substring in the command line argument using <code>strstr</code>, exits if it is.</li>
-      <li>the program waits for user input on stdin</li>
-      <li>the program checks if the file is a symlink using <code>lstat</code>, exits if it is.</li>
-      <li>the program sleeps for 10,000µs (10ms)</li>
-      <li>the program waits for user input on stdin</li>
-      <li>the program opens the specified path, reads it, and writes it to stdout, then closes.</li>
-    </ol>
-    <p>You can confirm the behavior by disassembling the program in <code>gdb</code>.</p>
+    <h2>One-Time Pad</h2>
+    <p>As we've discussed, a One-Time Pad is a symmetric cryptosystem where each key is used exactly once.</p>
+    <p>In this challenge, the <code>run</code> script (shown below) will encipher the flag using a randomly generated key, then provide you with the key and the corresponding ciphertext.</p>
+    <pre>#!/usr/bin/exec-suid -- /usr/bin/python3 -I<br><br>from Crypto.Random import get_random_bytes<br>from Crypto.Util.strxor import strxor<br><br>flag = open("/flag", "rb").read()<br><br>key = get_random_bytes(len(flag))<br>ciphertext = strxor(flag, key)<br><br>print(f"One-Time Pad Key (hex): {key.hex()}")<br>print(f"Flag Ciphertext (hex): {ciphertext.hex()}")</pre>
+    <p>You just need to decrypt the ciphertext for the flag. Pretty straightforward stuff.</p>
     <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
       <h3>Tasks</h3>
-      <p>From the <em>Race Conditions</em> module:</p>
-      <ol>
-        <li>
-          <p>Complete challenge <em>level1.0</em>.</p>
-          <ul>
-            <li><strong>Hint 1</strong>: This is a time-of-check, time-of-use bug and is a violation of atomicity (which should be implied under complete mediation). That means that there is a delay between when a condition on a resource is checked and when the resources is actually used.</li>
-            <li><strong>Hint 2</strong>: When you create a symlink using <code>ln -s</code>, the symlink's name does not need to match the name of the file it links to.</li>
-            <li><strong>Hint 3</strong>: You cannot overwrite an existing file into a symlink, but you can delete the file and create a symlink with the same name in its place.</li>
-          </ul>
-        </li>
-      </ol>
+      <p>Complete the <em>One-Time Pad</em> challenge in the <em>Cryptography</em> module.</p>
+      <ul>
+        <li><strong>Hint 0</strong>: The hints from <em>XORing ASCII Strings</em> should still apply.</li>
+      </ul>
     </div>
-    <h3>Level 1.1</h3>
-    <p><code>/challenge/babyrace_level1.1</code> is nearly identical to <code>level1.0</code> except that there is no printed output, and no prompt waiting for user input.</p>
-    <p>So the behavior is roughly:</p>
-    <ol>
-      <li>the program checks if "flag" is a substring in the command line argument using <code>strstr</code>, exits if it is.</li>
-      <li>the program checks if the file is a symlink using <code>lstat</code>, exits if it is.</li>
-      <li>the program sleeps for 10,000µs (10ms)</li>
-      <li>the program opens the specified path, reads it, and writes it to stdout, then closes.</li>
-    </ol>
-    <p>You can confirm the behavior by disassembling the program in <code>gdb</code>.</p>
+    <h2>Many-Time Pad</h2>
+    <p>The perfect secrecy of OTP is violated if you use the key more than once.</p>
+    <p>In this challenge, you'll be conducting a chosen plaintext attack on a "many-time pad", where the same key is used to encrypt every message. The <code>run</code> script will encipher the flag and print the resulting hex string, then allow you to encipher any message you want.</p>
+    <p>The run script is as follows:</p>
+    <pre>#!/usr/bin/exec-suid -- /usr/bin/python3 -I<br><br>from Crypto.Random import get_random_bytes<br>from Crypto.Util.strxor import strxor<br><br>flag = open("/flag", "rb").read()<br><br>key = get_random_bytes(256)<br>ciphertext = strxor(flag, key[:len(flag)])<br><br>print(f"Flag Ciphertext (hex): {ciphertext.hex()}")<br><br>while True:<br>    plaintext = bytes.fromhex(input("Plaintext (hex): "))<br>    ciphertext = strxor(plaintext, key[:len(plaintext)])<br>    print(f"Ciphertext (hex): {ciphertext.hex()}")</pre>
     <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
       <h3>Tasks</h3>
-      <p>From the <em>Race Conditions</em> module:</p>
-      <ol>
+      <p>Complete the <em>Many-Time Pad</em> challenge in the <em>Cryptography</em> module.</p>
+      <ul>
+        <li><strong>Hint 0</strong>: You'll want a Python interpreter open for this one as well.</li>
+        <li><strong>Hint 1</strong>: You can solve this one by finding the key used, then decrypting the flag with the key, or by decrypting the key flag directly.</li>
         <li>
-          <p>Complete challenge <em>level1.1</em>.</p>
-          <ul>
-            <li><strong>Hint 1</strong>: Because the script no longer waits on user input, you will likely need to write a script or program to control exactly when the challenge program is called so that you can overwrite the file within the window of opportunity.</li>
-            <li><strong>Hint 2</strong>: <code>pwntools</code> will likely be helpful for starting the challenge and starting your exploit program.</li>
-            <li><strong>Hint 3</strong>: The <code>os.symlink</code> and <code>os.remove</code> functions in Python may be helpful, and the <code>unlink</code> and <code>symlink</code> system calls in C may be helpful if you opt to write a C program.</li>
-          </ul>
+          <p><strong>Hint 2</strong>: What does the following code snippet do:</p>
+          <pre>int x = 5, y = 7;<br>x ^= y;<br>y ^= x;<br>x ^= y;</pre>
         </li>
-      </ol>
+      </ul>
+    </div>
+    <h2>One-Time Pad Tampering (Clobber)</h2>
+    <p>As the challenge instructions state, OTP does not protect a message's integrity.</p>
+    <p>In this challenge, there are two scripts: <code>/challenge/dispatcher</code> and <code>/challenge/worker</code>.</p>
+    <p><code>dispatcher</code> reads the key, <code>xor</code>'s it with the string "sleep" and prints the enciphered string.</p>
+    <pre>#!/usr/bin/exec-suid -- /usr/bin/python3 -I<br><br>from Crypto.Util.strxor import strxor<br><br>key = open("/challenge/.key", "rb").read()<br>ciphertext = strxor(b"sleep", key[:5])<br><br>print(f"TASK: {ciphertext.hex()}")</pre>
+    <pre>$ /challenge/dispatcher<br>TASK: d180a04bda</pre>
+    <p>The output is meant to be piped into the <code>worker</code>, wchich listens on <code>stdin</code> for a line that starts with "TASK: " and does an action in response.</p>
+    <pre>#!/usr/bin/exec-suid -- /usr/bin/python3 -I<br><br>from Crypto.Util.strxor import strxor<br><br>import time<br>import sys<br><br>key = open("/challenge/.key", "rb").read()<br><br>while line := sys.stdin.readline():<br>    if not line.startswith("TASK: "):<br>        continue<br>    data = bytes.fromhex(line.split()[1])<br>    cipher_len = min(len(data), len(key))<br>    plaintext = strxor(data[:cipher_len], key[:cipher_len])<br><br>    print(f"Hex of plaintext: {plaintext.hex()}")<br>    print(f"Received command: {plaintext}")<br>    if plaintext == b"sleep":<br>        print("Sleeping!")<br>        time.sleep(1)<br>    elif plaintext == b"flag!":<br>        print("Victory! Your flag:")<br>        print(open("/flag").read())<br>    else:<br>        print("Unknown command!")</pre>
+    <pre>$ /challenge/dispatcher | /challenge/worker<br>Hex of plaintext: 736c656570<br>Received command: b'sleep'<br>Sleeping!</pre>
+    <p>We are conducting a known plaintext attack, since we know the plaintext "sleep" and its corresponding ciphertext for an unknown key.</p>
+    <div style="background-color:rgb(144, 238, 144, 0.5);padding:20px;margin:10px;">
+      <h3>Clobber Task</h3>
+      <p>Complete the <em>One-Time Pad Tampering</em> challenge in the <em>Cryptography</em> module.</p>
+      <ul>
+        <li><strong>Hint 1</strong>: You will want to write a python script that sits between the <code>dispatcher</code> and <code>worker</code> script. Then you can invoke it with multiple pipes like so:<br><code>/challenge/dispatcher | ./tamper.py | /challenge/worker </code></li>
+        <li><strong>Hint 2</strong>: Look at the <code>worker</code> script for an idea of how to get started writing your <code>tamper.py</code> script.</li>
+      </ul>
     </div>
     <h2>Submission</h2>
     <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
       <h3>Tasks</h3>
-      <p>Complete the <a href="https://forms.gle/8kacxce91si7zNLH7">lab 6 submission form</a>.</p>
+      <p>Complete the <a href="https://forms.gle/L315YN7mceZHrWg89">lab 7 submission form</a>.</p>
     </div>
   </article>
 </html>
