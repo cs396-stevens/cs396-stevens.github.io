@@ -84,6 +84,8 @@ statically serving cs396 files since f25
 - [lec22-a.svg](./lec-notes/lec22-a.svg)
 - [lec22-d.svg](./lec-notes/lec22-d.svg)
 - [lec23-template.svg](./lec-notes/lec23-template.svg)
+- [lec23-a.svg](./lec-notes/lec23-a.svg)
+- [lec23-d.svg](./lec-notes/lec23-d.svg)
 
 
 ## scripts
