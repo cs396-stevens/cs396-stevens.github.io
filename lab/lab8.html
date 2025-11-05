@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <style>
+      /*light*/
+      
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        margin: 0;
+        color: #1F2328;
+        background-color: #ffffff;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      
+      .markdown-body .octicon {
+        display: inline-block;
+        fill: currentColor;
+        vertical-align: text-bottom;
+      }
+      
+      .markdown-body h1:hover .anchor .octicon-link:before,
+      .markdown-body h2:hover .anchor .octicon-link:before,
+      .markdown-body h3:hover .anchor .octicon-link:before,
+      .markdown-body h4:hover .anchor .octicon-link:before,
+      .markdown-body h5:hover .anchor .octicon-link:before,
+      .markdown-body h6:hover .anchor .octicon-link:before {
+        width: 16px;
+        height: 16px;
+        content: ' ';
+        display: inline-block;
+        background-color: currentColor;
+        -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+        mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+      }
+      
+      .markdown-body details,
+      .markdown-body figcaption,
+      .markdown-body figure {
+        display: block;
+      }
+      
+      .markdown-body summary {
+        display: list-item;
+      }
+      
+      .markdown-body [hidden] {
+        display: none !important;
+      }
+      
+      .markdown-body a {
+        background-color: transparent;
+        color: #0969da;
+        text-decoration: none;
+      }
+      
+      .markdown-body abbr[title] {
+        border-bottom: none;
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+      
+      .markdown-body b,
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      
+      .markdown-body dfn {
+        font-style: italic;
+      }
+      
+      .markdown-body h1 {
+        margin: .67em 0;
+        font-weight: 600;
+        padding-bottom: .3em;
+        font-size: 2em;
+        border-bottom: 1px solid hsla(210,18%,87%,1);
+      }
+      
+      .markdown-body mark {
+        background-color: #fff8c5;
+        color: #1F2328;
+      }
+      
+      .markdown-body small {
+        font-size: 90%;
+      }
+      
+      .markdown-body sub,
+      .markdown-body sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      
+      .markdown-body sub {
+        bottom: -0.25em;
+      }
+      
+      .markdown-body sup {
+        top: -0.5em;
+      }
+      
+      .markdown-body img {
+        border-style: none;
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #ffffff;
+      }
+      
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre,
+      .markdown-body samp {
+        font-family: monospace;
+        font-size: 1em;
+      }
+      
+      .markdown-body figure {
+        margin: 1em 40px;
+      }
+      
+      .markdown-body hr {
+        box-sizing: content-box;
+        overflow: hidden;
+        background: transparent;
+        border-bottom: 1px solid hsla(210,18%,87%,1);
+        height: .25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #d0d7de;
+        border: 0;
+      }
+      
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+        overflow: visible;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      
+      .markdown-body [type=button],
+      .markdown-body [type=reset],
+      .markdown-body [type=submit] {
+        -webkit-appearance: button;
+        appearance: button;
+      }
+      
+      .markdown-body [type=checkbox],
+      .markdown-body [type=radio] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      
+      .markdown-body [type=number]::-webkit-inner-spin-button,
+      .markdown-body [type=number]::-webkit-outer-spin-button {
+        height: auto;
+      }
+      
+      .markdown-body [type=search]::-webkit-search-cancel-button,
+      .markdown-body [type=search]::-webkit-search-decoration {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      
+      .markdown-body ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: .54;
+      }
+      
+      .markdown-body ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        appearance: button;
+        font: inherit;
+      }
+      
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      
+      .markdown-body ::placeholder {
+        color: #6e7781;
+        opacity: 1;
+      }
+      
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        overflow: auto;
+      }
+      
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      
+      .markdown-body details summary {
+        cursor: pointer;
+      }
+      
+      .markdown-body details:not([open])>*:not(summary) {
+        display: none !important;
+      }
+      
+      .markdown-body a:focus,
+      .markdown-body [role=button]:focus,
+      .markdown-body input[type=radio]:focus,
+      .markdown-body input[type=checkbox]:focus {
+        outline: 2px solid #0969da;
+        outline-offset: -2px;
+        box-shadow: none;
+      }
+      
+      .markdown-body a:focus:not(:focus-visible),
+      .markdown-body [role=button]:focus:not(:focus-visible),
+      .markdown-body input[type=radio]:focus:not(:focus-visible),
+      .markdown-body input[type=checkbox]:focus:not(:focus-visible) {
+        outline: solid 1px transparent;
+      }
+      
+      .markdown-body a:focus-visible,
+      .markdown-body [role=button]:focus-visible,
+      .markdown-body input[type=radio]:focus-visible,
+      .markdown-body input[type=checkbox]:focus-visible {
+        outline: 2px solid #0969da;
+        outline-offset: -2px;
+        box-shadow: none;
+      }
+      
+      .markdown-body a:not([class]):focus,
+      .markdown-body a:not([class]):focus-visible,
+      .markdown-body input[type=radio]:focus,
+      .markdown-body input[type=radio]:focus-visible,
+      .markdown-body input[type=checkbox]:focus,
+      .markdown-body input[type=checkbox]:focus-visible {
+        outline-offset: 0;
+      }
+      
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+        line-height: 10px;
+        color: #1F2328;
+        vertical-align: middle;
+        background-color: #f6f8fa;
+        border: solid 1px rgba(175,184,193,0.2);
+        border-bottom-color: rgba(175,184,193,0.2);
+        border-radius: 6px;
+        box-shadow: inset 0 -1px 0 rgba(175,184,193,0.2);
+      }
+      
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      
+      .markdown-body h2 {
+        font-weight: 600;
+        padding-bottom: .3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid hsla(210,18%,87%,1);
+      }
+      
+      .markdown-body h3 {
+        font-weight: 600;
+        font-size: 1.25em;
+      }
+      
+      .markdown-body h4 {
+        font-weight: 600;
+        font-size: 1em;
+      }
+      
+      .markdown-body h5 {
+        font-weight: 600;
+        font-size: .875em;
+      }
+      
+      .markdown-body h6 {
+        font-weight: 600;
+        font-size: .85em;
+        color: #656d76;
+      }
+      
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      
+      .markdown-body blockquote {
+        margin: 0;
+        padding: 0 1em;
+        color: #656d76;
+        border-left: .25em solid #d0d7de;
+      }
+      
+      .markdown-body ul,
+      .markdown-body ol {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 2em;
+      }
+      
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      
+      .markdown-body tt,
+      .markdown-body code,
+      .markdown-body samp {
+        font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+        font-size: 12px;
+      }
+      
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+        font-size: 12px;
+        word-wrap: normal;
+      }
+      
+      .markdown-body .octicon {
+        display: inline-block;
+        overflow: visible !important;
+        vertical-align: text-bottom;
+        fill: currentColor;
+      }
+      
+      .markdown-body input::-webkit-outer-spin-button,
+      .markdown-body input::-webkit-inner-spin-button {
+        margin: 0;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      
+      .markdown-body .mr-2 {
+        margin-right: 8px !important;
+      }
+      
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      
+      .markdown-body .absent {
+        color: #d1242f;
+      }
+      
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre,
+      .markdown-body details {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1F2328;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      
+      .markdown-body h1 tt,
+      .markdown-body h1 code,
+      .markdown-body h2 tt,
+      .markdown-body h2 code,
+      .markdown-body h3 tt,
+      .markdown-body h3 code,
+      .markdown-body h4 tt,
+      .markdown-body h4 code,
+      .markdown-body h5 tt,
+      .markdown-body h5 code,
+      .markdown-body h6 tt,
+      .markdown-body h6 code {
+        padding: 0 .2em;
+        font-size: inherit;
+      }
+      
+      .markdown-body summary h1,
+      .markdown-body summary h2,
+      .markdown-body summary h3,
+      .markdown-body summary h4,
+      .markdown-body summary h5,
+      .markdown-body summary h6 {
+        display: inline-block;
+      }
+      
+      .markdown-body summary h1 .anchor,
+      .markdown-body summary h2 .anchor,
+      .markdown-body summary h3 .anchor,
+      .markdown-body summary h4 .anchor,
+      .markdown-body summary h5 .anchor,
+      .markdown-body summary h6 .anchor {
+        margin-left: -40px;
+      }
+      
+      .markdown-body summary h1,
+      .markdown-body summary h2 {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+      
+      .markdown-body ul.no-list,
+      .markdown-body ol.no-list {
+        padding: 0;
+        list-style-type: none;
+      }
+      
+      .markdown-body ol[type="a s"] {
+        list-style-type: lower-alpha;
+      }
+      
+      .markdown-body ol[type="A s"] {
+        list-style-type: upper-alpha;
+      }
+      
+      .markdown-body ol[type="i s"] {
+        list-style-type: lower-roman;
+      }
+      
+      .markdown-body ol[type="I s"] {
+        list-style-type: upper-roman;
+      }
+      
+      .markdown-body ol[type="1"] {
+        list-style-type: decimal;
+      }
+      
+      .markdown-body div>ol:not([type]) {
+        list-style-type: decimal;
+      }
+      
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      
+      .markdown-body li+li {
+        margin-top: .25em;
+      }
+      
+      .markdown-body dl {
+        padding: 0;
+      }
+      
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #d0d7de;
+      }
+      
+      .markdown-body table td>:last-child {
+        margin-bottom: 0;
+      }
+      
+      .markdown-body table tr {
+        background-color: #ffffff;
+        border-top: 1px solid hsla(210,18%,87%,1);
+      }
+      
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      
+      .markdown-body table img {
+        background-color: transparent;
+      }
+      
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      
+      .markdown-body .emoji {
+        max-width: none;
+        vertical-align: text-top;
+        background-color: transparent;
+      }
+      
+      .markdown-body span.frame {
+        display: block;
+        overflow: hidden;
+      }
+      
+      .markdown-body span.frame>span {
+        display: block;
+        float: left;
+        width: auto;
+        padding: 7px;
+        margin: 13px 0 0;
+        overflow: hidden;
+        border: 1px solid #d0d7de;
+      }
+      
+      .markdown-body span.frame span img {
+        display: block;
+        float: left;
+      }
+      
+      .markdown-body span.frame span span {
+        display: block;
+        padding: 5px 0 0;
+        clear: both;
+        color: #1F2328;
+      }
+      
+      .markdown-body span.align-center {
+        display: block;
+        overflow: hidden;
+        clear: both;
+      }
+      
+      .markdown-body span.align-center>span {
+        display: block;
+        margin: 13px auto 0;
+        overflow: hidden;
+        text-align: center;
+      }
+      
+      .markdown-body span.align-center span img {
+        margin: 0 auto;
+        text-align: center;
+      }
+      
+      .markdown-body span.align-right {
+        display: block;
+        overflow: hidden;
+        clear: both;
+      }
+      
+      .markdown-body span.align-right>span {
+        display: block;
+        margin: 13px 0 0;
+        overflow: hidden;
+        text-align: right;
+      }
+      
+      .markdown-body span.align-right span img {
+        margin: 0;
+        text-align: right;
+      }
+      
+      .markdown-body span.float-left {
+        display: block;
+        float: left;
+        margin-right: 13px;
+        overflow: hidden;
+      }
+      
+      .markdown-body span.float-left span {
+        margin: 13px 0 0;
+      }
+      
+      .markdown-body span.float-right {
+        display: block;
+        float: right;
+        margin-left: 13px;
+        overflow: hidden;
+      }
+      
+      .markdown-body span.float-right>span {
+        display: block;
+        margin: 13px auto 0;
+        overflow: hidden;
+        text-align: right;
+      }
+      
+      .markdown-body code,
+      .markdown-body tt {
+        padding: .2em .4em;
+        margin: 0;
+        font-size: 85%;
+        white-space: break-spaces;
+        background-color: rgba(175,184,193,0.2);
+        border-radius: 6px;
+      }
+      
+      .markdown-body code br,
+      /*
+      .markdown-body tt br {
+        display: none;
+      }
+       */
+      
+      .markdown-body del code {
+        text-decoration: inherit;
+      }
+      
+      .markdown-body samp {
+        font-size: 85%;
+      }
+      
+      .markdown-body pre code {
+        font-size: 100%;
+      }
+      
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        color: #1F2328;
+        background-color: #f6f8fa;
+        border-radius: 6px;
+      }
+      
+      .markdown-body pre code,
+      .markdown-body pre tt {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      
+      .markdown-body .csv-data td,
+      .markdown-body .csv-data th {
+        padding: 5px;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: 1;
+        text-align: left;
+        white-space: nowrap;
+      }
+      
+      .markdown-body .csv-data .blob-num {
+        padding: 10px 8px 9px;
+        text-align: right;
+        background: #ffffff;
+        border: 0;
+      }
+      
+      .markdown-body .csv-data tr {
+        border-top: 0;
+      }
+      
+      .markdown-body .csv-data th {
+        font-weight: 600;
+        background: #f6f8fa;
+        border-top: 0;
+      }
+      
+      .markdown-body [data-footnote-ref]::before {
+        content: "[";
+      }
+      
+      .markdown-body [data-footnote-ref]::after {
+        content: "]";
+      }
+      
+      .markdown-body .footnotes {
+        font-size: 12px;
+        color: #656d76;
+        border-top: 1px solid #d0d7de;
+      }
+      
+      .markdown-body .footnotes ol {
+        padding-left: 16px;
+      }
+      
+      .markdown-body .footnotes ol ul {
+        display: inline-block;
+        padding-left: 16px;
+        margin-top: 16px;
+      }
+      
+      .markdown-body .footnotes li {
+        position: relative;
+      }
+      
+      .markdown-body .footnotes li:target::before {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        bottom: -8px;
+        left: -24px;
+        pointer-events: none;
+        content: "";
+        border: 2px solid #0969da;
+        border-radius: 6px;
+      }
+      
+      .markdown-body .footnotes li:target {
+        color: #1F2328;
+      }
+      
+      .markdown-body .footnotes .data-footnote-backref g-emoji {
+        font-family: monospace;
+      }
+      
+      .markdown-body .pl-c {
+        color: #57606a;
+      }
+      
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #0550ae;
+      }
+      
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6639ba;
+      }
+      
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292f;
+      }
+      
+      .markdown-body .pl-ent {
+        color: #116329;
+      }
+      
+      .markdown-body .pl-k {
+        color: #cf222e;
+      }
+      
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #0a3069;
+      }
+      
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #953800;
+      }
+      
+      .markdown-body .pl-bu {
+        color: #82071e;
+      }
+      
+      .markdown-body .pl-ii {
+        color: #f6f8fa;
+        background-color: #82071e;
+      }
+      
+      .markdown-body .pl-c2 {
+        color: #f6f8fa;
+        background-color: #cf222e;
+      }
+      
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #116329;
+      }
+      
+      .markdown-body .pl-ml {
+        color: #3b2300;
+      }
+      
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #0550ae;
+      }
+      
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292f;
+      }
+      
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292f;
+      }
+      
+      .markdown-body .pl-md {
+        color: #82071e;
+        background-color: #ffebe9;
+      }
+      
+      .markdown-body .pl-mi1 {
+        color: #116329;
+        background-color: #dafbe1;
+      }
+      
+      .markdown-body .pl-mc {
+        color: #953800;
+        background-color: #ffd8b5;
+      }
+      
+      .markdown-body .pl-mi2 {
+        color: #eaeef2;
+        background-color: #0550ae;
+      }
+      
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #8250df;
+      }
+      
+      .markdown-body .pl-ba {
+        color: #57606a;
+      }
+      
+      .markdown-body .pl-sg {
+        color: #8c959f;
+      }
+      
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #0a3069;
+      }
+      
+      .markdown-body g-emoji {
+        display: inline-block;
+        min-width: 1ch;
+        font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 1em;
+        font-style: normal !important;
+        font-weight: 400;
+        line-height: 1;
+        vertical-align: -0.075em;
+      }
+      
+      .markdown-body g-emoji img {
+        width: 1em;
+        height: 1em;
+      }
+      
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      
+      .markdown-body .task-list-item label {
+        font-weight: 400;
+      }
+      
+      .markdown-body .task-list-item.enabled label {
+        cursor: pointer;
+      }
+      
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 4px;
+      }
+      
+      .markdown-body .task-list-item .handle {
+        display: none;
+      }
+      
+      .markdown-body .task-list-item-checkbox {
+        margin: 0 .2em .25em -1.4em;
+        vertical-align: middle;
+      }
+      
+      .markdown-body .contains-task-list:dir(rtl) .task-list-item-checkbox {
+        margin: 0 -1.6em .25em .2em;
+      }
+      
+      .markdown-body .contains-task-list {
+        position: relative;
+      }
+      
+      .markdown-body .contains-task-list:hover .task-list-item-convert-container,
+      .markdown-body .contains-task-list:focus-within .task-list-item-convert-container {
+        display: block;
+        width: auto;
+        height: 24px;
+        overflow: visible;
+        clip: auto;
+      }
+      
+      .markdown-body ::-webkit-calendar-picker-indicator {
+        filter: invert(50%);
+      }
+      
+      .markdown-body .markdown-alert {
+        padding: 8px 16px;
+        margin-bottom: 16px;
+        color: inherit;
+        border-left: .25em solid #d0d7de;
+      }
+      
+      .markdown-body .markdown-alert>:first-child {
+        margin-top: 0;
+      }
+      
+      .markdown-body .markdown-alert>:last-child {
+        margin-bottom: 0;
+      }
+      
+      .markdown-body .markdown-alert .markdown-alert-title {
+        display: flex;
+        font-weight: 500;
+        align-items: center;
+        line-height: 1;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-note {
+        border-left-color: #0969da;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-note .markdown-alert-title {
+        color: #0969da;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-important {
+        border-left-color: #8250df;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-important .markdown-alert-title {
+        color: #8250df;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-warning {
+        border-left-color: #9a6700;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-warning .markdown-alert-title {
+        color: #9a6700;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-tip {
+        border-left-color: #1f883d;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-tip .markdown-alert-title {
+        color: #1a7f37;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-caution {
+        border-left-color: #cf222e;
+      }
+      
+      .markdown-body .markdown-alert.markdown-alert-caution .markdown-alert-title {
+        color: #d1242f;
+      }
+    </style>
+    <style>
+      
+              .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: auto;
+                padding: 45px;
+              }
+      
+              @media (max-width: 767px) {
+                .markdown-body {
+                  padding: 15px;
+                }
+              }
+            
+    </style>
+  </head>
+  <article class="markdown-body">
+    <h2><strong>Lab 8</strong></h2>
+    <p><strong>Reminder:</strong> Labs are meant to be completed in-person, collaboratively. You should not generally need to watch the videos to complete the labs unless otherwise specified. (Though they can be quite helpful should you need help later)</p>
+    <p><strong>Make sure to read and follow the written instructions in the <code>pwn.college</code> challenges where relevant, as the platform may be updated.</strong> <strong>They can also often have helpful hints for the challenges</strong></p>
+    <h2>AES</h2>
+    <p>In this challenge, you will be using a python library (<a href="https://www.pycryptodome.org/">PyCryptoDome</a>) to decrypt the AES-encrypted flag.</p>
+    <p>The challenge script contents are as follows:</p>
+    <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span><br><br><span style="color: #d73948">from</span> Crypto.Cipher <span style="color: #d73948">import</span> AES<br><span style="color: #d73948">from</span> Crypto.Util.Padding <span style="color: #d73948">import</span> pad<br><span style="color: #d73948">from</span> Crypto.Random <span style="color: #d73948">import</span> get_random_bytes<br><br>flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()<br><br>key <span style="color: #d73948">=</span> <span style="color: #4b69c6">get_random_bytes</span>(<span style="color: #b60157">16</span>)<br>cipher <span style="color: #d73948">=</span> AES.<span style="color: #4b69c6">new</span>(key<span style="color: #d73948">=</span>key, mode<span style="color: #d73948">=</span>AES.MODE_ECB)<br>ciphertext <span style="color: #d73948">=</span> cipher.<span style="color: #4b69c6">encrypt</span>(<span style="color: #4b69c6">pad</span>(flag, cipher.block_size))<br><br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">AES Key (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Flag Ciphertext (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+    <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
+      <h3>Tasks</h3>
+      <p>Complete the <em>AES</em> challenge in the <em>Cryptography</em> module.</p>
+      <ul>
+        <li><strong>Hint 1</strong>: You can simply print the flag as bytes once it has been decrypted and ignore the random padding.</li>
+      </ul>
+    </div>
+    <h2>DHKE</h2>
+    <p>In this challenge, you will now be completing a Diffie-Hellman Key Exchange with the challenge script.</p>
+    <p>The challenge will present you with the chosen values of <span style="display: inline-block"><svg class="typst-frame" style="overflow: visible; width: 0.502em; height: 0.683em;" viewBox="0 0 5.522 7.513000000000001" width="5.522pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml"><g><g class="typst-text" transform="matrix(1 0 0 -1 0 7.513000000000001)"><use xlink:href="#g5432C47332E85226182AB0BBE07E074A" x="0" y="0" fill="#000000" fill-rule="nonzero"/></g></g><defs id="glyph"><symbol id="g5432C47332E85226182AB0BBE07E074A" overflow="visible"><path d="M 0 0m 0.16499999 -1.551 c 0 -0.47299993 0.49499997 -0.7039999 1.485 -0.7039999 c 0.5170001 0 1.001 0.13199997 1.43 0.38499987 c 0.48399997 0.286 0.78100014 0.671 0.90199995 1.144 l 1.1989999 4.829 c 0.022000313 0.10999966 0.032999992 0.17599964 0.032999992 0.20899963 c 0 0.22000027 -0.12099981 0.3300004 -0.35199976 0.3300004 c -0.2420001 0 -0.3959999 -0.13200045 -0.47300005 -0.38500023 c -0.2420001 0.40700006 -0.572 0.605 -0.97899985 0.605 c -0.704 0 -1.3310001 -0.35200024 -1.8700001 -1.056 c -0.495 -0.6600001 -0.74799997 -1.3529999 -0.74799997 -2.0679998 c 0 -0.957 0.56100005 -1.771 1.4849999 -1.771 c 0.42900014 0 0.82500005 0.187 1.188 0.55 l -0.32999992 -1.2980001 c -0.319 -0.75899994 -0.8139999 -1.1439999 -1.507 -1.1439999 c -0.286 0 -0.528 0.021999955 -0.726 0.065999985 c 0.231 0.12099993 0.34100002 0.30799997 0.34100002 0.561 c 0 0.27499998 -0.15400004 0.41799998 -0.45100003 0.41799998 c -0.352 0 -0.627 -0.319 -0.627 -0.671 Z m 3.751 5.863 c 0.22000027 -0.23099995 0.32999992 -0.45099974 0.32999992 -0.67099977 c 0 -0.011000156 -0.01099968 -0.065999985 -0.032999992 -0.14300013 l -0.5169997 -2.079 c -0.06600022 -0.25300002 -0.25300002 -0.517 -0.5500002 -0.75900006 c -0.29699993 -0.24199998 -0.58299994 -0.36299998 -0.83599997 -0.36299998 c -0.43999994 0 -0.65999997 0.319 -0.65999997 0.95699996 c 0 0.605 0.37399995 1.947 0.594 2.343 c 0.34100008 0.6270001 0.7260001 0.9350002 1.177 0.9350002 c 0.19799995 0 0.36299992 -0.07700014 0.4949999 -0.22000027 Z "/></symbol></defs></svg></span>, <span style="display: inline-block"><svg class="typst-frame" style="overflow: visible; width: 0.518em; height: 0.683em;" viewBox="0 0 5.698 7.513000000000001" width="5.698pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml"><g><g class="typst-text" transform="matrix(1 0 0 -1 0 7.513000000000001)"><use xlink:href="#gEFA734CB96B47B4EF8159B737E0D9FD7" x="0" y="0" fill="#000000" fill-rule="nonzero"/></g></g><defs id="glyph"><symbol id="gEFA734CB96B47B4EF8159B737E0D9FD7" overflow="visible"><path d="M 0 0m 3.905 4.862 c -0.48399997 0 -0.9460001 -0.25299978 -1.3970001 -0.7589998 c -0.12099981 0.50600004 -0.4619999 0.7589998 -1.0009999 0.7589998 c -0.45099998 0 -0.78099996 -0.36299992 -1.012 -1.0780001 c -0.110000014 -0.36299992 -0.16500002 -0.572 -0.16500002 -0.638 c 0 -0.09899998 0.055000007 -0.1539998 0.176 -0.1539998 c 0.055000007 0 0.088 0.010999918 0.12099999 0.032999992 c 0.055000007 0.09899998 0.088 0.17599988 0.09900004 0.25299978 c 0.19800001 0.83599997 0.45100003 1.2540002 0.74799997 1.2540002 c 0.19799995 0 0.29700005 -0.15400028 0.29700005 -0.4510002 c 0 -0.16499996 -0.022000074 -0.35199976 -0.07700002 -0.54999995 l -1.21 -4.829 c -0.09900001 -0.36300004 -0.109999985 -0.40700006 -0.539 -0.40700006 c -0.19799998 0 -0.297 -0.08799994 -0.297 -0.2529999 c 0 -0.12100005 0.065999985 -0.17600012 0.187 -0.17600012 c 0.16499999 0 0.737 0.032999992 0.90199995 0.032999992 c 0.20899999 0 0.86899996 -0.032999992 1.078 -0.032999992 c 0.16500008 0 0.24199998 0.08800006 0.24199998 0.26400006 c 0 0.110000014 -0.09899998 0.16499996 -0.30799997 0.16499996 c -0.19799995 0 -0.495 -0.010999918 -0.495 0.12100005 c 0 0.143 0.4510001 1.87 0.495 2.057 c 0.22000003 -0.407 0.5500001 -0.616 0.9900001 -0.616 c 0.7149999 0 1.3419998 0.363 1.892 1.1 c 0.50600004 0.671 0.7589998 1.3859999 0.7589998 2.123 c 0 0.95700026 -0.572 1.7820001 -1.4849999 1.7820001 Z m -0.032999992 -0.32999992 c 0.42900014 0 0.6489999 -0.32999992 0.6489999 -0.9790001 c 0 -0.29699993 -0.065999985 -0.6930001 -0.1869998 -1.188 c -0.25300026 -0.957 -0.572 -1.584 -0.957 -1.903 c -0.23100019 -0.187 -0.44000006 -0.286 -0.64900017 -0.286 c -0.319 0 -0.53900003 0.143 -0.65999985 0.44 c -0.0990001 0.231 -0.15400004 0.39599997 -0.15400004 0.48400003 l 0.5609999 2.2989998 c 0.055000067 0.2420001 0.25300002 0.49500012 0.5610001 0.7479999 c 0.30799985 0.25300026 0.58299994 0.38500023 0.83599997 0.38500023 Z "/></symbol></defs></svg></span>, and a public key <span style="display: inline-block"><svg class="typst-frame" style="overflow: visible; width: 0.75em; height: 0.683em;" viewBox="0 0 8.25 7.513000000000001" width="8.25pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml"><g><g class="typst-text" transform="matrix(1 0 0 -1 0 7.513000000000001)"><use xlink:href="#g26F8964ABE7361F88C51709B30AE9C39" x="0" y="0" fill="#000000" fill-rule="nonzero"/></g></g><defs id="glyph"><symbol id="g26F8964ABE7361F88C51709B30AE9C39" overflow="visible"><path d="M 0 0m 1.507 0.033 c 0.19800007 0 0.8800001 -0.033 1.089 -0.033 c 0.16499996 0 0.2420001 0.088 0.2420001 0.253 c 0 0.09900001 -0.065999985 0.16499999 -0.20900011 0.176 c -0.319 0.011000007 -0.47300005 0.12100002 -0.47300005 0.33 c 0 0.09899998 0.09899998 0.31899995 0.3080001 0.649 c 0.29699993 0.495 0.50600004 0.85800004 0.6489999 1.0999999 h 2.6729999 c 0 -0.0769999 0.011000156 -0.23099995 0.04400015 -0.4729998 c 0.07700014 -0.8030001 0.12099981 -1.243 0.12099981 -1.2980001 c 0 -0.20899999 -0.24199963 -0.308 -0.737 -0.308 c -0.20899963 0 -0.3079996 -0.088 -0.3079996 -0.264 c 0 -0.10999999 0.065999985 -0.16499999 0.19799995 -0.16499999 c 0.26399994 0 1.0999999 0.033 1.3639998 0.033 c 0.21999979 0 1.0009999 -0.033 1.2210002 -0.033 c 0.16499996 0 0.24199963 0.088 0.24199963 0.264 c 0 0.110000014 -0.09899998 0.16499999 -0.29699993 0.16499999 c -0.3080001 0 -0.4949999 0.022000015 -0.5499997 0.055000007 c -0.055000305 0.033000022 -0.09899998 0.132 -0.11000013 0.29700002 l -0.65999985 6.798 c -0.032999992 0.20900011 -0.022000313 0.29699993 -0.25300026 0.29699993 c -0.13199997 0 -0.2420001 -0.065999985 -0.31899977 -0.20900011 l -3.7840002 -6.347 c -0.32999992 -0.54999995 -0.77 -0.84699994 -1.309 -0.8909999 c -0.176 -0.011000007 -0.264 -0.09900001 -0.264 -0.264 c 0 -0.10999999 0.066000015 -0.16499999 0.18700004 -0.16499999 c 0.176 0 0.75899994 0.033 0.93499994 0.033 Z m 3.9050002 6.314 l 0.32999992 -3.41 h -2.365 Z "/></symbol></defs></svg></span>.</p>
+    <p>Your job is to complete the exchange by sending your generated public key, computing the resulting session key, and sending the session key to the challenge script to confirm correctness, after which you will receive the flag.</p>
+    <p>The challenge script code is as follows:</p>
+    <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span><br><br><span style="color: #d73948">import</span> sys<br><span style="color: #d73948">from</span> Crypto.Random.random <span style="color: #d73948">import</span> getrandbits<br><br><span style="color: #74747c">#</span><span style="color: #74747c"> 2048-bit MODP Group from RFC3526</span><br>p <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>.<span style="color: #4b69c6">from_bytes</span>(<span style="color: #4b69c6">bytes</span>.<span style="color: #4b69c6">fromhex</span>(<br>    <span style="color: #198810">"</span><span style="color: #198810">FFFFFFFF FFFFFFFF C90FDAA2 2168C234 C4C6628B 80DC1CD1 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">29024E08 8A67CC74 020BBEA6 3B139B22 514A0879 8E3404DD </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">EF9519B3 CD3A431B 302B0A6D F25F1437 4FE1356D 6D51C245 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">E485B576 625E7EC6 F44C42E9 A637ED6B 0BFF5CB6 F406B7ED </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">EE386BFB 5A899FA5 AE9F2411 7C4B1FE6 49286651 ECE45B3D </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">C2007CB8 A163BF05 98DA4836 1C55D39A 69163FA8 FD24CF5F </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">83655D23 DCA3AD96 1C62F356 208552BB 9ED52907 7096966D </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">670C354E 4ABC9804 F1746C08 CA18217C 32905E46 2E36CE3B </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">E39E772C 180E8603 9B2783A2 EC07A28F B5C55DF0 6F4C52C9 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">DE2BCBF6 95581718 3995497C EA956AE5 15D22618 98FA0510 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">15728E5A 8AACAA68 FFFFFFFF FFFFFFFF</span><span style="color: #198810">"</span><br>), <span style="color: #198810">"</span><span style="color: #198810">big</span><span style="color: #198810">"</span>)<br>g <span style="color: #d73948">=</span> <span style="color: #b60157">2</span><br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">p = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">p</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">g = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">g</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><br>a <span style="color: #d73948">=</span> <span style="color: #4b69c6">getrandbits</span>(<span style="color: #b60157">2048</span>)<br>A <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(g, a, p)<br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">A = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">A</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><br><span style="color: #d73948">try</span>:<br>    B <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>(<span style="color: #4b69c6">input</span>(<span style="color: #198810">"</span><span style="color: #198810">B? </span><span style="color: #198810">"</span>), <span style="color: #b60157">16</span>)<br><span style="color: #d73948">except</span> <span style="color: #4b69c6">ValueError</span>:<br>    <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Invalid B value (not a hex number)</span><span style="color: #198810">"</span>, file<span style="color: #d73948">=</span>sys.stderr)<br>    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)<br><span style="color: #d73948">if</span> B <span style="color: #d73948">&lt;=</span> <span style="color: #b60157">2</span><span style="color: #d73948">*</span><span style="color: #d73948">*</span><span style="color: #b60157">1024</span>:<br>    <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Invalid B value (B &lt;= 2**1024)</span><span style="color: #198810">"</span>, file<span style="color: #d73948">=</span>sys.stderr)<br>    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)<br><br>s <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(B, a, p)<br><span style="color: #d73948">try</span>:<br>    <span style="color: #d73948">if</span> <span style="color: #4b69c6">int</span>(<span style="color: #4b69c6">input</span>(<span style="color: #198810">"</span><span style="color: #198810">s? </span><span style="color: #198810">"</span>), <span style="color: #b60157">16</span>) <span style="color: #d73948">==</span> s:<br>        <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Correct! Here is your flag:</span><span style="color: #198810">"</span>)<br>        <span style="color: #4b69c6">print</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>())<br>    <span style="color: #d73948">else</span>:<br>        <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Incorrect... Should have been:</span><span style="color: #198810">"</span>, file<span style="color: #d73948">=</span>sys.stderr)<br>        <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">s = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">s</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><span style="color: #d73948">except</span> <span style="color: #4b69c6">ValueError</span>:<br>    <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Invalid s value (not a hex number)</span><span style="color: #198810">"</span>, file<span style="color: #d73948">=</span>sys.stderr)<br>    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)</code></pre>
+    <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
+      <h3>Tasks</h3>
+      <p>Complete the <em>DHKE</em> challenge in the <em>Cryptography</em> module.</p>
+      <ul>
+        <li><strong>Hint 0</strong>: <em>Read the <code>pwn.college</code> instructions for a refresher on the DHKE protocol.</em></li>
+        <li><strong>Hint 1</strong>: <span style="display: inline-block"><svg class="typst-frame" style="overflow: visible; width: 0.518em; height: 0.683em;" viewBox="0 0 5.698 7.513000000000001" width="5.698pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml"><g><g class="typst-text" transform="matrix(1 0 0 -1 0 7.513000000000001)"><use xlink:href="#gEFA734CB96B47B4EF8159B737E0D9FD7" x="0" y="0" fill="#000000" fill-rule="nonzero"/></g></g><defs id="glyph"><symbol id="gEFA734CB96B47B4EF8159B737E0D9FD7" overflow="visible"><path d="M 0 0m 3.905 4.862 c -0.48399997 0 -0.9460001 -0.25299978 -1.3970001 -0.7589998 c -0.12099981 0.50600004 -0.4619999 0.7589998 -1.0009999 0.7589998 c -0.45099998 0 -0.78099996 -0.36299992 -1.012 -1.0780001 c -0.110000014 -0.36299992 -0.16500002 -0.572 -0.16500002 -0.638 c 0 -0.09899998 0.055000007 -0.1539998 0.176 -0.1539998 c 0.055000007 0 0.088 0.010999918 0.12099999 0.032999992 c 0.055000007 0.09899998 0.088 0.17599988 0.09900004 0.25299978 c 0.19800001 0.83599997 0.45100003 1.2540002 0.74799997 1.2540002 c 0.19799995 0 0.29700005 -0.15400028 0.29700005 -0.4510002 c 0 -0.16499996 -0.022000074 -0.35199976 -0.07700002 -0.54999995 l -1.21 -4.829 c -0.09900001 -0.36300004 -0.109999985 -0.40700006 -0.539 -0.40700006 c -0.19799998 0 -0.297 -0.08799994 -0.297 -0.2529999 c 0 -0.12100005 0.065999985 -0.17600012 0.187 -0.17600012 c 0.16499999 0 0.737 0.032999992 0.90199995 0.032999992 c 0.20899999 0 0.86899996 -0.032999992 1.078 -0.032999992 c 0.16500008 0 0.24199998 0.08800006 0.24199998 0.26400006 c 0 0.110000014 -0.09899998 0.16499996 -0.30799997 0.16499996 c -0.19799995 0 -0.495 -0.010999918 -0.495 0.12100005 c 0 0.143 0.4510001 1.87 0.495 2.057 c 0.22000003 -0.407 0.5500001 -0.616 0.9900001 -0.616 c 0.7149999 0 1.3419998 0.363 1.892 1.1 c 0.50600004 0.671 0.7589998 1.3859999 0.7589998 2.123 c 0 0.95700026 -0.572 1.7820001 -1.4849999 1.7820001 Z m -0.032999992 -0.32999992 c 0.42900014 0 0.6489999 -0.32999992 0.6489999 -0.9790001 c 0 -0.29699993 -0.065999985 -0.6930001 -0.1869998 -1.188 c -0.25300026 -0.957 -0.572 -1.584 -0.957 -1.903 c -0.23100019 -0.187 -0.44000006 -0.286 -0.64900017 -0.286 c -0.319 0 -0.53900003 0.143 -0.65999985 0.44 c -0.0990001 0.231 -0.15400004 0.39599997 -0.15400004 0.48400003 l 0.5609999 2.2989998 c 0.055000067 0.2420001 0.25300002 0.49500012 0.5610001 0.7479999 c 0.30799985 0.25300026 0.58299994 0.38500023 0.83599997 0.38500023 Z "/></symbol></defs></svg></span> and <span style="display: inline-block"><svg class="typst-frame" style="overflow: visible; width: 0.502em; height: 0.683em;" viewBox="0 0 5.522 7.513000000000001" width="5.522pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml"><g><g class="typst-text" transform="matrix(1 0 0 -1 0 7.513000000000001)"><use xlink:href="#g5432C47332E85226182AB0BBE07E074A" x="0" y="0" fill="#000000" fill-rule="nonzero"/></g></g><defs id="glyph"><symbol id="g5432C47332E85226182AB0BBE07E074A" overflow="visible"><path d="M 0 0m 0.16499999 -1.551 c 0 -0.47299993 0.49499997 -0.7039999 1.485 -0.7039999 c 0.5170001 0 1.001 0.13199997 1.43 0.38499987 c 0.48399997 0.286 0.78100014 0.671 0.90199995 1.144 l 1.1989999 4.829 c 0.022000313 0.10999966 0.032999992 0.17599964 0.032999992 0.20899963 c 0 0.22000027 -0.12099981 0.3300004 -0.35199976 0.3300004 c -0.2420001 0 -0.3959999 -0.13200045 -0.47300005 -0.38500023 c -0.2420001 0.40700006 -0.572 0.605 -0.97899985 0.605 c -0.704 0 -1.3310001 -0.35200024 -1.8700001 -1.056 c -0.495 -0.6600001 -0.74799997 -1.3529999 -0.74799997 -2.0679998 c 0 -0.957 0.56100005 -1.771 1.4849999 -1.771 c 0.42900014 0 0.82500005 0.187 1.188 0.55 l -0.32999992 -1.2980001 c -0.319 -0.75899994 -0.8139999 -1.1439999 -1.507 -1.1439999 c -0.286 0 -0.528 0.021999955 -0.726 0.065999985 c 0.231 0.12099993 0.34100002 0.30799997 0.34100002 0.561 c 0 0.27499998 -0.15400004 0.41799998 -0.45100003 0.41799998 c -0.352 0 -0.627 -0.319 -0.627 -0.671 Z m 3.751 5.863 c 0.22000027 -0.23099995 0.32999992 -0.45099974 0.32999992 -0.67099977 c 0 -0.011000156 -0.01099968 -0.065999985 -0.032999992 -0.14300013 l -0.5169997 -2.079 c -0.06600022 -0.25300002 -0.25300002 -0.517 -0.5500002 -0.75900006 c -0.29699993 -0.24199998 -0.58299994 -0.36299998 -0.83599997 -0.36299998 c -0.43999994 0 -0.65999997 0.319 -0.65999997 0.95699996 c 0 0.605 0.37399995 1.947 0.594 2.343 c 0.34100008 0.6270001 0.7260001 0.9350002 1.177 0.9350002 c 0.19799995 0 0.36299992 -0.07700014 0.4949999 -0.22000027 Z "/></symbol></defs></svg></span> are agreed upon, you don’t need to extract that from the challenge output.</li>
+        <li><strong>Hint 2</strong>: <code>pwntools</code> might be useful here.</li>
+      </ul>
+    </div>
+    <h2>DHKE-to-AES</h2>
+    <p><strong>We will be walking through this challenge together in class</strong>. You are still responsible for completing it by the deadline, but can choose to follow along in lecture and complete it then.</p>
+    <p>DHKE is designed to generate a symmetric key. The challenge script will use the generated session key to encrypt the flag and print the result.</p>
+    <p>Your job is to complete the DHKE protocol, then use the session key to decrypt the flag.</p>
+    <p>The challenge script is as follows:</p>
+    <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span><br><br><span style="color: #d73948">import</span> sys<br><span style="color: #d73948">from</span> Crypto.Cipher <span style="color: #d73948">import</span> AES<br><span style="color: #d73948">from</span> Crypto.Util.Padding <span style="color: #d73948">import</span> pad<br><span style="color: #d73948">from</span> Crypto.Random.random <span style="color: #d73948">import</span> getrandbits<br><br>flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()<br><span style="color: #d73948">assert</span> <span style="color: #4b69c6">len</span>(flag) <span style="color: #d73948">&lt;=</span> <span style="color: #b60157">256</span><br><br><span style="color: #74747c">#</span><span style="color: #74747c"> 2048-bit MODP Group from RFC3526</span><br>p <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>.<span style="color: #4b69c6">from_bytes</span>(<span style="color: #4b69c6">bytes</span>.<span style="color: #4b69c6">fromhex</span>(<br>    <span style="color: #198810">"</span><span style="color: #198810">FFFFFFFF FFFFFFFF C90FDAA2 2168C234 C4C6628B 80DC1CD1 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">29024E08 8A67CC74 020BBEA6 3B139B22 514A0879 8E3404DD </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">EF9519B3 CD3A431B 302B0A6D F25F1437 4FE1356D 6D51C245 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">E485B576 625E7EC6 F44C42E9 A637ED6B 0BFF5CB6 F406B7ED </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">EE386BFB 5A899FA5 AE9F2411 7C4B1FE6 49286651 ECE45B3D </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">C2007CB8 A163BF05 98DA4836 1C55D39A 69163FA8 FD24CF5F </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">83655D23 DCA3AD96 1C62F356 208552BB 9ED52907 7096966D </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">670C354E 4ABC9804 F1746C08 CA18217C 32905E46 2E36CE3B </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">E39E772C 180E8603 9B2783A2 EC07A28F B5C55DF0 6F4C52C9 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">DE2BCBF6 95581718 3995497C EA956AE5 15D22618 98FA0510 </span><span style="color: #198810">"</span><br>    <span style="color: #198810">"</span><span style="color: #198810">15728E5A 8AACAA68 FFFFFFFF FFFFFFFF</span><span style="color: #198810">"</span><br>), <span style="color: #198810">"</span><span style="color: #198810">big</span><span style="color: #198810">"</span>)<br>g <span style="color: #d73948">=</span> <span style="color: #b60157">2</span><br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">p = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">p</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">g = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">g</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><br>a <span style="color: #d73948">=</span> <span style="color: #4b69c6">getrandbits</span>(<span style="color: #b60157">2048</span>)<br>A <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(g, a, p)<br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">A = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">A</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)<br><br><span style="color: #d73948">try</span>:<br>    B <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>(<span style="color: #4b69c6">input</span>(<span style="color: #198810">"</span><span style="color: #198810">B? </span><span style="color: #198810">"</span>), <span style="color: #b60157">16</span>)<br><span style="color: #d73948">except</span> <span style="color: #4b69c6">ValueError</span>:<br>    <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Invalid B value (not a hex number)</span><span style="color: #198810">"</span>, file<span style="color: #d73948">=</span>sys.stderr)<br>    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)<br><span style="color: #d73948">if</span> B <span style="color: #d73948">&lt;=</span> <span style="color: #b60157">2</span><span style="color: #d73948">*</span><span style="color: #d73948">*</span><span style="color: #b60157">1024</span>:<br>    <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Invalid B value (B &lt;= 2**1024)</span><span style="color: #198810">"</span>, file<span style="color: #d73948">=</span>sys.stderr)<br>    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)<br><br>s <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(B, a, p)<br>key <span style="color: #d73948">=</span> s.<span style="color: #4b69c6">to_bytes</span>(<span style="color: #b60157">256</span>, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>)[:<span style="color: #b60157">16</span>]<br><br><span style="color: #74747c">#</span><span style="color: #74747c"> friendship ended with DHKE, AES is my new best friend</span><br>cipher <span style="color: #d73948">=</span> AES.<span style="color: #4b69c6">new</span>(key<span style="color: #d73948">=</span>key, mode<span style="color: #d73948">=</span>AES.MODE_CBC)<br>flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()<br>ciphertext <span style="color: #d73948">=</span> cipher.iv <span style="color: #d73948">+</span> cipher.<span style="color: #4b69c6">encrypt</span>(<span style="color: #4b69c6">pad</span>(flag, cipher.block_size))<br><span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Flag Ciphertext (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+    <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
+      <h3>Tasks</h3>
+      <p>Complete the <em>DHKE-to-AES</em> challenge in the <em>Cryptography</em> module.</p>
+    </div>
+    <h2>Submission</h2>
+    <div style="background-color:rgb(0, 191, 255, 0.5);padding:20px;margin:10px;">
+      <h3>Tasks</h3>
+      <p>Complete the <a href="https://forms.gle/26TnSu3J3eW8dyFy5">lab 8 submission form</a>.</p>
+    </div>
+  </article>
+</html>
