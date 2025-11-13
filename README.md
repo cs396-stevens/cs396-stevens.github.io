@@ -40,6 +40,7 @@ statically serving cs396 files since f25
 
 - [rsa.zip](./hw/src/rsa.zip)
 - [cbc_mac.zip](./hw/src/cbc_mac.zip)
+- [rockyou2000.txt](./hw/src/rockyou2000.txt)
 
 
 ## lec-notes
