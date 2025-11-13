@@ -32,6 +32,14 @@ statically serving cs396 files since f25
 - [hw3.pdf](./hw/hw3.pdf)
 - [hw4](./hw/hw4.html)
 - [hw4.pdf](./hw/hw4.pdf)
+- [hw5](./hw/hw5.html)
+- [hw5.pdf](./hw/hw5.pdf)
+
+
+### src
+
+- [rsa.zip](./hw/src/rsa.zip)
+- [cbc_mac.zip](./hw/src/cbc_mac.zip)
 
 
 ## lec-notes
