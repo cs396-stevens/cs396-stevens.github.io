@@ -36,6 +36,8 @@ statically serving cs396 files since f25
 - [hw4.pdf](./hw/hw4.pdf)
 - [hw5](./hw/hw5.html)
 - [hw5.pdf](./hw/hw5.pdf)
+- [hw6](./hw/hw6.html)
+- [hw6.pdf](./hw/hw6.pdf)
 
 
 ### src
