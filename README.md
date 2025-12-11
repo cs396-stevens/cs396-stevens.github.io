@@ -20,6 +20,7 @@ statically serving cs396 files since f25
 - [lab9](./lab/lab9.html)
 - [lab10](./lab/lab10.html)
 - [lab11](./lab/lab11.html)
+- [lab12](./lab/lab12.html)
 
 
 ## hw
