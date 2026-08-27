@@ -1,0 +1,146 @@
+/* Main content typography, code, tables, lists, and blockquotes. */
+
+.main-content,
+.jtd-content {
+  line-height: 1.6;
+}
+
+.main-content > :first-child,
+.jtd-page > :first-child {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--jtd-body-heading);
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+p,
+ul,
+ol,
+dl,
+pre,
+table,
+blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li + li {
+  margin-top: 0.25rem;
+}
+
+code,
+pre {
+  background: var(--jtd-code-background);
+  font-family: "SFMono-Regular", consolas, "Liberation Mono", monospace;
+}
+
+code {
+  border: 1px solid var(--jtd-border);
+  border-radius: var(--jtd-border-radius);
+  padding: 0.1em 0.25em;
+  font-size: 0.85em;
+}
+
+pre {
+  position: relative;
+  overflow-x: auto;
+  border: 1px solid var(--jtd-border);
+  border-radius: var(--jtd-border-radius);
+  padding: var(--jtd-spacing-unit);
+}
+
+pre:focus {
+  outline: 2px solid var(--jtd-link);
+  outline-offset: 2px;
+}
+
+.jtd-code-wrap {
+  position: relative;
+}
+
+.jtd-copy-code {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.45rem;
+  color: var(--jtd-link);
+  background: var(--jtd-body-background);
+  border: 1px solid var(--jtd-border);
+  border-radius: var(--jtd-border-radius);
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+pre code {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  background: var(--jtd-table-background);
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+th,
+td {
+  border: 1px solid var(--jtd-border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+th {
+  color: var(--jtd-body-heading);
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 3px solid var(--jtd-border);
+  padding-left: var(--jtd-spacing-unit);
+  color: var(--jtd-body-text);
+}
+
+@media print {
+  a {
+    color: inherit;
+  }
+
+  pre,
+  blockquote,
+  table {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,191 @@
+/* Reusable component styles: callouts, buttons, labels, cards, and images. */
+
+.jtd-callout,
+.jtd-card {
+  border: 1px solid var(--jtd-border);
+  border-radius: var(--jtd-border-radius);
+  padding: var(--jtd-spacing-unit);
+  margin-block: var(--jtd-spacing-unit);
+}
+
+.jtd-callout {
+  --jtd-callout-color: var(--jtd-theme-accent);
+  background: transparent;
+  border-color: var(--jtd-callout-color);
+  border-left-width: 4px;
+}
+
+.jtd-callout-note {
+  --jtd-callout-color: var(--jtd-theme-accent);
+}
+
+.jtd-callout-info {
+  --jtd-callout-color: var(--jtd-component-blue);
+}
+
+.jtd-callout-tip {
+  --jtd-callout-color: var(--jtd-component-green);
+}
+
+.jtd-callout-warning {
+  --jtd-callout-color: var(--jtd-component-yellow);
+}
+
+.jtd-callout-danger {
+  --jtd-callout-color: var(--jtd-component-red);
+}
+
+.jtd-callout-important {
+  --jtd-callout-color: var(--jtd-component-purple);
+}
+
+.jtd-callout-title,
+.jtd-card-title {
+  color: var(--jtd-body-heading);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.jtd-callout-title {
+  color: var(--jtd-callout-color);
+}
+
+.jtd-button {
+  --jtd-button-bg: var(--jtd-base-button);
+  --jtd-button-fg: var(--jtd-theme-accent);
+  --jtd-button-border: var(--jtd-button-bg);
+  --jtd-button-hover-filter: brightness(0.96);
+  display: inline-block;
+  color: var(--jtd-link);
+  color: var(--jtd-button-fg);
+  background: var(--jtd-button-bg);
+  border: 1px solid var(--jtd-button-border);
+  border-radius: var(--jtd-border-radius);
+  padding: 0.3em 1em;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.jtd-button:hover {
+  text-decoration: none;
+  filter: var(--jtd-button-hover-filter);
+}
+
+.jtd-button-primary {
+  --jtd-button-bg: var(--jtd-button-primary);
+  --jtd-button-fg: var(--jtd-component-white);
+  --jtd-button-border: var(--jtd-button-primary);
+  --jtd-button-hover-filter: brightness(1.08);
+}
+
+.jtd-button-outline {
+  --jtd-button-bg: transparent;
+  --jtd-button-fg: var(--jtd-link);
+  --jtd-button-border: var(--jtd-border);
+}
+
+.jtd-button-outline:hover {
+  --jtd-button-border: var(--jtd-link);
+  filter: none;
+}
+
+.jtd-button-purple {
+  --jtd-button-bg: var(--jtd-component-purple);
+  --jtd-button-fg: var(--jtd-component-white);
+  --jtd-button-border: var(--jtd-component-purple);
+  --jtd-button-hover-filter: brightness(1.08);
+}
+
+.jtd-button-blue {
+  --jtd-button-bg: var(--jtd-component-blue);
+  --jtd-button-fg: var(--jtd-component-white);
+  --jtd-button-border: var(--jtd-component-blue);
+  --jtd-button-hover-filter: brightness(1.08);
+}
+
+.jtd-button-green {
+  --jtd-button-bg: var(--jtd-component-green);
+  --jtd-button-fg: var(--jtd-component-white);
+  --jtd-button-border: var(--jtd-component-green);
+  --jtd-button-hover-filter: brightness(1.08);
+}
+
+.jtd-button-red {
+  --jtd-button-bg: var(--jtd-component-red);
+  --jtd-button-fg: var(--jtd-component-white);
+  --jtd-button-border: var(--jtd-component-red);
+  --jtd-button-hover-filter: brightness(1.08);
+}
+
+.jtd-button-yellow {
+  --jtd-button-bg: var(--jtd-component-yellow);
+  --jtd-button-fg: var(--jtd-component-yellow-text);
+  --jtd-button-border: var(--jtd-component-yellow);
+  --jtd-button-hover-filter: brightness(1.08);
+}
+
+.jtd-label {
+  --jtd-label-bg: var(--jtd-theme-accent);
+  --jtd-label-fg: var(--jtd-component-white);
+  display: inline-block;
+  color: var(--jtd-label-fg);
+  background: var(--jtd-label-bg);
+  border-radius: 999px;
+  padding: 0.16em 0.56em;
+  font-size: 0.8em;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.jtd-label-default {
+  --jtd-label-bg: var(--jtd-theme-accent);
+}
+
+.jtd-label-blue {
+  --jtd-label-bg: var(--jtd-component-blue);
+}
+
+.jtd-label-green {
+  --jtd-label-bg: var(--jtd-component-green);
+}
+
+.jtd-label-purple {
+  --jtd-label-bg: var(--jtd-component-purple);
+}
+
+.jtd-label-red {
+  --jtd-label-bg: var(--jtd-component-red);
+}
+
+.jtd-label-yellow {
+  --jtd-label-bg: var(--jtd-component-yellow);
+  --jtd-label-fg: var(--jtd-component-yellow-text);
+}
+
+.jtd-card-body > :first-child,
+.jtd-callout-body > :first-child {
+  margin-top: 0;
+}
+
+.jtd-card-body > :last-child,
+.jtd-callout-body > :last-child {
+  margin-bottom: 0;
+}
+
+.jtd-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-block: var(--jtd-spacing-unit);
+}
+
+@media print {
+  .jtd-button {
+    color: inherit;
+    background: transparent;
+    border-color: var(--jtd-border);
+  }
+}

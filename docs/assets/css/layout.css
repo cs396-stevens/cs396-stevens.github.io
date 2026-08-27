@@ -1,0 +1,225 @@
+/* Page shell, sidebar, header, and responsive layout styles. */
+
+.main {
+  min-height: 100vh;
+}
+
+.side-bar {
+  background: var(--jtd-sidebar);
+  border-color: var(--jtd-border);
+  border-bottom: 1px solid var(--jtd-border);
+  z-index: 1;
+}
+
+.jtd-icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  fill: currentColor;
+  line-height: 1;
+  vertical-align: -0.125em;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  min-height: var(--jtd-header-height);
+}
+
+.site-title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  min-height: var(--jtd-header-height);
+  padding-inline: var(--jtd-spacing-unit);
+  color: var(--jtd-body-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.site-title:hover {
+  background: var(--jtd-feedback);
+}
+
+.site-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: var(--jtd-header-height);
+  margin-left: 0;
+  padding-inline: var(--jtd-spacing-unit);
+  color: var(--jtd-link);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.site-button:hover {
+  background-image: linear-gradient(-90deg, var(--jtd-feedback) 0%, var(--jtd-feedback) 100%);
+}
+
+.site-footer {
+  padding: var(--jtd-spacing-unit);
+  color: var(--jtd-body-text);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.site-footer > :first-child {
+  margin-top: 0;
+}
+
+.site-footer > :last-child {
+  margin-bottom: 0;
+}
+
+.main-header {
+  height: var(--jtd-header-height);
+  min-height: var(--jtd-header-height);
+  max-height: var(--jtd-header-height);
+  border-bottom: 1px solid var(--jtd-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: var(--jtd-body-background);
+}
+
+.header-links {
+  margin-left: auto;
+  flex: 0 1 auto;
+}
+
+.header-links-list {
+  display: flex;
+  align-items: center;
+  list-style: none !important;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+.header-links-item {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.header-links-item + .header-links-item {
+  margin-top: 0;
+}
+
+.header-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--jtd-header-height);
+  padding-inline: 0.75rem;
+  color: var(--jtd-link);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  background: var(--jtd-feedback);
+  text-decoration: none;
+}
+
+.main-content-wrap,
+.jtd-page {
+  padding: var(--jtd-spacing-unit);
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.main-minimal {
+  min-height: 100vh;
+}
+
+.jtd-page-minimal {
+  min-height: 100vh;
+}
+
+@media (min-width: 66.5rem) {
+  .side-bar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: var(--jtd-nav-width);
+    border-right: 1px solid var(--jtd-border);
+    border-bottom: 0;
+    overflow-y: auto;
+  }
+
+  .site-header {
+    display: flex;
+    height: var(--jtd-header-height);
+    max-height: var(--jtd-header-height);
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--jtd-border);
+  }
+
+  .site-button {
+    display: none;
+  }
+
+  .side-bar > .header-links {
+    display: none;
+  }
+
+  .jtd-nav {
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+
+  .site-footer {
+    padding-block: var(--jtd-spacing-unit);
+    padding-inline: var(--jtd-spacing-unit);
+  }
+
+  .main:not(.main-minimal) {
+    margin-left: var(--jtd-nav-width);
+  }
+
+  .main-content-wrap,
+  .jtd-page {
+    padding: calc(var(--jtd-spacing-unit) * 2);
+  }
+}
+
+@media (max-width: 66.499rem) {
+  .main-header-default {
+    display: none;
+  }
+
+  .side-bar .site-footer {
+    display: none;
+  }
+
+  .jtd-js .side-bar:not(.nav-open) .jtd-nav,
+  .jtd-js .side-bar:not(.nav-open) > .header-links,
+  .jtd-js .side-bar:not(.nav-open) .site-footer {
+    display: none;
+  }
+}
+
+@media print {
+  .side-bar,
+  .main-header,
+  .site-button {
+    display: none !important;
+  }
+
+  .main {
+    max-width: none;
+    margin: 0;
+  }
+
+  .main-content-wrap,
+  .jtd-page {
+    padding: 0;
+  }
+}

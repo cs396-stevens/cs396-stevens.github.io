@@ -1,0 +1,52 @@
+/* Base typography and document defaults. */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  color: var(--jtd-body-text);
+  background: var(--jtd-body-background);
+  font-family: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--jtd-link);
+  text-decoration-color: var(--jtd-border);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-color: currentcolor;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--jtd-border);
+  margin-block: calc(var(--jtd-spacing-unit) * 2);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--jtd-feedback);
+}

@@ -1,0 +1,29 @@
+:root {
+  color-scheme: light;
+  --jtd-color-scheme: light;
+  --jtd-body-background: #ffffff;
+  --jtd-body-heading: #212529;
+  --jtd-body-text: #495057;
+  --jtd-theme-accent: #15aabf;
+  --jtd-link: #15aabf;
+  --jtd-sidebar: #f8f9fa;
+  --jtd-border: #e9ecef;
+  --jtd-code-background: #ffffff;
+  --jtd-table-background: #ffffff;
+  --jtd-base-button: #f8f9fa;
+  --jtd-feedback: #e9ecef;
+  --jtd-component-blue: #228be6;
+  --jtd-component-green: #37b24d;
+  --jtd-component-purple: #7048e8;
+  --jtd-component-red: #f03e3e;
+  --jtd-component-yellow: #fcc419;
+  --jtd-component-yellow-text: #212529;
+  --jtd-component-white: #ffffff;
+  --jtd-button-primary: #15aabf;
+  --jtd-nav-width: 16.5rem;
+  --jtd-content-width: 50rem;
+  --jtd-header-height: 3.75rem;
+  --jtd-border-radius: 4px;
+  --jtd-spacing-unit: 1rem;
+
+}

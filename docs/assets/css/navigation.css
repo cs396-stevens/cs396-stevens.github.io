@@ -1,0 +1,106 @@
+/* Sidebar navigation, active states, breadcrumbs, and nav groups. */
+
+.jtd-nav a,
+.nav-list-link,
+.jtd-nav-link {
+  color: var(--jtd-link);
+}
+
+.jtd-nav-link.active {
+  font-weight: 600;
+  background-image: linear-gradient(-90deg, var(--jtd-feedback) 0%, var(--jtd-feedback) 80%, transparent 100%);
+}
+
+.jtd-nav-list,
+.breadcrumb-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jtd-nav-list .jtd-nav-list {
+  padding-left: 0.75rem;
+}
+
+.jtd-nav-item {
+  margin: 0;
+}
+
+.jtd-nav-link,
+.jtd-nav-section {
+  display: block;
+  padding: 0.45rem var(--jtd-spacing-unit);
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.jtd-nav-link:hover,
+.jtd-nav-link.active {
+  color: var(--jtd-link);
+  text-decoration: none;
+  background-image: linear-gradient(-90deg, var(--jtd-feedback) 0%, var(--jtd-feedback) 80%, transparent 100%);
+}
+
+.jtd-nav-section {
+  color: var(--jtd-body-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+}
+
+.jtd-nav-section-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  text-transform: inherit;
+}
+
+.jtd-nav-section-toggle .jtd-icon-chevron-right {
+  transition: transform 120ms ease;
+}
+
+.jtd-nav-section-toggle[aria-expanded="true"] .jtd-icon-chevron-right {
+  transform: rotate(90deg);
+}
+
+.jtd-js .jtd-nav-item.is-collapsed > .jtd-nav-list {
+  display: none;
+}
+
+.breadcrumb-nav {
+  color: var(--jtd-body-text);
+  margin-bottom: var(--jtd-spacing-unit);
+  font-size: 0.85rem;
+}
+
+.breadcrumb-nav-list-item {
+  display: inline;
+}
+
+.breadcrumb-nav-list-item + .breadcrumb-nav-list-item::before {
+  content: "/";
+  padding-inline: 0.5rem;
+  color: var(--jtd-border);
+}
+
+.breadcrumb-nav a {
+  color: var(--jtd-link);
+  text-decoration: none;
+}
+
+@media print {
+  .jtd-nav,
+  .breadcrumb-nav {
+    display: none !important;
+  }
+}
