@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+  </head>
+  <body>
+    <header class="side-bar">
+      <div class="site-header"><a class="site-title" href="/">cs396-f26</a><span style="white-space: pre-wrap">&#x20;</span><button class="site-button" id="menu-button" aria-label="Menu" aria-expanded="false"><svg class="jtd-icon jtd-icon-menu" aria-hidden="true"><use href="/assets/icons/symbols.svg#menu"></use></svg></button></div>
+      <nav class="jtd-nav" aria-label="Main">
+        <ul class="jtd-nav-list">
+          <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
+          <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
+          <li class="jtd-nav-item" data-nav-id="lec">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lec">
+              <li class="jtd-nav-item" data-nav-id="lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">Lecture 1: Intro</a></li>
+              <li class="jtd-nav-item" data-nav-id="lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/notes.html">Lecture 2: Ethics - Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">Lecture 3: Ethics - Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">Lecture 4: Ethics - Ethical Frameworks and Best Practices</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item active" data-nav-id="lab">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lab">
+              <li class="jtd-nav-item active" data-nav-id="lab0"><a class="jtd-nav-link active" href="/lab/lab00.html">Lab 0: Intro to pwn.college and Bash Refresher</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item" data-nav-id="hw">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-hw"><span class="jtd-nav-section-title">Homework</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-hw">
+              <li class="jtd-nav-item" data-nav-id="hw0"><a class="jtd-nav-link" href="/hw/hw00.html">Homework 1: Ethics</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-links" aria-label="Auxiliary">
+        <ul class="header-links-list">
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+        </ul>
+      </nav>
+      <div class="site-footer">CS396 Fall 2026</div>
+    </header>
+    <div class="main" id="top">
+      <div class="main-header main-header-default" id="main-header">
+        <nav class="header-links" aria-label="Auxiliary">
+          <ul class="header-links-list">
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="main-content-wrap">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-nav-list">
+            <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lab/lab00.html">Lab 0: Intro to pwn.college and Bash Refresher</a></li>
+          </ol>
+        </nav>
+        <div class="main-content" id="main-content">
+          <main class="jtd-page">
+            <h2 id="loc-1">Lab 0: Intro to pwn.college and Bash Refresher</h2>
+            <h2 id="loc-2">Setting Up <code>pwn.college</code></h2>
+            <p><a href="https://pwn.college/"><code>pwn.college</code></a> is a cybersecurity (CySec) education platform created by <a href="https://pwn.college/sensei">CySec researchers and educators at Arizona State University</a>.</p>
+            <p>It takes a gamified, hands-on approach to learning CySec findamentals by providing a series of increasingly difficult capture-the-flag (CTF) challenges based on various topics and concepts in security.</p>
+            <p>Throughout the semester, your labs will consist of a selection of challenges relevant to our course material. You will also be able to complete other challenges for extra credit.</p>
+            <aside class="jtd-callout jtd-callout-note" data-kind="note">
+              <div class="jtd-callout-body"><code>pwn.college</code>’s default level progression is inspired by the belt system found in many martial arts. These belts are informally recognized in the CySec community, and wouldn’t hurt to have on a CySec-focused resume. 👀</div>
+            </aside>
+            <aside id="task(1,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (1,)</div>
+              <div class="jtd-callout-body">
+                <ol>
+                  <li>
+                    <p><a href="https://pwn.college/register">Register</a> for an account with <code>pwn.college</code>.</p>
+                  </li>
+                  <li>
+                    <p>Join the <a href="https://pwn.college/dojo/stevens-cs396-lab~0bfdbf04/join/stevens-cs396"><code>Stevens CS396 Dojo</code></a>.</p>
+                  </li>
+                  <li>
+                    <p>Share your username with your Lab CA.</p>
+                  </li>
+                </ol>
+              </div>
+            </aside>
+            <h2 id="loc-3">Interacting with the Dojo</h2>
+            <p>Once you have joined the course dojo, you should be able open it and view the available modules.</p>
+            <p>Open the <code>lab0</code> module, which contains the challenges for this week’s lab.</p>
+            <p>There are a lot of challenges, but don’t worry! Almost of all of them are quite fast to complete (1-2 min each) and generally only require running a few commands in your terminal.</p>
+            <h3 id="loc-4">How does this work?</h3>
+            <p>The first 6 challenges under the header “Interacting with the Dojo” are designed to introduce you to the Dojo environment.</p>
+            <p>Each Capture-the-Flag (CTF) challenge takes place in a sandboxed Linux environment. The dojo provides several means of interacting with it:</p>
+            <ul>
+              <li>an in-browser terminal</li>
+              <li>an in-browser Visual Studio Code instance</li>
+              <li>an in-browser remote desktop viewer</li>
+              <li>ssh from your machine’s terminal</li>
+            </ul>
+            <p>For each challenge:</p>
+            <ol>
+              <li>click on the challenge name to expand it</li>
+              <li>read the instructions (if present)</li>
+              <li>click start to initialize the challange instance</li>
+              <li>complete the challenge</li>
+            </ol>
+            <aside id="task(2,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (2,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Terminal</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(3,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (3,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Visual Studio Code</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(4,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (4,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Desktop</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(5,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (5,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Desktop Copy-and-Paste</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(6,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (6,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>ssh</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(7,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (7,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Restarting Challenges</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <h2 id="loc-5">Crash Course: Linux &amp; Bash</h2>
+            <p>As you might have guessed, completing challenges on <code>pwn.college</code> requires some familiarity with Linux and <code>bash</code>.</p>
+            <p>The next series of challenges are meant to be a basic refresher for both. There will be more exercises to get you comfortable in the challenge environment over the next couple of weeks.</p>
+            <aside id="task(8,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (8,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Terminal</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(9,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (9,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Visual Studio Code</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(10,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (10,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Desktop</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(11,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (11,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Desktop Copy-and-Paste</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(12,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (12,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>ssh</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(13,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (13,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Restarting Challenges</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(14,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (14,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>The Root</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(15,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (15,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Absolute Paths 1</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(16,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (16,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Absolute Paths 2</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(17,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (17,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Relative Paths 1</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(18,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (18,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Relative Paths 2</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(19,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (19,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Relative Paths 3</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(20,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (20,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>The Home Directory</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(21,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (21,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>reading files 1</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(22,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (22,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>reading files 2</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(23,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (23,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>reading files 3</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(24,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (24,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>searching files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(25,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (25,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>comparing files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(26,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (26,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>listing files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(27,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (27,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>creating files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(28,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (28,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>removing files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(29,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (29,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>moving (and renaming) files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(30,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (30,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>copying files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(31,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (31,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>hidden files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(32,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (32,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>creating directories</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(33,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (33,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>finding files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(34,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (34,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>An Epic Filesystem Quest</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <h2 id="loc-6">The Challenge Environment</h2>
+            <p>Now that you can access the challenge, and are comfortable in Linux, you are ready to tackle some CTFs!</p>
+            <p>These challenges will introduce the format that <code>pwn.college</code> CTFs take.</p>
+            <aside id="task(35,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (35,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Terminal</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(36,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (36,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Visual Studio Code</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(37,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (37,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Desktop</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(38,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (38,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Desktop Copy-and-Paste</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(39,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (39,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>ssh</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(40,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (40,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Restarting Challenges</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(41,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (41,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>The Root</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(42,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (42,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Absolute Paths 1</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(43,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (43,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Absolute Paths 2</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(44,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (44,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Relative Paths 1</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(45,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (45,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Relative Paths 2</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(46,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (46,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Relative Paths 3</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(47,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (47,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>The Home Directory</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(48,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (48,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>reading files 1</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(49,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (49,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>reading files 2</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(50,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (50,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>reading files 3</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(51,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (51,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>searching files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(52,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (52,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>comparing files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(53,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (53,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>listing files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(54,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (54,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>creating files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(55,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (55,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>removing files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(56,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (56,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>moving (and renaming) files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(57,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (57,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>copying files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(58,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (58,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>hidden files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(59,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (59,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>creating directories</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(60,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (60,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>finding files</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(61,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (61,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>An Epic Filesystem Quest</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(62,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (62,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Challenge Programs</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(63,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (63,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>The Flag File</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(64,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (64,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Using Privileged Mode</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(65,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (65,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Persistent Home Directories 1</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <aside id="task(66,)" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task (66,)</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Persistent Home Directories 2</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <h2 id="loc-7">Final Note</h2>
+            <p>Lab completion is automatically logged in <code>pwn.college</code>, so you generally won’t be required to submit anything else.</p>
+            <p>If you still feel a little uncomfortable with Linux, we strongly advise you to follow <code>pwn.college</code>’s recommendation and work through the <a href="https://pwn.college/linux-luminarium">Linux Luminarium</a> dojo to get some more practice!</p>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/site.js">
+    </script>
+  </body>
+</html>
