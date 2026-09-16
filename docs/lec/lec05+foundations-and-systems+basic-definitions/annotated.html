@@ -17,7 +17,7 @@
         <ul class="jtd-nav-list">
           <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
           <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
-          <li class="jtd-nav-item" data-nav-id="lec">
+          <li class="jtd-nav-item active" data-nav-id="lec">
             <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
             <ul class="jtd-nav-list" id="jtd-nav-children-lec">
               <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
@@ -28,14 +28,14 @@
               <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
               <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
               <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
-              <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item active" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link active" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
               <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
             </ul>
           </li>
-          <li class="jtd-nav-item active" data-nav-id="lab">
+          <li class="jtd-nav-item" data-nav-id="lab">
             <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
             <ul class="jtd-nav-list" id="jtd-nav-children-lab">
-              <li class="jtd-nav-item active" data-nav-id="lab0"><a class="jtd-nav-link active" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
               <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
             </ul>
           </li>
@@ -74,121 +74,14 @@
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <ol class="breadcrumb-nav-list">
             <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
-            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
-            <li class="breadcrumb-nav-list-item"><a href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Lectures</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
           </ol>
         </nav>
         <div class="main-content" id="main-content">
           <main class="jtd-page">
-            <h2>Lab 0: Intro to pwn.college and Bash Refresher</h2>
-            <h2>Setting Up <code>pwn.college</code></h2>
-            <p><a href="https://pwn.college/"><code>pwn.college</code></a> is a cybersecurity (CySec) education platform created by <a href="https://pwn.college/sensei">CySec researchers and educators at Arizona State University</a>.</p>
-            <p>It takes a gamified, hands-on approach to learning CySec findamentals by providing a series of increasingly difficult capture-the-flag (CTF) challenges based on various topics and concepts in security.</p>
-            <p>Throughout the semester, your labs will consist of a selection of challenges relevant to our course material. You will also be able to complete other challenges for extra credit.</p>
-            <aside class="jtd-callout jtd-callout-note" data-kind="note">
-              <div class="jtd-callout-body"><code>pwn.college</code>’s default level progression is inspired by the belt system found in many martial arts. These belts are informally recognized in the CySec community, and wouldn’t hurt to have on a CySec-focused resume. 👀</div>
-            </aside>
-            <aside id="task1" class="jtd-callout jtd-callout-task" data-kind="task">
-              <div class="jtd-callout-title">Task 1</div>
-              <div class="jtd-callout-body">
-                <ol>
-                  <li>
-                    <p><a href="https://pwn.college/register">Register</a> for an account with <code>pwn.college</code>.</p>
-                  </li>
-                  <li>
-                    <p>Join the <a href="https://pwn.college/dojo/stevens-cs396-lab~0bfdbf04/join/stevens-cs396"><code>Stevens CS396 Dojo</code></a>.</p>
-                  </li>
-                  <li>
-                    <p>Share your username with your Lab CA.</p>
-                  </li>
-                </ol>
-              </div>
-            </aside>
-            <h2>Interacting with the Dojo</h2>
-            <p>Once you have joined the course dojo, you should be able open it and view the available modules.</p>
-            <p>Open the <code>lab0</code> module, which contains the challenges for this week’s lab.</p>
-            <p>There are a lot of challenges, but don’t worry! Almost of all of them are quite fast to complete (1-2 min each) and generally only require running a few commands in your terminal.</p>
-            <h3>How does this work?</h3>
-            <p>The first 6 challenges under the header “Interacting with the Dojo” are designed to introduce you to the Dojo environment.</p>
-            <p>Each Capture-the-Flag (CTF) challenge takes place in a sandboxed Linux environment. The dojo provides several means of interacting with it:</p>
-            <ul>
-              <li>an in-browser terminal</li>
-              <li>an in-browser Visual Studio Code instance</li>
-              <li>an in-browser remote desktop viewer</li>
-              <li>ssh from your machine’s terminal</li>
-            </ul>
-            <p>For each challenge:</p>
-            <ol>
-              <li>click on the challenge name to expand it</li>
-              <li>read the instructions (if present)</li>
-              <li>click start to initialize the challange instance</li>
-              <li>complete the challenge</li>
-            </ol>
-            <aside id="task2" class="jtd-callout jtd-callout-task" data-kind="task">
-              <div class="jtd-callout-title">Task 2</div>
-              <div class="jtd-callout-body">
-                <p>Complete the following challenges:</p>
-                <ul>
-                  <li><em><strong>Terminal</strong></em></li>
-                  <li><em><strong>Visual Studio Code</strong></em></li>
-                  <li><em><strong>Desktop</strong></em></li>
-                  <li><em><strong>Desktop Copy-and-Paste</strong></em></li>
-                  <li><em><strong>ssh</strong></em></li>
-                  <li><em><strong>Restarting Challenges</strong></em></li>
-                </ul>
-              </div>
-            </aside>
-            <h2>Crash Course: Linux &amp; Bash</h2>
-            <p>As you might have guessed, completing challenges on <code>pwn.college</code> requires some familiarity with Linux and <code>bash</code>.</p>
-            <p>The next series of challenges are meant to be a basic refresher for both. There will be more exercises to get you comfortable in the challenge environment over the next couple of weeks.</p>
-            <aside id="task3" class="jtd-callout jtd-callout-task" data-kind="task">
-              <div class="jtd-callout-title">Task 3</div>
-              <div class="jtd-callout-body">
-                <p>Complete the following challenges:</p>
-                <ul>
-                  <li><em><strong>The Root</strong></em></li>
-                  <li><em><strong>Absolute Paths 1</strong></em></li>
-                  <li><em><strong>Absolute Paths 2</strong></em></li>
-                  <li><em><strong>Relative Paths 1</strong></em></li>
-                  <li><em><strong>Relative Paths 2</strong></em></li>
-                  <li><em><strong>Relative Paths 3</strong></em></li>
-                  <li><em><strong>The Home Directory</strong></em></li>
-                  <li><em><strong>reading files 1</strong></em></li>
-                  <li><em><strong>reading files 2</strong></em></li>
-                  <li><em><strong>reading files 3</strong></em></li>
-                  <li><em><strong>searching files</strong></em></li>
-                  <li><em><strong>comparing files</strong></em></li>
-                  <li><em><strong>listing files</strong></em></li>
-                  <li><em><strong>creating files</strong></em></li>
-                  <li><em><strong>removing files</strong></em></li>
-                  <li><em><strong>moving (and renaming) files</strong></em></li>
-                  <li><em><strong>copying files</strong></em></li>
-                  <li><em><strong>hidden files</strong></em></li>
-                  <li><em><strong>creating directories</strong></em></li>
-                  <li><em><strong>finding files</strong></em></li>
-                  <li><em><strong>An Epic Filesystem Quest</strong></em></li>
-                </ul>
-              </div>
-            </aside>
-            <h2>The Challenge Environment</h2>
-            <p>Now that you can access the challenge, and are comfortable in Linux, you are ready to tackle some CTFs!</p>
-            <p>These challenges will introduce the format that <code>pwn.college</code> CTFs take.</p>
-            <aside id="task4" class="jtd-callout jtd-callout-task" data-kind="task">
-              <div class="jtd-callout-title">Task 4</div>
-              <div class="jtd-callout-body">
-                <p>Complete the following challenges:</p>
-                <ul>
-                  <li><em><strong>Challenge Programs</strong></em></li>
-                  <li><em><strong>The Flag File</strong></em></li>
-                  <li><em><strong>Using Privileged Mode</strong></em></li>
-                  <li><em><strong>Persistent Home Directories 1</strong></em></li>
-                  <li><em><strong>Persistent Home Directories 2</strong></em></li>
-                </ul>
-              </div>
-            </aside>
-            <h2>Final Note</h2>
-            <p>Lab completion is automatically logged in <code>pwn.college</code>, so you generally won’t be required to submit anything else.</p>
-            <p>If you still feel a little uncomfortable with Linux, we strongly advise you to follow <code>pwn.college</code>’s recommendation and work through the <a href="https://pwn.college/linux-luminarium">Linux Luminarium</a> dojo to get some more practice!</p>
+            <h2>Lecture 05: Foundations and Systems - Basic Definitions</h2>
+            <inline-svg src="annotated.svg"></inline-svg>
           </main>
         </div>
       </div>
