@@ -17,7 +17,7 @@
         <ul class="jtd-nav-list">
           <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
           <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
-          <li class="jtd-nav-item active" data-nav-id="lec">
+          <li class="jtd-nav-item" data-nav-id="lec">
             <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
             <ul class="jtd-nav-list" id="jtd-nav-children-lec">
               <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
@@ -26,18 +26,18 @@
               <li class="jtd-nav-item" data-nav-id="notes:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">N-03: Public Obligations</a></li>
               <li class="jtd-nav-item" data-nav-id="annotated:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/annotated.html">A-03: Public Obligations</a></li>
               <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
-              <li class="jtd-nav-item active" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link active" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
               <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
               <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
               <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
             </ul>
           </li>
-          <li class="jtd-nav-item" data-nav-id="lab">
+          <li class="jtd-nav-item active" data-nav-id="lab">
             <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
             <ul class="jtd-nav-list" id="jtd-nav-children-lab">
               <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
               <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
-              <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
+              <li class="jtd-nav-item active" data-nav-id="lab2"><a class="jtd-nav-link active" href="/lab/lab02.html">02: Linux Permissions</a></li>
             </ul>
           </li>
           <li class="jtd-nav-item" data-nav-id="hw">
@@ -75,14 +75,78 @@
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <ol class="breadcrumb-nav-list">
             <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
-            <li class="breadcrumb-nav-list-item"><span>Lectures</span></li>
-            <li class="breadcrumb-nav-list-item"><a href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lab/lab02.html">02: Linux Permissions</a></li>
           </ol>
         </nav>
         <div class="main-content" id="main-content">
           <main class="jtd-page">
-            <h2>Lecture 04: Ethics - Frameworks and Practices</h2>
-            <inline-svg src="annotated.svg"></inline-svg>
+            <h2>Lab 2: Linux Permissions</h2>
+            <h2>Linux Permissions</h2>
+            <p>Soon we will be discussing access control in greater depth, and understanding how permissions work in Linux serves as a nice precursor to what we will be covering, as well as some of the labs you will be doing next weeks.</p>
+            <p>Some helpful resources:</p>
+            <ul>
+              <li><a href="https://www.linuxfoundation.org/blog/blog/classic-sysadmin-understanding-linux-file-permissions">Understanding Linux File Permissions</a></li>
+              <li><a href="https://github.com/RehanSaeed/Bash-Cheat-Sheet">Bash Cheatsheet 1</a></li>
+              <li><a href="https://devhints.io/bash">Bash Cheatsheet 2</a></li>
+            </ul>
+            <aside id="task1" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 1</div>
+              <div class="jtd-callout-body">
+                <p>Learn about Linux file permissions by completing the following challenges:</p>
+                <ul>
+                  <li><em><strong>Owner Permissions 1</strong></em><br></li>
+                  <li><em><strong>Owner Permissions 2</strong></em><br></li>
+                  <li><em><strong>Owner Permissions 3</strong></em><br></li>
+                  <li><em><strong>SETUID</strong></em><br></li>
+                  <li>
+                    <em><strong>SETUID and copy</strong></em><br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>Look up the <code>SETUID</code> bit. Experiment with <code>cp</code> to find out what the default permissions are when a file is copied. Check the <code>cp</code> manpage for a way to copy with the permissions that you want.</p>
+                    </details>
+                    <br>
+                  </li>
+                  <li><em><strong>Group Permissions 1</strong></em><br></li>
+                  <li><em><strong>User Permissions 1</strong></em><br></li>
+                  <li><em><strong>User Permissions 2</strong></em><br></li>
+                  <li><em><strong>User Permissions 3</strong></em><br></li>
+                  <li><em><strong>Group Permissions 2</strong></em><br></li>
+                  <li><em><strong>Multiple Users 1</strong></em><br></li>
+                  <li><em><strong>Multiple Users 2</strong></em><br></li>
+                </ul>
+              </div>
+            </aside>
+            <h2>Bash Shenanigans</h2>
+            <p>If you couldn’t tell, you’ll be using the <code>pwn.college</code> platform a lot this semester, and it would be good to understand a little more about the Linux terminal environment that you complete challenges in.</p>
+            <p>When you open a terminal, the program that provides the user interface is called a “shell” and you issue commands in the Shell Command Language (<code>sh</code>) or a variant of it. One of the most popular shell programs, and the shell being used in <code>pwn.college</code>, is called <a href="https://www.gnu.org/software/bash/"><code>bash</code></a> (Bourne Again Shell), and while there are subtle <a href="https://stackoverflow.com/questions/5725296/">differences</a> between <code>/bin/bash</code> and <code>/bin/sh</code>, we won’t concern ourselves with them here.</p>
+            <p>We can write automated <em>scripts</em> for a shell by creating an executable text file that start with a “shebang” that indicates the program used to run the script (e.g. <code>#!/bin/bash</code>). For a refresher on bash syntax, refer to <a href="https://learnxinyminutes.com/bash">this demo script</a>.</p>
+            <p>The challenges you will be completing have to do with manipulating a user’s <code>.bashrc</code> profile file. When you open a terminal connection/application, typically, you are automatically logged in as a registered user on the system. The <code>.bashrc</code> profile is a special <em>bash script</em> and is a way for the user to customize their experience while using bash. When a user starts a bash session, their <code>.bashrc</code> file is executed before any user commands are accepted. Bash also looks at a number of <a href="https://zwischenzugs.com/2019/02/27/bash-startup-explained/">other special scripts</a> to run for user customizations, but we need not consider these here.</p>
+            <p>You will also need to know about your environment’s <code>PATH</code> variable. When you execute a program in bash, say for example <code>ls</code>, <code>grep</code>, or <code>echo</code>, bash must first figure out which program you are attempting to execute. Unless you explicitly specify the path to an executable, (e.g. <code>/usr/bin/python</code>) bash will look for the program using the <code>PATH</code> variable. The <code>PATH</code> variable is a list of absolute paths to directories that contain executables. Bash will search through the directories in <code>PATH</code> one at a time until it finds a matching name. If it cannot find the program, it will error.</p>
+            <p>The exact details of <a href="https://www.fullstackfoundations.com/blog/bash-path">how the <code>PATH</code> variable is set</a> are <a href="https://unix.stackexchange.com/questions/227989/">a bit messy</a>, but the important thing to note is that you can modify your <code>PATH</code> variable at any time, just as you would any other environment variable, using the <code>export</code> command.</p>
+            <p>For instance, to tell bash to look in the directory <code>/home/hacker/scripts</code> for a program first, before any other location, you would modify the <code>PATH</code> variable like so:</p>
+            <pre><code data-lang="bash"><span style="color: #d73948">export</span> PATH<span style="color: #d73948">=</span><span style="color: #198810">/home/hacker/scripts:</span><span style="color: #198810">$</span><span style="color: #198810">PATH</span></code></pre>
+            <p>Note that the elements of the list are separated with a colon <code>:</code>.</p>
+            <p>You will likely need to write scripts and get them onto the VM instance. If you do not know <a href="https://github.com/iggredible/Learn-Vim">how to use <code>vim</code></a> or another in-terminal text editor like <code>nano</code> or <code>emacs</code> (it would make things much quicker if you learned just the basics of one), you should still be able to use the desktop version of the challenges.</p>
+            <aside id="task2" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 2</div>
+              <div class="jtd-callout-body">
+                <p>Complete the 4 selected challenges and learn about the dangers of misconfigured file permissions:</p>
+                <ul>
+                  <li><em><strong>Bashrc Backdoor</strong></em><br></li>
+                  <li><em><strong>Sniffing Input</strong></em><br></li>
+                  <li><em><strong>Overshared Directories</strong></em><br></li>
+                  <li>
+                    <em><strong>Tricky Linking</strong></em><br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>use the <a href="https://man7.org/linux/man-pages/man1/ln.1.html"><code>ln</code></a> command to create a soft link.</p>
+                    </details>
+                    <br>
+                  </li>
+                </ul>
+              </div>
+            </aside>
           </main>
         </div>
       </div>
