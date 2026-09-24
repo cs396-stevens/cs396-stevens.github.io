@@ -94,7 +94,7 @@
         <ul class="jtd-nav-list">
           <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
           <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
-          <li class="jtd-nav-item active" data-nav-id="lec">
+          <li class="jtd-nav-item" data-nav-id="lec">
             <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
             <ul class="jtd-nav-list" id="jtd-nav-children-lec">
               <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
@@ -111,18 +111,18 @@
               <li class="jtd-nav-item" data-nav-id="notes:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/notes.html">N-07: Protection States and Access Control</a></li>
               <li class="jtd-nav-item" data-nav-id="annotated:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/annotated.html">A-07: Protection States and Access Control</a></li>
               <li class="jtd-nav-item" data-nav-id="notes:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/notes.html">N-08: Security Policies and Lattices</a></li>
-              <li class="jtd-nav-item active" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link active" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
               <li class="jtd-nav-item" data-nav-id="notes:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/notes.html">N-09: Bell-LaPadula Model</a></li>
               <li class="jtd-nav-item" data-nav-id="annotated:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/annotated.html">A-09: Bell-LaPadula Model</a></li>
             </ul>
           </li>
-          <li class="jtd-nav-item" data-nav-id="lab">
+          <li class="jtd-nav-item active" data-nav-id="lab">
             <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
             <ul class="jtd-nav-list" id="jtd-nav-children-lab">
               <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
               <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
               <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
-              <li class="jtd-nav-item" data-nav-id="lab3"><a class="jtd-nav-link" href="/lab/lab03.html">03: Access Control</a></li>
+              <li class="jtd-nav-item active" data-nav-id="lab3"><a class="jtd-nav-link active" href="/lab/lab03.html">03: Access Control</a></li>
             </ul>
           </li>
           <li class="jtd-nav-item" data-nav-id="hw">
@@ -160,14 +160,103 @@
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <ol class="breadcrumb-nav-list">
             <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
-            <li class="breadcrumb-nav-list-item"><span>Lectures</span></li>
-            <li class="breadcrumb-nav-list-item"><a href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lab/lab03.html">03: Access Control</a></li>
           </ol>
         </nav>
         <div class="main-content" id="main-content">
           <main class="jtd-page">
-            <h2>Lecture 08: Foundations and Systems - Security Policies and Lattices</h2>
-            <inline-svg src="annotated.svg"></inline-svg>
+            <h2>Lab 3: Access Control</h2>
+            <h2>Access Control</h2>
+            <p>In lecture, we covered the idea of protection states and access control matrices, as well as the Bell-LaPadula Confidentiality Model.</p>
+            <p>In today’s lab, you’ll be completing challenges that exercise your understanding of the concepts.</p>
+            <h3>Modifying ACMs</h3>
+            <p>Recall that an access control matrix determines the “rights” or “permissions” that subjects in a system have over the objects.</p>
+            <p>Recall also that updates to an ACM can be done with commands that constitute protection state transitions.</p>
+            <aside id="task1" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 1</div>
+              <div class="jtd-callout-body">
+                <p>An ACM determines Alice and Bob’s access to a set of files. Start by running <code>/challenge/challenge</code> which will start an interactive program. Use the <code>HELP</code> and <code>VIEW</code> commands to begin your way around it, and use the built in commands to match the two users’ file accesses to match the permissions displayed in the ACM.</p>
+                <p>Complete the <em><strong>Modify ACM</strong></em> challenge.</p>
+              </div>
+            </aside>
+            <h3>Bell-LaPadula</h3>
+            <p>Bell-LaPadula defines confidentiality according to a lattice of security clearances, characterized by the “dominance” relationship.</p>
+            <math display="block">
+              <mtext>A clearance</mtext>
+              <mspace width="0.2222em"/>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>𝐿</mi>
+                  <mo>,</mo>
+                  <mi>𝐶</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+              <mspace width="0.2222em"/>
+              <mtext>dom</mtext>
+              <mspace width="0.2222em"/>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <msup>
+                    <mi>𝐿</mi>
+                    <mo>′</mo>
+                  </msup>
+                  <mo>,</mo>
+                  <msup>
+                    <mi>𝐶</mi>
+                    <mo>′</mo>
+                  </msup>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+              <mo stretchy="false">⟺</mo>
+              <msup>
+                <mi>𝐿</mi>
+                <mo>′</mo>
+              </msup>
+              <mo>≤</mo>
+              <mi>𝐿</mi>
+              <mo>∧</mo>
+              <msup>
+                <mi>𝐶</mi>
+                <mo>′</mo>
+              </msup>
+              <mo>⊆</mo>
+              <mi>𝐶</mi>
+            </math>
+            <p>At a high-level, according to Bell-LaPadula:</p>
+            <ol>
+              <li><math><mi>𝑠</mi><mspace width="0.2222em"/><mtext>read</mtext><mspace width="0.2222em"/><mi>𝑜</mi><mo stretchy="false">⟺</mo><mi>𝑠</mi><mspace width="0.2222em"/><mtext>dom</mtext><mspace width="0.2222em"/><mi>𝑜</mi></math></li>
+              <li><math><mi>𝑠</mi><mspace width="0.2222em"/><mtext>write</mtext><mspace width="0.2222em"/><mi>𝑜</mi><mo stretchy="false">⟺</mo><mi>𝑜</mi><mspace width="0.2222em"/><mtext>dom</mtext><mspace width="0.2222em"/><mi>𝑠</mi></math></li>
+            </ol>
+            <aside id="task2" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 2</div>
+              <div class="jtd-callout-body">
+                <p>Check your understanding of the Bell-LaPadula (BLP) rules by completing <em><strong>Bell-LaPadula Questions</strong></em>.</p>
+                <p>Then complete <em><strong>Bell-LaPadula Matrix</strong></em>, which is similar to the <em><strong>Modify ACM</strong></em> challenge, but with 3 set levels: Unclassified &lt; Classified &lt; Secret. Use the same set of commands to make the file permissions adhere to the BLP model.</p>
+              </div>
+            </aside>
+            <h3>Biba</h3>
+            <p>As we have noted in lecture, integrity policies are those that are concerned with the modification of data.</p>
+            <p>We will soon cover the Biba Model of integrity, which is also a lattice model and the dual of the Bell-LaPadula model.</p>
+            <p>In order to preserve the integrity of a high-integrity object, a lower integrity subject must not be able to write to it. (i.e. <strong>no writes up</strong>)</p>
+            <p>Likewise, a higher integrity subject should not rely on lower integrity object, lest the subject be compromised by relying on untrustworthy information. (i.e. <strong>no reads down</strong>)</p>
+            <aside id="task3" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 3</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em><strong>Integrity Violation</strong></em> challenge by attempting to an information transfer path from low-integrity subjects to higher ones. Then craft a message that will cause the flag to be printed. (run <code>/challenge/challenge</code>)</p>
+              </div>
+            </aside>
+            <h2>Post-Lab</h2>
+            <aside id="task4" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 4</div>
+              <div class="jtd-callout-body">
+                <p>Complete <a href="https://www.gradescope.com/courses/1347336/assignments/8665425"><strong>Post-Lab 3</strong></a> on Gradescope.</p>
+              </div>
+            </aside>
           </main>
         </div>
       </div>
