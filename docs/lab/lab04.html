@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        justify-items: end;
+        text-align: right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        justify-items: start;
+        text-align: left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
+      /* Tables */
+      mtable {
+        math-style: inherit;
+      }
+      mtd {
+        math-depth: auto-add;
+        math-style: compact;
+        math-shift: compact;
+      }
+      
+      /* Equations */
+      mtable.multiline-equation mtd {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+        padding: 0;
+      }
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
+      }
+      
+      /* Fractions */
+      mfrac {
+        padding-inline: 0;
+        margin-inline: 0.1em;
+      }
+      
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
+      }
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
+      munder > :nth-child(2),
+      munderover > :nth-child(2) {
+        math-shift: compact
+      }
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="side-bar">
+      <div class="site-header"><a class="site-title" href="/">cs396-f26</a><span style="white-space: pre-wrap">&#x20;</span><button class="site-button" id="menu-button" aria-label="Menu" aria-expanded="false"><svg class="jtd-icon jtd-icon-menu" aria-hidden="true"><use href="/assets/icons/symbols.svg#menu"></use></svg></button></div>
+      <nav class="jtd-nav" aria-label="Main">
+        <ul class="jtd-nav-list">
+          <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
+          <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
+          <li class="jtd-nav-item" data-nav-id="lec">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lec">
+              <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/notes.html">N-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/annotated.html">A-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">N-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/annotated.html">A-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/annotated.html">A-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/notes.html">N-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/annotated.html">A-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/notes.html">N-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/notes.html">N-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/annotated.html">A-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/notes.html">N-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/annotated.html">A-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/notes.html">N-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/annotated.html">A-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/notes.html">N-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/annotated.html">A-12: Capability Lists</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item active" data-nav-id="lab">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lab">
+              <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab3"><a class="jtd-nav-link" href="/lab/lab03.html">03: Access Control</a></li>
+              <li class="jtd-nav-item active" data-nav-id="lab4"><a class="jtd-nav-link active" href="/lab/lab04.html">04: Implementing Access Control and Debugging Refresher</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item" data-nav-id="hw">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-hw"><span class="jtd-nav-section-title">Homework</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-hw">
+              <li class="jtd-nav-item" data-nav-id="hw0"><a class="jtd-nav-link" href="/hw/hw00.html">0: Ethics</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw1"><a class="jtd-nav-link" href="/hw/hw01.html">1: Foundations and Systems</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-links" aria-label="Auxiliary">
+        <ul class="header-links-list">
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+        </ul>
+      </nav>
+      <div class="site-footer">CS396 Fall 2026</div>
+    </header>
+    <div class="main" id="top">
+      <div class="main-header main-header-default" id="main-header">
+        <nav class="header-links" aria-label="Auxiliary">
+          <ul class="header-links-list">
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="main-content-wrap">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-nav-list">
+            <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lab/lab04.html">04: Implementing Access Control and Debugging Refresher</a></li>
+          </ol>
+        </nav>
+        <div class="main-content" id="main-content">
+          <main class="jtd-page">
+            <h2>Lab 4: Implementing Access Control and Debugging Refresher</h2>
+            <h2>Linux Extended ACLs</h2>
+            <p>In lecture we discussed how UNIX systems tend to implement Access Control Lists to enable fine-grained access control beyond the default abbreviated ACL (permission bits) which are unable to express more complex per-user protection states.</p>
+            <p>In today’s lab, you will get the opportunity to work with Linux’s Extended ACLs to see how they can be used to implement fine-grained access control in a practical setting.</p>
+            <p>Linux Extended ACLs are generally not installed by default and require file system support to enable; however, once they are available, each file and directory’s ACL can be read using <code>getfacl</code> and modified using <code>setfacl</code>.</p>
+            <p>Refer to the <a href="/lec/lec11+foundations-and-systems+access-control-lists/notes.html">lecture notes</a> again to review the behavior of extended ACLs.</p>
+            <p>Some other useful links:</p>
+            <ul>
+              <li>Glen Newell. <em>An introduction to Linux Access Control Lists (ACLs).</em> 2/6/2020. <a href="https://www.redhat.com/en/blog/linux-access-control-lists">redhat.com</a></li>
+              <li>nawazadhandala. <em>How to Use setfacl and getfacl for Extended ACL Permissions on Ubuntu</em>. 3/2/2026. <a href="https://oneuptime.com/blog/post/2026-03-02-how-to-use-setfacl-and-getfacl-for-extended-acl-permissions-on-ubuntu/view">oneuptime.com</a></li>
+              <li>Andreas Gruenbacher. <em>acl(5) - Linux man page.</em> 3/32/2002. <a href="https://linux.die.net/man/5/acl">linux.die.net</a></li>
+            </ul>
+            <aside id="task1" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 1</div>
+              <div class="jtd-callout-body">
+                <p>Complete the following challenges:</p>
+                <ul>
+                  <li><em><strong>ACL User Hunt</strong></em><br></li>
+                  <li><em><strong>Configure an ACL Matrix</strong></em><br></li>
+                  <li><em><strong>Effective Permission Forensics</strong></em><br></li>
+                </ul>
+              </div>
+            </aside>
+            <h2>Debugging Refresher</h2>
+            <p>In the next unit, we will be getting into program security, and your labs will be about binary exploitation—finding and exploiting vulnerabilities like buffer overflows in programs by inspecting them at runtime and crafting a malicious input.</p>
+            <p>To prepare for that, we’ll be going through the “Debugging Refresher” so that you can familiarize yourself with <code>gdb</code>, the GNU Project Debugger, and its capabilities.</p>
+            <p>Make sure to <em>read all the instructions on</em> <code>pwn.college</code> as these provide helpful context and links to the documentation.</p>
+            <p>The challenges in this module are completed entirely within a debugger after they are initiated by invoking the embryogdb challenge script.</p>
+            <p>You might find these cheatsheets helpful for future reference as well:</p>
+            <ul>
+              <li><a href="https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf"><code>darkdust</code>’s cheatsheet</a></li>
+              <li><a href="https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf">gdb quick reference</a></li>
+              <li><a href="https://www.yolinux.com/TUTORIALS/GDB-Commands.html">yolinux gdb cheatsheet</a></li>
+            </ul>
+            <aside id="task2" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 2</div>
+              <div class="jtd-callout-body">
+                <p>From the “Debugging Refresher” module:</p>
+                <ul>
+                  <li>
+                    Complete <em><strong>Debugging Programs</strong></em><br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>use <code>r</code> to start the challenge after running the script, and <code>c</code> to continue the challenge.</p>
+                    </details>
+                    <br>
+                  </li>
+                  <li>
+                    Complete <em><strong>Inspecting Registers</strong></em><br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p><a href="https://wiki.osdev.org/CPU_Registers_x86">List of x86 CPU Registers</a></p>
+                    </details>
+                    <br>
+                  </li>
+                  <li>
+                    Complete <em><strong>Examining Memory</strong></em><br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>This one is tricky, as you are expected to read the disassembly of the currently running program in order to determine which value on the stack is the random number that was read from <code>/dev/random</code>.</p>
+                    </details>
+                    <br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 2</em></span></summary>
+                      <p>Use the <code>disassemble main</code> command and continue disassembling until you find the call to the <a href="https://man7.org/linux/man-pages/man2/read.2.html"><code>read</code> function</a>. This is the function used to read the random number.</p>
+                    </details>
+                    <br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 3</em></span></summary>
+                      <p>Refer to the <a href="https://wiki.osdev.org/Calling_Conventions">x86 Calling Convention</a> to figure out which instruction is used to set the <em>buf</em> parameter in <code>read</code>. This should be a stack address and therefore likely related to either <code>rsp</code> (stack pointer) or <code>rbp</code> (stack base pointer).</p>
+                    </details>
+                    <br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 4</em></span></summary>
+                      <p>Remember that you can use expressions like <code>x/gx $rbp-0x32</code> to specify the address you want to examine.</p>
+                    </details>
+                    <br>
+                  </li>
+                  <li>
+                    Complete <em><strong>Setting Breakpoints</strong></em><br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>This one is basically the previous challenge repeated multiple times and without a built-in breakpoint.</p>
+                      <p>You will need to set breakpoint(s) at addresses within the program, step instructions to a point(s) where you can print the random value on the stack, print it, copy it, continue execution to get to the program prompt, and paste the random value when prompted.</p>
+                      <p>Rinse and repeat until the challenge gives you the flag.</p>
+                    </details>
+                    <br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 2</em></span></summary>
+                      <p>Like the previous challenge, use <code>disassemble main</code> to get a clearer picture of what the program is doing.</p>
+                    </details>
+                    <br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 3</em></span></summary>
+                      <p>Set a breakpoint at some point before and after the call to <code>read</code>, but before the <code>scanf</code> call that takes user input.</p>
+                    </details>
+                    <br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 4</em></span></summary>
+                      <p>When you use <code>display</code> commands, the data you want to print will be printed whenever execution is stopped at a breakpoint.</p>
+                      <p>Note: If you run <code>display regs</code>, you can use <code>tui disable</code> to go back to the regular mode.</p>
+                    </details>
+                    <br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 5</em></span></summary>
+                      <p>If you pick the right thing to print and the right breakpoint location, you won’t need to keep typing it all out over and over :)</p>
+                    </details>
+                    <br>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <h2>Post-Lab</h2>
+            <aside id="task3" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 3</div>
+              <div class="jtd-callout-body">
+                <p>Complete <a href="https://www.gradescope.com/courses/1347336/assignments/8665430"><strong>Post-Lab 4</strong></a> on Gradescope.</p>
+              </div>
+            </aside>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/site.js">
+    </script>
+  </body>
+</html>
