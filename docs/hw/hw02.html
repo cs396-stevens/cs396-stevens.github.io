@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        justify-items: end;
+        text-align: right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        justify-items: start;
+        text-align: left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
+      /* Tables */
+      mtable {
+        math-style: inherit;
+      }
+      mtd {
+        math-depth: auto-add;
+        math-style: compact;
+        math-shift: compact;
+      }
+      
+      /* Equations */
+      mtable.multiline-equation mtd {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+        padding: 0;
+      }
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
+      }
+      
+      /* Fractions */
+      mfrac {
+        padding-inline: 0;
+        margin-inline: 0.1em;
+      }
+      
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
+      }
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
+      munder > :nth-child(2),
+      munderover > :nth-child(2) {
+        math-shift: compact
+      }
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="side-bar">
+      <div class="site-header"><a class="site-title" href="/">cs396-f26</a><span style="white-space: pre-wrap">&#x20;</span><button class="site-button" id="menu-button" aria-label="Menu" aria-expanded="false"><svg class="jtd-icon jtd-icon-menu" aria-hidden="true"><use href="/assets/icons/symbols.svg#menu"></use></svg></button></div>
+      <nav class="jtd-nav" aria-label="Main">
+        <ul class="jtd-nav-list">
+          <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
+          <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
+          <li class="jtd-nav-item" data-nav-id="lec">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lec">
+              <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/notes.html">N-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/annotated.html">A-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">N-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/annotated.html">A-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/annotated.html">A-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/notes.html">N-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/annotated.html">A-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/notes.html">N-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/notes.html">N-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/annotated.html">A-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/notes.html">N-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/annotated.html">A-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/notes.html">N-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/annotated.html">A-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/notes.html">N-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/annotated.html">A-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/notes.html">N-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/annotated.html">A-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/notes.html">N-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/annotated.html">A-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/notes.html">N-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/annotated.html">A-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/notes.html">N-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/annotated.html">A-16: Memory Vulnerabilities</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item" data-nav-id="lab">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lab">
+              <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab3"><a class="jtd-nav-link" href="/lab/lab03.html">03: Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab4"><a class="jtd-nav-link" href="/lab/lab04.html">04: Implementing Access Control and Debugging Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab5"><a class="jtd-nav-link" href="/lab/lab05.html">05: Buffer Overflows</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item active" data-nav-id="hw">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-hw"><span class="jtd-nav-section-title">Homework</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-hw">
+              <li class="jtd-nav-item" data-nav-id="hw0"><a class="jtd-nav-link" href="/hw/hw00.html">0: Ethics</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw1"><a class="jtd-nav-link" href="/hw/hw01.html">1: Foundations and Systems</a></li>
+              <li class="jtd-nav-item active" data-nav-id="hw2"><a class="jtd-nav-link active" href="/hw/hw02.html">2: Software</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-links" aria-label="Auxiliary">
+        <ul class="header-links-list">
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+        </ul>
+      </nav>
+      <div class="site-footer">CS396 Fall 2026</div>
+    </header>
+    <div class="main" id="top">
+      <div class="main-header main-header-default" id="main-header">
+        <nav class="header-links" aria-label="Auxiliary">
+          <ul class="header-links-list">
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="main-content-wrap">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-nav-list">
+            <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Homework</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/hw/hw02.html">2: Software</a></li>
+          </ol>
+        </nav>
+        <div class="main-content" id="main-content">
+          <main class="jtd-page">
+            <h2>Homework 2</h2>
+            <p><strong>Due Date</strong>: <strong>Wednesday, 10/28/2026, 11:59 PM</strong></p>
+            <p><strong>Late Submission Deadline</strong>: <strong>Wednesday, 11/11/2026, 11:59 PM</strong></p>
+            <h2>Instructions</h2>
+            <ol>
+              <li>
+                <p>You may work together with other students on this assignment. <em><strong>You must list the names and <code>stevens.edu</code> addresses of anyone you work with. You are still responsible for writing your own solutions and submitting this assignment individually</strong></em></p>
+              </li>
+              <li>
+                <p>All external sources used to assist in answering questions must be cited using <a href="https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf">IEEE-style citations</a>.</p>
+              </li>
+              <li>
+                <p><strong>The use of LLM-based tools on this assignment is limited.</strong></p>
+                <ol>
+                  <li>
+                    <p><strong>You may not use AI to generate your solutions.</strong> If you are found to be doing so, you will receive a 0 on the assignment and be inelligible for extra credit opportunities.</p>
+                  </li>
+                  <li>
+                    <p>The use of AI for conducting research, error/spell-checking, ideation, and other applications that are not detrimental to learning objectives is allowed; <strong>you must cite the model(s) used, (e.g. gpt5.6-sol) and how it was used (e.g. research on &lt;topic>, spell/grammar checking)</strong></p>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>Unless otherwise stated, any assignment involving programming may be completed in any programming language of your choice. If asked, you should be able to explain the details of your source code (e.g. program design and implementation decisions).</p>
+              </li>
+              <li>
+                <p>A PDF of your solutions, along with any source code files written are to be uploaded to Gradescope.</p>
+              </li>
+            </ol>
+            <h3>Submission Format</h3>
+            <ol>
+              <li>
+                <p>The first page of your submission must contain only the following contents:</p>
+                <pre><code>hw: &lt;#>
+name: &lt;name>
+email: &lt;email>
+collaborators:
+- &lt;name1> (&lt;email1>)
+- &lt;name2> (&lt;email2>)
+- &lt;...>
+ai:
+- &lt;model>: &lt;usage1>, &lt;usage2>, &lt;...>
+- &lt;...>
+
+pledge: I pledge on my honor that I have abided by the Stevens Honor System.</code></pre>
+              </li>
+              <li>
+                <p>Solutions to each problem should start on their own page (subparts can continue on the same page).</p>
+              </li>
+              <li>
+                <p>See <a href="https://docs.google.com/document/d/1QDZNqNLRnYC1-6nnqTmjAyoX2yvYtozM1syxntCf87k/edit?usp=sharing">this google doc</a> for an example.</p>
+              </li>
+            </ol>
+            <h2>Problems</h2>
+            <div>
+              <h3>(<em>25 points</em>) Robust Refactor</h3>
+              <p>In this problem, you will be refactoring the <code>qlib</code> library that we looked at in class.</p>
+              <p>The source files can be found in <a href="robust.zip">this zip file</a>:</p>
+              <ul>
+                <li><code>fqlib</code>: “Fragile Queue Library” contains a functional but fragile queue library implementation (reference only).</li>
+                <li><code>qlib</code>: “Queue Library” contains a robust implementation of an integer queue library to be refactored.</li>
+              </ul>
+              <ol>
+                <li value="1">
+                  <div>
+                    <p>(<em>25 points</em>) Complete <em>Exercise 16</em> from the <em>Robust Programming</em> reading:</p>
+                    <p>You should base your code on the <code>qlib</code> implementation in the <a href="https://cs396-stevens.github.io/src/robust.zip"><code>robust.zip</code></a> files, but that is not guaranteed to be free of issues.</p>
+                    <ul>
+                      <li>
+                        <p><strong>Report what changes you made to the library and why, noting any new sanity and consistency checks you needed to make in particular.</strong></p>
+                      </li>
+                      <li>
+                        <p><em>Include your header and source files in your PDF submission, with the names <code>dqlib.h</code> and <code>dqlib.c</code>, respectively.</em></p>
+                      </li>
+                      <li>
+                        <p><strong>Bonus (2pts):</strong> What is wrong with the <code>qlib</code> implementation as provided?</p>
+                      </li>
+                    </ul>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3>(<em>25 points</em>) Bypassing Memory Safety Features</h3>
+              <p>Consider the following code snippet:</p>
+              <pre><code data-lang="c"><span style="color: #d73948">void</span> <span style="color: #4b69c6">foo</span>(<span style="color: #d73948">void</span>) {
+  <span style="color: #d73948">char</span> foobuf[<span style="color: #b60157">256</span>];
+  <span style="color: #4b69c6">fgets</span>(foobuf, <span style="color: #b60157">257</span>, stdin);
+}
+
+<span style="color: #d73948">void</span> <span style="color: #4b69c6">bar</span>(<span style="color: #d73948">void</span>) {
+  <span style="color: #4b69c6">foo</span>();
+}
+
+<span style="color: #d73948">void</span> <span style="color: #4b69c6">main</span>(<span style="color: #d73948">void</span>) {
+  <span style="color: #d73948">char</span> <span style="color: #d73948">*</span> buf <span style="color: #d73948">=</span> (<span style="color: #d73948">char</span> <span style="color: #d73948">*</span>) <span style="color: #4b69c6">malloc</span>(<span style="color: #b60157">128</span>);
+  <span style="color: #4b69c6">fgets</span>(buf, <span style="color: #b60157">128</span>, stdin);
+  <span style="color: #4b69c6">printf</span>(<span style="color: #198810">"</span><span style="color: #b60157">%p</span><span style="color: #198810">"</span>, buf);
+  <span style="color: #4b69c6">bar</span>();
+}</code></pre>
+              <p>Assume the following:</p>
+              <ul>
+                <li><strong>ASLR is enabled</strong>.</li>
+                <li>All other memory safety features disabled.</li>
+                <li>Assume ASLR will always randomize the value of the saved base pointer of <code>foo</code> to have a LSB in the inclusive range <code>0x20 - 0xf8</code>.</li>
+                <li>You can represent the output of <code>printf</code> on line 13 with a variable <code>ADDRESS</code>. This is an 8-byte, little-endian byte string.</li>
+                <li>You can represent shellcode with a variable <code>SHELLCODE</code>, which has a maximum length of 120 bytes.</li>
+                <li><em>Note: SFP = saved frame pointer = saved base pointer (rbp)</em></li>
+              </ul>
+              <ol>
+                <li value="1">
+                  <div>
+                    <p>(<em>6 points</em>) Assume the program is paused at line 3 (before <code>fgets</code> is called).<br>Complete the following stack diagram:</p>
+                    <figure>
+                      <p><img class="jtd-image" src="img/aslr-stack.svg" alt style="width: 40%; object-fit: contain;"></p>
+                      <figcaption>Figure 1: Stack state at line 3</figcaption>
+                    </figure>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+              <ol>
+                <li value="2">
+                  <div>
+                    <p>(<em>8 points</em>) Provide the byte string inputs to <code>fgets</code> on line 12 and <code>fgets</code> on line 3 that will lead to shellcode execution.</p>
+                    <p>You can craft these inputs using Python syntax. For example:</p>
+                    <pre><code data-lang="py"><span style="color: #d73948">></span><span style="color: #d73948">></span><span style="color: #d73948">></span> <span style="color: #d73948">b</span><span style="color: #198810">'</span><span style="color: #1d6c76">\x31</span><span style="color: #198810">'</span> <span style="color: #d73948">*</span> <span style="color: #b60157">8</span> <span style="color: #d73948">+</span> <span style="color: #d73948">b</span><span style="color: #198810">'</span><span style="color: #1d6c76">\x0b</span><span style="color: #1d6c76">\xad</span><span style="color: #1d6c76">\xc0</span><span style="color: #1d6c76">\xde</span><span style="color: #198810">'</span>
+<span style="color: #d73948">b</span><span style="color: #198810">'</span><span style="color: #198810">11111111</span><span style="color: #1d6c76">\x0b</span><span style="color: #1d6c76">\xad</span><span style="color: #1d6c76">\xc0</span><span style="color: #1d6c76">\xde</span><span style="color: #198810">'</span>
+<span style="color: #d73948">></span><span style="color: #d73948">></span><span style="color: #d73948">></span> ADDR <span style="color: #d73948">=</span> <span style="color: #d73948">b</span><span style="color: #198810">'</span><span style="color: #1d6c76">\x00</span><span style="color: #1d6c76">\x00</span><span style="color: #1d6c76">\x7f</span><span style="color: #1d6c76">\xff</span><span style="color: #1d6c76">\xff</span><span style="color: #1d6c76">\xff</span><span style="color: #1d6c76">\x80</span><span style="color: #1d6c76">\x80</span><span style="color: #198810">'</span>
+<span style="color: #d73948">></span><span style="color: #d73948">></span><span style="color: #d73948">></span> ADDR <span style="color: #d73948">+</span> <span style="color: #d73948">b</span><span style="color: #198810">'</span><span style="color: #1d6c76">\xc0</span><span style="color: #1d6c76">\xde</span><span style="color: #198810">'</span>
+<span style="color: #d73948">b</span><span style="color: #198810">'</span><span style="color: #1d6c76">\x00</span><span style="color: #1d6c76">\x00</span><span style="color: #1d6c76">\x7f</span><span style="color: #1d6c76">\xff</span><span style="color: #1d6c76">\xff</span><span style="color: #1d6c76">\xff</span><span style="color: #1d6c76">\x80</span><span style="color: #1d6c76">\x80</span><span style="color: #1d6c76">\x00</span><span style="color: #1d6c76">\xc0</span><span style="color: #1d6c76">\xde</span><span style="color: #198810">'</span></code></pre>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+              <ol>
+                <li value="3">
+                  <div>(<em>11 points</em>) Explain why this exploit is only guaranteed to work if the saved base pointer of <code>foo</code> has a LSB in the range <code>0x20 - 0xf8</code>.<br></div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3>(<em>25 points</em>) No Overflow?</h3>
+              <p>Consider the following CTF challenge:</p>
+              <pre><code data-lang="c"><span style="color: #d73948">void</span> <span style="color: #4b69c6">challenge</span>(<span style="color: #d73948">void</span>) {
+  <span style="color: #4b69c6">int8_t</span> size;
+  <span style="color: #d73948">char</span> flag[<span style="color: #b60157">16</span>];
+  <span style="color: #d73948">char</span> buf[<span style="color: #b60157">128</span>];
+
+  <span style="color: #74747c">//</span><span style="color: #74747c"> implementation not shown</span>
+  <span style="color: #4b69c6">load_flag</span>(flag);
+
+  <span style="color: #4b69c6">memset</span>(buf, <span style="color: #b60157">0</span>, <span style="color: #b60157">128</span>);
+
+  <span style="color: #4b69c6">fread</span>(<span style="color: #d73948">&amp;</span>size, <span style="color: #b60157">1</span>, <span style="color: #b60157">1</span>, stdin);
+
+  <span style="color: #d73948">if</span> (size <span style="color: #d73948">>=</span> <span style="color: #b60157">128</span>) {
+    <span style="color: #d73948">return</span>;
+  }
+
+  <span style="color: #4b69c6">fread</span>(buf, size, <span style="color: #b60157">1</span>, stdin);
+  <span style="color: #4b69c6">printf</span>(<span style="color: #198810">"</span><span style="color: #b60157">%s</span><span style="color: #198810">"</span>, buf);
+}</code></pre>
+              <p>The <code>load_flag</code> function loads the flag data from an access-controlled file on the system.</p>
+              <ol>
+                <li value="1">
+                  <div>
+                    <p>(<em>5 points</em>) Assume the program is paused at line 8.<br>Complete the following stack diagram:</p>
+                    <figure>
+                      <p><img class="jtd-image" src="img/int-ovf-stack.svg" alt style="width: 40%; object-fit: contain;"></p>
+                      <figcaption>Figure 2: Stack state at line 8</figcaption>
+                    </figure>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+              <ol>
+                <li value="2">
+                  <div>(<em>5 points</em>) Provide the byte string inputs to <code>fread</code> on line 11 and <code>fread</code> on line 17 that will give you the flag.<br></div>
+                </li>
+              </ol>
+              <ol>
+                <li value="3">
+                  <div>(<em>5 points</em>) Explain how your solution to the previous part works.<br></div>
+                </li>
+              </ol>
+              <ol>
+                <li value="4">
+                  <div>
+                    <p>(<em>5 points</em>) Provide the byte string inputs to <code>fread</code> on line 11 and <code>fread</code> on line 17 that would allow you to execute the largest possible shellcode payload.</p>
+                    <p>Assume all memory safety features are disabled and the compiler allocates 8 bytes of space for <code>size</code>.</p>
+                    <ul>
+                      <li><em>Use a variable named <code>SHELLCODE</code> that contains the shellcode payload as a byte string.</em></li>
+                      <li><em>Use a variable named <code>BUF_ADDRESS</code> that contains the address of <code>buf</code> as a byte string (presumably reverse-engineered with <code>gdb</code>).</em></li>
+                      <li><em>You <strong>must</strong> specify the length of <code>SHELLCODE</code>.</em></li>
+                    </ul>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+              <ol>
+                <li value="5">
+                  <div>(<em>5 points</em>) Explain how your solution to the previous part works.<br></div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3>(<em>25 points</em>) Python has Problems Too</h3>
+              <p>Just because we’ve been mostly looking at problems in C doesn’t mean other languages don’t have their own problems.</p>
+              <p>A well-known dangerous implement in Python (aside from the use of the <code>eval</code> function) is the <code>pickle</code> library.</p>
+              <p>The <a href="https://docs.python.org/3/library/pickle.html"><code>pickle</code></a> library is Python’s native module for <em>serializing</em> and <em>deserializing</em> its objects, which can be quite useful for caching purposes.</p>
+              <p>Per the documentation, however, unpickling an object may also involve executing arbitrary code. You’ll be crafting a pickle-based attack in this problem and creating a short vulnerability report and description of your exploit.</p>
+              <ol>
+                <li value="1">
+                  <div>
+                    <p>(<em>15 points</em>) Complete the <em>Pickle Rick</em> challenge in the <em>hw2</em> module (originally part of the <em>Hanto Dojo</em>).</p>
+                    <ul>
+                      <li><strong>Hint 1</strong>: Find out how pickle exploits work (Google it), then read the <code>pickle-rick.py</code> source code to find out how the pickled data is given to the program.</li>
+                      <li><strong>Hint 2</strong>: Your goal is still to read <code>/flag</code>.</li>
+                    </ul>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+              <ol>
+                <li value="2">
+                  <div>
+                    <p>(<em>10 points</em>) Describe the vulnerability in the <code>pickle-rick.py</code> script and the steps you took to exploit it.</p>
+                    <p>Refer to the “Vulnerability Description” section <a href="https://www.binarly.io/advisories/brly-2025-009">here</a> and the “Real World Demonstration” section <a href="https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents">here</a> for good examples of what we are looking for:</p>
+                    <ul>
+                      <li>point out the affected code</li>
+                      <li>what input the attacker controls</li>
+                      <li>describe the steps taken to reproduce the exploit</li>
+                    </ul>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/site.js">
+    </script>
+  </body>
+</html>
