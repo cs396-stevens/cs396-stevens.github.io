@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        justify-items: end;
+        text-align: right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        justify-items: start;
+        text-align: left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
+      /* Tables */
+      mtable {
+        math-style: inherit;
+      }
+      mtd {
+        math-depth: auto-add;
+        math-style: compact;
+        math-shift: compact;
+      }
+      
+      /* Equations */
+      mtable.multiline-equation mtd {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+        padding: 0;
+      }
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
+      }
+      
+      /* Fractions */
+      mfrac {
+        padding-inline: 0;
+        margin-inline: 0.1em;
+      }
+      
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
+      }
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
+      munder > :nth-child(2),
+      munderover > :nth-child(2) {
+        math-shift: compact
+      }
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="side-bar">
+      <div class="site-header"><a class="site-title" href="/">cs396-f26</a><span style="white-space: pre-wrap">&#x20;</span><button class="site-button" id="menu-button" aria-label="Menu" aria-expanded="false"><svg class="jtd-icon jtd-icon-menu" aria-hidden="true"><use href="/assets/icons/symbols.svg#menu"></use></svg></button></div>
+      <nav class="jtd-nav" aria-label="Main">
+        <ul class="jtd-nav-list">
+          <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
+          <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
+          <li class="jtd-nav-item" data-nav-id="lec">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lec">
+              <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/notes.html">N-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/annotated.html">A-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">N-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/annotated.html">A-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/annotated.html">A-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/notes.html">N-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/annotated.html">A-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/notes.html">N-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/notes.html">N-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/annotated.html">A-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/notes.html">N-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/annotated.html">A-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/notes.html">N-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/annotated.html">A-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/notes.html">N-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/annotated.html">A-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/notes.html">N-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/annotated.html">A-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/notes.html">N-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/annotated.html">A-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/notes.html">N-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/annotated.html">A-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/notes.html">N-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/annotated.html">A-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/notes.html">N-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/annotated.html">A-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/notes.html">N-18: Subverting Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/annotated.html">A-18: Subverting Memory Defenses</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item active" data-nav-id="lab">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lab">
+              <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab3"><a class="jtd-nav-link" href="/lab/lab03.html">03: Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab4"><a class="jtd-nav-link" href="/lab/lab04.html">04: Implementing Access Control and Debugging Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab5"><a class="jtd-nav-link" href="/lab/lab05.html">05: Buffer Overflows</a></li>
+              <li class="jtd-nav-item active" data-nav-id="lab6"><a class="jtd-nav-link active" href="/lab/lab06.html">06: Control Flow Hijacking</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item" data-nav-id="hw">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-hw"><span class="jtd-nav-section-title">Homework</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-hw">
+              <li class="jtd-nav-item" data-nav-id="hw0"><a class="jtd-nav-link" href="/hw/hw00.html">0: Ethics</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw1"><a class="jtd-nav-link" href="/hw/hw01.html">1: Foundations and Systems</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw2"><a class="jtd-nav-link" href="/hw/hw02.html">2: Software</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-links" aria-label="Auxiliary">
+        <ul class="header-links-list">
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+        </ul>
+      </nav>
+      <div class="site-footer">CS396 Fall 2026</div>
+    </header>
+    <div class="main" id="top">
+      <div class="main-header main-header-default" id="main-header">
+        <nav class="header-links" aria-label="Auxiliary">
+          <ul class="header-links-list">
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="main-content-wrap">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-nav-list">
+            <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lab/lab06.html">06: Control Flow Hijacking</a></li>
+          </ol>
+        </nav>
+        <div class="main-content" id="main-content">
+          <main class="jtd-page">
+            <h2>Lab 6: Control Flow Hijacking</h2>
+            <h2>Binary Exploitation (Part 2)</h2>
+            <p>For this lab you will be completing the next set of challenges from the <em>Binary Exploitation</em> module and building control-flow hijacking attacks.</p>
+            <h3>Handy Tricks and Resources</h3>
+            <ul>
+              <li>
+                <p>Writing arbitrary bytes to <code>stdin</code> in <code>gdb</code>: <code>r &lt; &lt;(printf "\x00\x00\x00\x00\xef\xbe\xad\xde")</code></p>
+                <ul>
+                  <li>This will restart the program and load the bytes <code>0x00 0x00 0x00 0x00 0xef 0xbe 0xad 0xde</code> to <code>stdin</code> before the program is invoked.</li>
+                  <li>You will not be able to specify further data on <code>stdin</code>, and you will not be prompted for input when <code>read</code> gets invoked, as input will already be available on <code>stdin</code>.</li>
+                </ul>
+              </li>
+              <li>
+                <p>You can provide the same input to the actual function outside of <code>gdb</code> with the following:</p>
+                <pre><code data-lang="bash"><span style="color: #4b69c6">printf</span> <span style="color: #198810">"</span><span style="color: #198810">\x00\x00\x00\x00\xef\xbe\xad\xde</span><span style="color: #198810">"</span> <span style="color: #d73948">|</span> <span style="color: #4b69c6">/challenge/</span><span style="color: #d73948">&lt;</span>challenge_name<span style="color: #d73948">></span></code></pre>
+                <ul>
+                  <li>Note again, that you will not be prompted for further input</li>
+                </ul>
+              </li>
+              <li>
+                <p>You may need to craft some very long strings. A nice trick for generating them is by using python from the command line: <code data-lang="bash"><span style="color: #4b69c6">python</span> -c <span style="color: #198810">"</span><span style="color: #198810">print('\x00' * 50)</span><span style="color: #198810">"</span></code></p>
+                <ul>
+                  <li>This will produce the string representation of the null byte that you can pipe to stdin.</li>
+                  <li>You could also use python to call the challenge program using the <code>pwntools</code> package, as you learned in earlier labs.</li>
+                </ul>
+              </li>
+              <li>
+                <p>It is a good idea to take notes as you reverse engineer binaries, as you will need to remember many important addresses and details that can be difficult to hold in your head all at once.</p>
+              </li>
+            </ul>
+            <h3>Helpful Scripts</h3>
+            <p>We have provided some <a href="pwn-scripts.zip">helpful scripts</a> that can be used to launch the challenge program in <code>gdb</code> using pwntools.</p>
+            <p>The workflow looks something like this:</p>
+            <ol>
+              <li>
+                <p>Run <code>tmux</code></p>
+                <ul>
+                  <li><a href="https://github.com/toolleeo/tmux-cheatsheet/blob/main/tmux-cheatsheet.txt">tmux cheatsheet</a></li>
+                </ul>
+              </li>
+              <li>
+                <p>Run <code>./launch-pwn.py</code></p>
+                <ul>
+                  <li>This will open a second tmux “pane” that has gdb attached to the program</li>
+                  <li>The first pane will have an IPython interpreter containing <code>pwn.tubes.process</code> object in a global variable named <code>p</code>.</li>
+                </ul>
+              </li>
+              <li>
+                <p>Introspect the program with gdb</p>
+                <ul>
+                  <li><a href="https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf">gdb cheetsheet</a></li>
+                </ul>
+              </li>
+              <li>
+                <p>print output in python using <code>recv()</code> and send input using <code>p.send()</code>.</p>
+                <ul>
+                  <li><a href="https://docs.pwntools.com/en/stable/intro.html#making-connections">pwntools documentation</a></li>
+                </ul>
+              </li>
+            </ol>
+            <h2>Tasks</h2>
+            <aside id="task1" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 1</div>
+              <div class="jtd-callout-body">
+                <p>From the “Binary Exploitation” module:</p>
+                <ul>
+                  <li>Complete <em><strong>Variable Control (hard)</strong></em><br></li>
+                  <li>Complete <em><strong>Control Hijack (easy)</strong></em><br></li>
+                  <li>Complete <em><strong>Control Hijack (hard)</strong></em><br></li>
+                  <li>Complete <em><strong>Tricky Control Hijack (easy)</strong></em><br></li>
+                  <li>
+                    Complete <em><strong>Basic Shellcode</strong></em><br>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>You may want to watch the <em>Shellcode Injection: Introduction</em> video, from about 16:30 to 32:00. See above for helpful links about syscalls and x86_64.</p>
+                    </details>
+                    <br>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <p>Other control flow hijacking challenges can be completed for extra credit in the <em>extra</em> module:</p>
+            <ul>
+              <li><em>Tricky Control Hijack (hard)</em></li>
+              <li><em>Hijack to (Mapped) Shellcode (easy)</em></li>
+              <li><em>Hijack to (Mapped) Shellcode (hard)</em></li>
+              <li><em>Hijack to Shellcode (hard)</em></li>
+            </ul>
+            <h2>Post-Lab</h2>
+            <aside id="task2" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 2</div>
+              <div class="jtd-callout-body">
+                <p>Complete <a href="https://www.gradescope.com/courses/1347336/assignments/8665439"><strong>Post-Lab 6</strong></a> on Gradescope.</p>
+              </div>
+            </aside>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/site.js">
+    </script>
+  </body>
+</html>
