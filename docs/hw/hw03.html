@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        justify-items: end;
+        text-align: right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        justify-items: start;
+        text-align: left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
+      /* Tables */
+      mtable {
+        math-style: inherit;
+      }
+      mtd {
+        math-depth: auto-add;
+        math-style: compact;
+        math-shift: compact;
+      }
+      
+      /* Equations */
+      mtable.multiline-equation mtd {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+        padding: 0;
+      }
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
+      }
+      
+      /* Fractions */
+      mfrac {
+        padding-inline: 0;
+        margin-inline: 0.1em;
+      }
+      
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
+      }
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
+      munder > :nth-child(2),
+      munderover > :nth-child(2) {
+        math-shift: compact
+      }
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="side-bar">
+      <div class="site-header"><a class="site-title" href="/">cs396-f26</a><span style="white-space: pre-wrap">&#x20;</span><button class="site-button" id="menu-button" aria-label="Menu" aria-expanded="false"><svg class="jtd-icon jtd-icon-menu" aria-hidden="true"><use href="/assets/icons/symbols.svg#menu"></use></svg></button></div>
+      <nav class="jtd-nav" aria-label="Main">
+        <ul class="jtd-nav-list">
+          <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
+          <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
+          <li class="jtd-nav-item" data-nav-id="lec">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lec">
+              <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/notes.html">N-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/annotated.html">A-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">N-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/annotated.html">A-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/annotated.html">A-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/notes.html">N-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/annotated.html">A-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/notes.html">N-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/notes.html">N-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/annotated.html">A-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/notes.html">N-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/annotated.html">A-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/notes.html">N-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/annotated.html">A-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/notes.html">N-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/annotated.html">A-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/notes.html">N-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/annotated.html">A-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/notes.html">N-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/annotated.html">A-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/notes.html">N-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/annotated.html">A-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/notes.html">N-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/annotated.html">A-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/notes.html">N-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/annotated.html">A-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/notes.html">N-18: Subverting Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/annotated.html">A-18: Subverting Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec19+software+robust-programming-principles"><a class="jtd-nav-link" href="/lec/lec19+software+robust-programming-principles/notes.html">N-19: Robust Programming Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec19+software+robust-programming-principles"><a class="jtd-nav-link" href="/lec/lec19+software+robust-programming-principles/annotated.html">A-19: Robust Programming Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec20+software+robust-programming-examples"><a class="jtd-nav-link" href="/lec/lec20+software+robust-programming-examples/notes.html">N-20: Robust Programming Examples</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec20+software+robust-programming-examples"><a class="jtd-nav-link" href="/lec/lec20+software+robust-programming-examples/annotated.html">A-20: Robust Programming Examples</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec21+software+malware"><a class="jtd-nav-link" href="/lec/lec21+software+malware/notes.html">N-21: Malware</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec21+software+malware"><a class="jtd-nav-link" href="/lec/lec21+software+malware/annotated.html">A-21: Malware</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec22+cryptography+cryptosystems-and-ciphers"><a class="jtd-nav-link" href="/lec/lec22+cryptography+cryptosystems-and-ciphers/notes.html">N-22: Cryptosystems and Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec22+cryptography+cryptosystems-and-ciphers"><a class="jtd-nav-link" href="/lec/lec22+cryptography+cryptosystems-and-ciphers/annotated.html">A-22: Cryptosystems and Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec23+cryptography+symmetric~otp-and-perfect-secrecy"><a class="jtd-nav-link" href="/lec/lec23+cryptography+symmetric~otp-and-perfect-secrecy/notes.html">N-23: OTP and Perfect Secrecy</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item" data-nav-id="lab">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lab">
+              <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab3"><a class="jtd-nav-link" href="/lab/lab03.html">03: Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab4"><a class="jtd-nav-link" href="/lab/lab04.html">04: Implementing Access Control and Debugging Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab5"><a class="jtd-nav-link" href="/lab/lab05.html">05: Buffer Overflows</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab6"><a class="jtd-nav-link" href="/lab/lab06.html">06: Control Flow Hijacking</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item active" data-nav-id="hw">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-hw"><span class="jtd-nav-section-title">Homework</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-hw">
+              <li class="jtd-nav-item" data-nav-id="hw0"><a class="jtd-nav-link" href="/hw/hw00.html">0: Ethics</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw1"><a class="jtd-nav-link" href="/hw/hw01.html">1: Foundations and Systems</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw2"><a class="jtd-nav-link" href="/hw/hw02.html">2: Software</a></li>
+              <li class="jtd-nav-item active" data-nav-id="hw3"><a class="jtd-nav-link active" href="/hw/hw03.html">3: Cryptography</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-links" aria-label="Auxiliary">
+        <ul class="header-links-list">
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+        </ul>
+      </nav>
+      <div class="site-footer">CS396 Fall 2026</div>
+    </header>
+    <div class="main" id="top">
+      <div class="main-header main-header-default" id="main-header">
+        <nav class="header-links" aria-label="Auxiliary">
+          <ul class="header-links-list">
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="main-content-wrap">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-nav-list">
+            <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Homework</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/hw/hw03.html">3: Cryptography</a></li>
+          </ol>
+        </nav>
+        <div class="main-content" id="main-content">
+          <main class="jtd-page">
+            <h2>Homework 3</h2>
+            <p><strong>Due Date</strong>: <strong>Wednesday, 11/18/2026, 11:59 PM</strong></p>
+            <p><strong>Late Submission Deadline</strong>: <strong>Wednesday, 12/02/2026, 11:59 PM</strong></p>
+            <h2>Instructions</h2>
+            <ol>
+              <li>
+                <p>You may work together with other students on this assignment. <em><strong>You must list the names and <code>stevens.edu</code> addresses of anyone you work with. You are still responsible for writing your own solutions and submitting this assignment individually</strong></em></p>
+              </li>
+              <li>
+                <p>All external sources used to assist in answering questions must be cited using <a href="https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf">IEEE-style citations</a>.</p>
+              </li>
+              <li>
+                <p><strong>The use of LLM-based tools on this assignment is limited.</strong></p>
+                <ol>
+                  <li>
+                    <p><strong>You may not use AI to generate your solutions.</strong> If you are found to be doing so, you will receive a 0 on the assignment and be inelligible for extra credit opportunities.</p>
+                  </li>
+                  <li>
+                    <p>The use of AI for conducting research, error/spell-checking, ideation, and other applications that are not detrimental to learning objectives is allowed; <strong>you must cite the model(s) used, (e.g. gpt5.6-sol) and how it was used (e.g. research on &lt;topic>, spell/grammar checking)</strong></p>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>Unless otherwise stated, any assignment involving programming may be completed in any programming language of your choice. If asked, you should be able to explain the details of your source code (e.g. program design and implementation decisions).</p>
+              </li>
+              <li>
+                <p>A PDF of your solutions, along with any source code files written are to be uploaded to Gradescope.</p>
+              </li>
+            </ol>
+            <h3>Submission Format</h3>
+            <ol>
+              <li>
+                <p>The first page of your submission must contain only the following contents:</p>
+                <pre><code>hw: &lt;#>
+name: &lt;name>
+email: &lt;email>
+collaborators:
+- &lt;name1> (&lt;email1>)
+- &lt;name2> (&lt;email2>)
+- &lt;...>
+ai:
+- &lt;model>: &lt;usage1>, &lt;usage2>, &lt;...>
+- &lt;...>
+
+pledge: I pledge on my honor that I have abided by the Stevens Honor System.</code></pre>
+              </li>
+              <li>
+                <p>Solutions to each problem should start on their own page (subparts can continue on the same page).</p>
+              </li>
+              <li>
+                <p>See <a href="https://docs.google.com/document/d/1QDZNqNLRnYC1-6nnqTmjAyoX2yvYtozM1syxntCf87k/edit?usp=sharing">this google doc</a> for an example.</p>
+              </li>
+            </ol>
+            <h2>Problems</h2>
+            <div>
+              <h3>(<em>15 points</em>) Shared or Forgotten Keys?</h3>
+              <p>Long ago, Alice and Bob shared an <math><mi>𝑛</mi></math>-bit secret key but now they are no longer sure they still possess the same key. To verify that the key <math><msub><mi>𝑘</mi><mi>𝑎</mi></msub></math> currently held by Alice is the same as the key <math><msub><mi>𝑘</mi><mi>𝑏</mi></msub></math> currently held by Bob, they need to communicate over an insecure channel.</p>
+              <ol>
+                <li value="1">
+                  <div>(<em>7 points</em>) Which two basic security properties should be considered in the design of a secure protocol for solving the above problem and why do these properties become relevant in this setting?<br></div>
+                </li>
+              </ol>
+              <ol>
+                <li value="2">
+                  <div>
+                    <p>(<em>8 points</em>) Suppose that Alice and Bob use the following protocol to check if they store the same secret.</p>
+                    <ul>
+                      <li>Alice generates a random <math><mi>𝑛</mi></math>-bit value <math><mi>𝑟</mi></math>.</li>
+                      <li>Alice computes <math><mi>𝑥</mi><mo>=</mo><msub><mi>𝑘</mi><mi>𝑎</mi></msub><mo>⊕</mo><mi>𝑟</mi></math>, and sends <math><mi>𝑥</mi></math> to Bob.</li>
+                      <li>Bob computes <math><mi>𝑦</mi><mo>=</mo><msub><mi>𝑘</mi><mi>𝑏</mi></msub><mo>⊕</mo><mi>𝑥</mi></math> and sends <math><mi>𝑦</mi></math> to Alice.</li>
+                      <li>Alice compares <math><mi>𝑟</mi></math> and <math><mi>𝑦</mi></math>. If <math><mi>𝑟</mi><mo>=</mo><mi>𝑦</mi></math> , she concludes that <math><msub><mi>𝑘</mi><mi>𝑎</mi></msub><mo>=</mo><msub><mi>𝑘</mi><mi>𝑏</mi></msub></math> — that is, Alice and Bob share a secret key.</li>
+                    </ul>
+                    <p>Does the above protocol satisfy the security properties you identified in the previous part?<br></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3>(<em>15 points</em>) Perfect or Imperfect Ciphers?</h3>
+              <ol>
+                <li value="1">
+                  <div>
+                    <p>(<em>7 points</em>) Assume that an attacker knows that a user’s password is either <math><msub><mi>𝑝</mi><mn>1</mn></msub><mo>=</mo><mtext>𝚊𝚋𝚌𝚍</mtext></math> or <math><msub><mi>𝑝</mi><mn>2</mn></msub><mo>=</mo><mtext>𝚋𝚎𝚍𝚐</mtext></math>.</p>
+                    <p>Say the user encrypts his password using the <a href="https://www.geeksforgeeks.org/vigenere-cipher/">Vigenère cipher</a>, and the attacker sees the resulting ciphertext <math><mi>𝑐</mi></math>.</p>
+                    <p>Show how the attacker can determine the user’s password, or explain why it is not possible, when the period <math><mi>𝑡</mi></math> used by the cipher is 1, 2, 3, or 4 respectively.<br>(The period is the length of the key before it repeats.)<br></p>
+                  </div>
+                </li>
+              </ol>
+              <ol>
+                <li value="2">
+                  <div>
+                    <p>(<em>8 points</em>) Show that the mono-alphabetic substitution cipher is trivial to break when the attacker launches a chosen-plaintext attack, then answer the following questions:</p>
+                    <ol>
+                      <li>
+                        <p>How much chosen plaintext is needed to recover the entire secret key?</p>
+                      </li>
+                      <li>
+                        <p>What is the shortest chosen single-message plaintext that you can find that is a valid English message and would successfully recover the key?</p>
+                      </li>
+                      <li>
+                        <p>Finally, under which conditions, and why, is the mono-alphabetic substitution cipher perfectly secure (against a ciphertext-only attacker)?</p>
+                      </li>
+                    </ol>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3>(<em>35 points</em>) Crypt-analyze This!</h3>
+              <p>I just discovered that two of my CAs, Alice and Bob, have been secretly communicating with each other in our common group chat that we use for course matters.</p>
+              <p>I am pretty sure they are attempting XOR-based OTP encryption with the following parameters:</p>
+              <ul>
+                <li>messages are English sentences that are 33 characters long</li>
+                <li>only letters (of either case), spaces are used and encoded in ASCII</li>
+                <li>they are reusing a key</li>
+              </ul>
+              <p>Please help me break their code!</p>
+              <p>Here are 11 ciphertexts (in hex format) that I’ve intercepted.</p>
+              <pre><code data-lang="hex">00 0d 1a 07 26 3a 37 6b 11 1c 3a 07 39 0b 15 46 06 02 1a 4c 00 3c 10 43 07 17 04 25 4c 03 09 10 00
+0d 0d 19 53 06 74 33 2a 0b 59 3b 16 31 01 52 1f 0a 16 54 1c 1c 21 03 06 16 06 09 38 4c 00 04 15 1f
+15 1f 0c 00 20 39 35 6b 0a 17 2c 53 24 0c 1f 03 45 13 15 08 59 3a 16 43 02 1d 17 2a 05 19 06 59 53
+0d 09 10 53 38 31 70 3f 04 15 22 53 31 07 1d 13 11 43 00 04 1c 73 04 0d 06 05 00 33 1f 57 0f 16 04
+1d 48 01 1c 3f 31 70 25 0a 59 3a 07 25 01 17 08 11 43 17 0d 17 73 17 06 14 16 45 35 04 1e 12 59 53
+00 00 08 07 6f 23 3f 3e 09 1d 69 11 35 45 03 13 0c 17 11 4c 1c 3e 07 02 07 00 04 32 1f 1e 0f 1e 53
+18 1d 0a 18 26 38 29 6b 2a 2d 19 53 39 16 52 16 00 11 12 09 1a 27 09 1a 55 01 00 22 1e 12 15 59 53
+03 09 1a 1d 3b 74 24 23 00 0b 2c 53 31 45 11 07 11 00 1c 4c 16 21 45 10 1a 1f 00 35 04 1e 0f 1e 53
+19 09 10 11 2a 74 29 2e 11 59 00 53 34 0c 16 08 11 43 04 0d 00 73 04 17 01 17 0b 35 05 18 0f 59 53
+03 0d 49 00 27 3b 25 27 01 59 3b 16 31 09 1e 1f 45 0f 11 0d 0b 3d 45 02 17 1d 10 35 4c 1e 15 59 53
+1a 09 01 53 2b 3b 3e 3f 45 0d 21 1a 3e 0e 52 11 00 43 1a 09 1c 37 45 17 1a 52 45 61 4c 57 41 59 53</code></pre>
+              <ol>
+                <li value="1">
+                  <div>
+                    <p>(<em>35 points</em>) <strong>Decipher the 11 plaintext messages that were exchanged. Show your work.</strong></p>
+                    <p><em>You may write a program to help with your cryptanalysis, if you do so, you must copy the code into your PDF submission</em>.</p>
+                    <ul>
+                      <li><strong>Hint 1</strong>: Space is a frequent character in the English language and will flip the case of an ASCII-encoded letter when XOR-ed with one.</li>
+                      <li><strong>Hint 2</strong>: Try XOR-ing each ciphertext with all the other ciphertexts and compare them to one another.</li>
+                      <li><strong>Hint 3</strong>: It will help to print messages as ASCII characters instead of hex.</li>
+                      <li><strong>Hint 4</strong>: What does it mean if every character at a position <math><mi>𝑘</mi></math> in all of the xor’d results is a valid letter or zero?</li>
+                      <li><strong>Hint 5</strong>: At a certain point, you will need to guess things. For full credit, you need to have sufficiently reduced the search space before you begin guessing.</li>
+                    </ul>
+                    <p><br></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3>(<em>35 points</em>) One More Crypto Controversy...</h3>
+              <p>The so-called Dual_EC_DRBG pseudorandom generator (PRG) operates in the following simplified manner to incrementally generate blocks of pseudorandom bits, <math><msub><mi>𝑟</mi><mn>1</mn></msub><mo>,</mo><msub><mi>𝑟</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi></math> :</p>
+              <ul>
+                <li>
+                  <p>The PRG is initiated by randomly selecting two (2-dim) points <math><mi>𝑃</mi></math>, <math><mi>𝑄</mi></math> in a given elliptic curve over a given prime field size <math><mi>𝑝</mi></math>, so that for any integer <math><mi>𝑡</mi></math> the points <math><msup><mi>𝑃</mi><mi>𝑡</mi></msup></math>, <math><msup><mi>𝑄</mi><mi>𝑡</mi></msup></math> are well-defined.</p>
+                </li>
+                <li>
+                  <p>Starting from an initial random seed <math><msub><mi>𝑠</mi><mn>0</mn></msub></math> in order to generate the <math><mi>𝑘</mi></math>-th pseudorandom block <math><msub><mi>𝑟</mi><mi>𝑘</mi></msub></math>:</p>
+                  <ul>
+                    <li>The PRG’s internal secret state <math><msub><mi>𝑠</mi><mi>𝑘</mi></msub></math> is updated to the <math><mi>𝑥</mi></math>-coordinate of point <math><msup><mi>𝑃</mi><mrow><mo>{</mo><msub><mi>𝑠</mi><mrow><mo>{</mo><mrow><mi>𝑘</mi><mo lspace="0em" rspace="0em">−</mo><mn>1</mn></mrow><mo>}</mo></mrow></msub><mo>}</mo></mrow></msup></math></li>
+                    <li>The PRG’s <math><mi>𝑘</mi></math>-th output <math><msub><mi>𝑟</mi><mi>𝑘</mi></msub></math> is the <math><mi>𝑥</mi></math>-coordinate of point <math><msup><mi>𝑄</mi><mrow><mo>{</mo><msub><mi>𝑠</mi><mrow><mo>{</mo><mrow><mi>𝑘</mi><mo lspace="0em" rspace="0em">−</mo><mn>1</mn></mrow><mo>}</mo></mrow></msub><mo>}</mo></mrow></msup></math>, appropriately truncated to a smaller bit-string</li>
+                  </ul>
+                </li>
+              </ul>
+              <p>Yet, if the points <math><mi>𝑃</mi></math>, <math><mi>𝑄</mi></math> are known to be related in the form of <math><msup><mi>𝑄</mi><mi>𝑒</mi></msup><mo>=</mo><mi>𝑃</mi></math>, or if the output truncation rate is more than 1/2, then this PRG is known to be insecure—that is, a brute-force type of attack is likely to reveal the PRG’s internal state <math><msub><mi>𝑠</mi><mi>𝑘</mi></msub></math>.</p>
+              <p>The rest is history…</p>
+              <p><strong>Read about the Dual_EC_DRBG design, standardization, implementation, adoption and abandonment from <a href="https://blog.cryptographyengineering.com/2013/09/18/the-many-flaws-of-dualecdrbg/">Matt Green’s blog entry</a>, and its <a href="https://en.wikipedia.org/wiki/Dual_EC_DRBG">Wikipedia entry</a>, then answer the following questions.</strong></p>
+              <ol>
+                <li value="1">
+                  <div>(<em>10 points</em>) Describe briefly the controversy related to Dual_EC_DRBG. For full credit, you must identify <em>all</em> the main stakeholders (organizations or companies rather than individuals), their involvement in the events, and their possibly conflicted goals.<br></div>
+                </li>
+              </ol>
+              <ol>
+                <li value="2">
+                  <div>(<em>15 points</em>) Describe a major ethical concern regarding the issue at hand. For full credit, you must articulate the concern clearly as well as how it relates to this particular issue.<br></div>
+                </li>
+              </ol>
+              <ol>
+                <li value="3">
+                  <div>(<em>10 points</em>) Describe some of the professional or societal codes of ethics that relate to the events. Include a description of why this code is adopted and what the impact may be if the code is not applied.<br></div>
+                </li>
+              </ol>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/site.js">
+    </script>
+  </body>
+</html>
