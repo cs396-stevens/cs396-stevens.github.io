@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        justify-items: end;
+        text-align: right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        justify-items: start;
+        text-align: left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
+      /* Tables */
+      mtable {
+        math-style: inherit;
+      }
+      mtd {
+        math-depth: auto-add;
+        math-style: compact;
+        math-shift: compact;
+      }
+      
+      /* Equations */
+      mtable.multiline-equation mtd {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+        padding: 0;
+      }
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
+      }
+      
+      /* Fractions */
+      mfrac {
+        padding-inline: 0;
+        margin-inline: 0.1em;
+      }
+      
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
+      }
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
+      munder > :nth-child(2),
+      munderover > :nth-child(2) {
+        math-shift: compact
+      }
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="side-bar">
+      <div class="site-header"><a class="site-title" href="/">cs396-f26</a><span style="white-space: pre-wrap">&#x20;</span><button class="site-button" id="menu-button" aria-label="Menu" aria-expanded="false"><svg class="jtd-icon jtd-icon-menu" aria-hidden="true"><use href="/assets/icons/symbols.svg#menu"></use></svg></button></div>
+      <nav class="jtd-nav" aria-label="Main">
+        <ul class="jtd-nav-list">
+          <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
+          <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
+          <li class="jtd-nav-item" data-nav-id="lec">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lec">
+              <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/notes.html">N-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/annotated.html">A-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">N-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/annotated.html">A-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/annotated.html">A-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/notes.html">N-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/annotated.html">A-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/notes.html">N-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/notes.html">N-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/annotated.html">A-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/notes.html">N-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/annotated.html">A-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/notes.html">N-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/annotated.html">A-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/notes.html">N-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/annotated.html">A-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/notes.html">N-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/annotated.html">A-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/notes.html">N-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/annotated.html">A-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/notes.html">N-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/annotated.html">A-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/notes.html">N-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/annotated.html">A-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/notes.html">N-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/annotated.html">A-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/notes.html">N-18: Subverting Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/annotated.html">A-18: Subverting Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec19+software+robust-programming-principles"><a class="jtd-nav-link" href="/lec/lec19+software+robust-programming-principles/notes.html">N-19: Robust Programming Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec19+software+robust-programming-principles"><a class="jtd-nav-link" href="/lec/lec19+software+robust-programming-principles/annotated.html">A-19: Robust Programming Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec20+software+robust-programming-examples"><a class="jtd-nav-link" href="/lec/lec20+software+robust-programming-examples/notes.html">N-20: Robust Programming Examples</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec20+software+robust-programming-examples"><a class="jtd-nav-link" href="/lec/lec20+software+robust-programming-examples/annotated.html">A-20: Robust Programming Examples</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec21+software+malware"><a class="jtd-nav-link" href="/lec/lec21+software+malware/notes.html">N-21: Malware</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec21+software+malware"><a class="jtd-nav-link" href="/lec/lec21+software+malware/annotated.html">A-21: Malware</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec22+cryptography+cryptosystems-and-ciphers"><a class="jtd-nav-link" href="/lec/lec22+cryptography+cryptosystems-and-ciphers/notes.html">N-22: Cryptosystems and Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec22+cryptography+cryptosystems-and-ciphers"><a class="jtd-nav-link" href="/lec/lec22+cryptography+cryptosystems-and-ciphers/annotated.html">A-22: Cryptosystems and Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec23+cryptography+symmetric~otp-and-perfect-secrecy"><a class="jtd-nav-link" href="/lec/lec23+cryptography+symmetric~otp-and-perfect-secrecy/notes.html">N-23: OTP and Perfect Secrecy</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec23+cryptography+symmetric~otp-and-perfect-secrecy"><a class="jtd-nav-link" href="/lec/lec23+cryptography+symmetric~otp-and-perfect-secrecy/annotated.html">A-23: OTP and Perfect Secrecy</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item active" data-nav-id="lab">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lab">
+              <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab3"><a class="jtd-nav-link" href="/lab/lab03.html">03: Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab4"><a class="jtd-nav-link" href="/lab/lab04.html">04: Implementing Access Control and Debugging Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab5"><a class="jtd-nav-link" href="/lab/lab05.html">05: Buffer Overflows</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab6"><a class="jtd-nav-link" href="/lab/lab06.html">06: Control Flow Hijacking</a></li>
+              <li class="jtd-nav-item active" data-nav-id="lab7"><a class="jtd-nav-link active" href="/lab/lab07.html">07: Symmetric Encryption</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item" data-nav-id="hw">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-hw"><span class="jtd-nav-section-title">Homework</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-hw">
+              <li class="jtd-nav-item" data-nav-id="hw0"><a class="jtd-nav-link" href="/hw/hw00.html">0: Ethics</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw1"><a class="jtd-nav-link" href="/hw/hw01.html">1: Foundations and Systems</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw2"><a class="jtd-nav-link" href="/hw/hw02.html">2: Software</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw3"><a class="jtd-nav-link" href="/hw/hw03.html">3: Cryptography</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-links" aria-label="Auxiliary">
+        <ul class="header-links-list">
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+        </ul>
+      </nav>
+      <div class="site-footer">CS396 Fall 2026</div>
+    </header>
+    <div class="main" id="top">
+      <div class="main-header main-header-default" id="main-header">
+        <nav class="header-links" aria-label="Auxiliary">
+          <ul class="header-links-list">
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="main-content-wrap">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-nav-list">
+            <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lab/lab07.html">07: Symmetric Encryption</a></li>
+          </ol>
+        </nav>
+        <div class="main-content" id="main-content">
+          <main class="jtd-page">
+            <h2>Lab 7: Symmetric Encryption</h2>
+            <h2>XOR and OTP</h2>
+            <p>We’ve been talking in lecture about symmetric encryption techniques, in particular <code>xor</code> and the One-Time Pad (OTP).</p>
+            <p>In this week’s lab, we’ll apply some of of this a bit more directly with some challenges from the <em>Cryptography</em> module of <em>Intro to Cybersecurity</em>.</p>
+            <aside id="task1" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 1</div>
+              <div class="jtd-callout-body">
+                <p>As a warm-up, complete the first 3 challenges:</p>
+                <ul>
+                  <li><em>XOR</em></li>
+                  <li><em>XORing Hex</em></li>
+                  <li><em>XORing ASCII</em></li>
+                </ul>
+              </div>
+            </aside>
+            <h2>XORing ASCII Strings</h2>
+            <p>In this challenge, you will be using <code>xor</code> to decrypt ascii strings given a key string.</p>
+            <p>Concretely, each byte of the decrypted string is the result of computing the <code>xor</code> between the corresponding bytes in the encrypted string and the key string.</p>
+            <p>The challenge script <code>/challenge/run</code> looks as follows:</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">import</span> random
+<span style="color: #d73948">import</span> string
+<span style="color: #d73948">import</span> sys
+
+<span style="color: #d73948">from</span> Crypto.Util.strxor <span style="color: #d73948">import</span> strxor
+
+valid_keys <span style="color: #d73948">=</span> <span style="color: #198810">"</span><span style="color: #198810">!#$%&amp;()</span><span style="color: #198810">"</span>
+valid_chars <span style="color: #d73948">=</span> <span style="color: #198810">'</span><span style="color: #198810">'</span>.<span style="color: #4b69c6">join</span>(
+    c <span style="color: #d73948">for</span> c <span style="color: #d73948">in</span> string.ascii_letters
+    <span style="color: #d73948">if</span> <span style="color: #4b69c6">all</span>(<span style="color: #4b69c6">chr</span>(<span style="color: #4b69c6">ord</span>(k)<span style="color: #d73948">^</span><span style="color: #4b69c6">ord</span>(c)) <span style="color: #d73948">in</span> string.ascii_letters <span style="color: #d73948">for</span> k <span style="color: #d73948">in</span> valid_keys)
+)
+
+<span style="color: #4b69c6">print</span>(valid_keys, valid_chars)
+
+<span style="color: #d73948">for</span> n <span style="color: #d73948">in</span> <span style="color: #4b69c6">range</span>(<span style="color: #b60157">1</span>, <span style="color: #b60157">10</span>):
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Challenge number </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">n</span><span style="color: #8b41b1">}</span><span style="color: #198810">...</span><span style="color: #198810">"</span>)
+
+    key_str <span style="color: #d73948">=</span> <span style="color: #198810">'</span><span style="color: #198810">'</span>.<span style="color: #4b69c6">join</span>(random.<span style="color: #4b69c6">sample</span>(valid_keys<span style="color: #d73948">*</span><span style="color: #b60157">10</span>, <span style="color: #b60157">10</span>))
+    pt_str <span style="color: #d73948">=</span> <span style="color: #198810">'</span><span style="color: #198810">'</span>.<span style="color: #4b69c6">join</span>(random.<span style="color: #4b69c6">sample</span>(valid_chars<span style="color: #d73948">*</span><span style="color: #b60157">10</span>, <span style="color: #b60157">10</span>))
+    ct_str <span style="color: #d73948">=</span> <span style="color: #4b69c6">strxor</span>(pt_str.<span style="color: #4b69c6">encode</span>(), key_str.<span style="color: #4b69c6">encode</span>()).<span style="color: #4b69c6">decode</span>()
+
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">- Encrypted String: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ct_str</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">- XOR Key String: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key_str</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+    answer <span style="color: #d73948">=</span> <span style="color: #4b69c6">input</span>(<span style="color: #198810">"</span><span style="color: #198810">- Decrypted String? </span><span style="color: #198810">"</span>).<span style="color: #4b69c6">strip</span>()
+    <span style="color: #d73948">if</span> answer <span style="color: #d73948">!=</span> pt_str:
+        <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Incorrect!</span><span style="color: #198810">"</span>)
+        sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)
+
+    <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Correct! Moving on.</span><span style="color: #198810">"</span>)
+
+<span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">You have mastered XORing ASCII! Your flag:</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>())</code></pre>
+            <p>This script will give you an encrypted string and a key string and ask you for the decrypted result.</p>
+            <p>You will need to answer 10 of these questions to get the flag.</p>
+            <p><strong>Note that you do not need to compute the xor of each character yourself, as the <code>strxor</code> function is provded and can be imported as shown in line 7.</strong></p>
+            <aside id="task2" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 2</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em>XORing ASCII Strings</em> challenge.</p>
+                <ul>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 0</em></span></summary>
+                      <p>The <code>pwn.college</code> prompt for this challenge talks a lot about conversion between Python’s string and byte-string formats. It is interesting and useful information, but should not significantly affect you for this challenge. It suffices to know that <code>.encode('utf-8')</code> can be used to convert a Python string to bytes, and <code>.decode('utf-8')</code> can be used to convert bytes to a string in most cases.</p>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>You can use <code>tmux</code> to open another terminal to copy and start a Python interpretor. You can then copy and paste the encrypted strings, keys, and decrypted results between the <code>tmux</code> windows after you’ve computed them using <code>strxor</code> in Python.</p>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 2</em></span></summary>
+                      <p>Remember that <code>strxor</code> takes 2 byte strings of equal length. Anything else will not work.</p>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Optional</em></span></summary>
+                      <p>Rather than answer 10 questions, you could also write 1 python script with <code>pwntools</code> to answer them all for you.</p>
+                    </details>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <h2>One-Time Pad</h2>
+            <p>As we’ve discussed, a One-Time Pad is a symmetric cryptosystem where each key is used exactly once.</p>
+            <p>In this challenge, the <code>run</code> script (shown below) will encipher the flag using a randomly generated key, then provide you with the key and the corresponding ciphertext.</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">from</span> Crypto.Random <span style="color: #d73948">import</span> get_random_bytes
+<span style="color: #d73948">from</span> Crypto.Util.strxor <span style="color: #d73948">import</span> strxor
+
+flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()
+
+key <span style="color: #d73948">=</span> <span style="color: #4b69c6">get_random_bytes</span>(<span style="color: #4b69c6">len</span>(flag))
+ciphertext <span style="color: #d73948">=</span> <span style="color: #4b69c6">strxor</span>(flag, key)
+
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">One-Time Pad Key (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Flag Ciphertext (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+            <p>You just need to decrypt the ciphertext for the flag. Pretty straightforward stuff.</p>
+            <aside id="task3" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 3</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em>One-Time Pad</em> challenge.</p>
+                <ul>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 0</em></span></summary>
+                      <p>The hints from <em>XORing ASCII Strings</em> should still apply.</p>
+                    </details>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <h2>Many-Time Pad</h2>
+            <p>The perfect secrecy of OTP is violated if you use the key more than once.</p>
+            <p>In this challenge, you’ll be conducting a chosen plaintext attack on a “many-time pad”, where the same key is used to encrypt every message. The <code>run</code> script will encipher the flag and print the resulting hex string, then allow you to encipher any message you want.</p>
+            <p>The <code>run</code> script is as follows:</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">from</span> Crypto.Random <span style="color: #d73948">import</span> get_random_bytes
+<span style="color: #d73948">from</span> Crypto.Util.strxor <span style="color: #d73948">import</span> strxor
+
+flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()
+
+key <span style="color: #d73948">=</span> <span style="color: #4b69c6">get_random_bytes</span>(<span style="color: #b60157">256</span>)
+ciphertext <span style="color: #d73948">=</span> <span style="color: #4b69c6">strxor</span>(flag, key[:<span style="color: #4b69c6">len</span>(flag)])
+
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Flag Ciphertext (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+
+<span style="color: #d73948">while</span> <span style="color: #d73948">True</span>:
+    plaintext <span style="color: #d73948">=</span> <span style="color: #4b69c6">bytes</span>.<span style="color: #4b69c6">fromhex</span>(<span style="color: #4b69c6">input</span>(<span style="color: #198810">"</span><span style="color: #198810">Plaintext (hex): </span><span style="color: #198810">"</span>))
+    ciphertext <span style="color: #d73948">=</span> <span style="color: #4b69c6">strxor</span>(plaintext, key[:<span style="color: #4b69c6">len</span>(plaintext)])
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Ciphertext (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+            <aside id="task4" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 4</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em>Many-Time Pad</em> challenge.</p>
+                <ul>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 0</em></span></summary>
+                      <p>You’ll want a Python interpreter open for this one as well.</p>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>You can solve this one by finding the key used, then decrypting the flag with the key, or by decrypting the key flag directly.</p>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 2</em></span></summary>
+                      <p>What does the following code snippet do:</p>
+                      <pre><code data-lang="c"><span style="color: #d73948">int</span> x <span style="color: #d73948">=</span> <span style="color: #b60157">5</span>, y <span style="color: #d73948">=</span> <span style="color: #b60157">7</span>;
+x <span style="color: #d73948">^=</span> y;
+y <span style="color: #d73948">^=</span> x;
+x <span style="color: #d73948">^=</span> y;</code></pre>
+                    </details>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <h2>One-Time Pad Tampering (Extra)</h2>
+            <p>As the challenge instructions state, OTP does not protect a message’s integrity.</p>
+            <p>In this challenge, there are two scripts: <code>/challenge/dispatcher</code> and <code>/challenge/worker</code>.</p>
+            <p><code>dispatcher</code> reads the key, <code>xor</code>’s it with the string “sleep” and prints the enciphered string.</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">from</span> Crypto.Util.strxor <span style="color: #d73948">import</span> strxor
+
+key <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/challenge/.key</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()
+ciphertext <span style="color: #d73948">=</span> <span style="color: #4b69c6">strxor</span>(<span style="color: #d73948">b</span><span style="color: #198810">"</span><span style="color: #198810">sleep</span><span style="color: #198810">"</span>, key[:<span style="color: #b60157">5</span>])
+
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">TASK: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+            <pre><code data-lang="console">$ /challenge/dispatcher
+TASK: d180a04bda</code></pre>
+            <p>The output is meant to be piped into the <code>worker</code>, wchich listens on <code>stdin</code> for a line that starts with “TASK: “ and does an action in response.</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">from</span> Crypto.Util.strxor <span style="color: #d73948">import</span> strxor
+
+<span style="color: #d73948">import</span> time
+<span style="color: #d73948">import</span> sys
+
+key <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/challenge/.key</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()
+
+<span style="color: #d73948">while</span> line <span style="color: #d73948">:=</span> sys.stdin.<span style="color: #4b69c6">readline</span>():
+    <span style="color: #d73948">if</span> <span style="color: #d73948">not</span> line.<span style="color: #4b69c6">startswith</span>(<span style="color: #198810">"</span><span style="color: #198810">TASK: </span><span style="color: #198810">"</span>):
+        <span style="color: #d73948">continue</span>
+    data <span style="color: #d73948">=</span> <span style="color: #4b69c6">bytes</span>.<span style="color: #4b69c6">fromhex</span>(line.<span style="color: #4b69c6">split</span>()[<span style="color: #b60157">1</span>])
+    cipher_len <span style="color: #d73948">=</span> <span style="color: #4b69c6">min</span>(<span style="color: #4b69c6">len</span>(data), <span style="color: #4b69c6">len</span>(key))
+    plaintext <span style="color: #d73948">=</span> <span style="color: #4b69c6">strxor</span>(data[:cipher_len], key[:cipher_len])
+
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Hex of plaintext: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">plaintext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Received command: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">plaintext</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+    <span style="color: #d73948">if</span> plaintext <span style="color: #d73948">==</span> <span style="color: #d73948">b</span><span style="color: #198810">"</span><span style="color: #198810">sleep</span><span style="color: #198810">"</span>:
+        <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Sleeping!</span><span style="color: #198810">"</span>)
+        time.<span style="color: #4b69c6">sleep</span>(<span style="color: #b60157">1</span>)
+    <span style="color: #d73948">elif</span> plaintext <span style="color: #d73948">==</span> <span style="color: #d73948">b</span><span style="color: #198810">"</span><span style="color: #198810">flag!</span><span style="color: #198810">"</span>:
+        <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Victory! Your flag:</span><span style="color: #198810">"</span>)
+        <span style="color: #4b69c6">print</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>())
+    <span style="color: #d73948">else</span>:
+        <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Unknown command!</span><span style="color: #198810">"</span>)</code></pre>
+            <pre><code data-lang="console">$ /challenge/dispatcher | /challenge/worker
+Hex of plaintext: 736c656570
+Received command: b'sleep'
+Sleeping!</code></pre>
+            <p>We are conducting a known plaintext attack, since we know the plaintext “sleep” and its corresponding ciphertext for an unknown key.</p>
+            <aside id="task5" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 5</div>
+              <div class="jtd-callout-body">
+                <p>Complete the <em>One-Time Pad Tampering</em> challenge.</p>
+                <ul>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                      <p>You will want to write a python script that sits between the <code>dispatcher</code> and <code>worker</code> script. Then you can invoke it with multiple pipes like so:<br><code data-lang="bash"><span style="color: #4b69c6">/challenge/dispatcher</span> <span style="color: #d73948">|</span> <span style="color: #4b69c6">./tamper.py</span> <span style="color: #d73948">|</span> <span style="color: #4b69c6">/challenge/worker</span><span style="white-space: pre-wrap">&#x20;</span></code></p>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary><span class="jtd-label jtd-label-default"><em>Hint 2</em></span></summary>
+                      <p>Look at the <code>worker</code> script for an idea of how to get started writing your <code>tamper.py</code> script.</p>
+                    </details>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <h2>Post-Lab</h2>
+            <aside id="task6" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 6</div>
+              <div class="jtd-callout-body">
+                <p>Complete <a href="https://www.gradescope.com/courses/1347336/assignments/8665442"><strong>Post-Lab 7</strong></a> on Gradescope.</p>
+              </div>
+            </aside>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/site.js">
+    </script>
+  </body>
+</html>
