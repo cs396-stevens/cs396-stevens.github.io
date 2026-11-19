@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        justify-items: end;
+        text-align: right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        justify-items: start;
+        text-align: left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
+      /* Tables */
+      mtable {
+        math-style: inherit;
+      }
+      mtd {
+        math-depth: auto-add;
+        math-style: compact;
+        math-shift: compact;
+      }
+      
+      /* Equations */
+      mtable.multiline-equation mtd {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+        padding: 0;
+      }
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
+      }
+      
+      /* Fractions */
+      mfrac {
+        padding-inline: 0;
+        margin-inline: 0.1em;
+      }
+      
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
+      }
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
+      munder > :nth-child(2),
+      munderover > :nth-child(2) {
+        math-shift: compact
+      }
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="side-bar">
+      <div class="site-header"><a class="site-title" href="/">cs396-f26</a><span style="white-space: pre-wrap">&#x20;</span><button class="site-button" id="menu-button" aria-label="Menu" aria-expanded="false"><svg class="jtd-icon jtd-icon-menu" aria-hidden="true"><use href="/assets/icons/symbols.svg#menu"></use></svg></button></div>
+      <nav class="jtd-nav" aria-label="Main">
+        <ul class="jtd-nav-list">
+          <li class="jtd-nav-item" data-nav-id="home"><a class="jtd-nav-link" href="/index.html">Home</a></li>
+          <li class="jtd-nav-item" data-nav-id="syllabus"><a class="jtd-nav-link" href="/syllabus.html">Syllabus</a></li>
+          <li class="jtd-nav-item" data-nav-id="lec">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lec"><span class="jtd-nav-section-title">Lectures</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lec">
+              <li class="jtd-nav-item" data-nav-id="notes:lec01+intro"><a class="jtd-nav-link" href="/lec/lec01+intro/notes.html">N-01: Intro</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/notes.html">N-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec02+ethics+ethical-issues"><a class="jtd-nav-link" href="/lec/lec02+ethics+ethical-issues/annotated.html">A-02: Ethical Issues</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/notes.html">N-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec03+ethics+public-obligations"><a class="jtd-nav-link" href="/lec/lec03+ethics+public-obligations/annotated.html">A-03: Public Obligations</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/notes.html">N-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec04+ethics+frameworks-and-practices"><a class="jtd-nav-link" href="/lec/lec04+ethics+frameworks-and-practices/annotated.html">A-04: Ethical Frameworks and Best Practices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/notes.html">N-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec05+foundations-and-systems+basic-definitions"><a class="jtd-nav-link" href="/lec/lec05+foundations-and-systems+basic-definitions/annotated.html">A-05: Basic Definitions</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/notes.html">N-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec06+foundations-and-systems+design-principles"><a class="jtd-nav-link" href="/lec/lec06+foundations-and-systems+design-principles/annotated.html">A-06: Design Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/notes.html">N-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec07+foundations-and-systems+protection-states-and-access-control"><a class="jtd-nav-link" href="/lec/lec07+foundations-and-systems+protection-states-and-access-control/annotated.html">A-07: Protection States and Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/notes.html">N-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec08+foundations-and-systems+security-policies-and-lattices"><a class="jtd-nav-link" href="/lec/lec08+foundations-and-systems+security-policies-and-lattices/annotated.html">A-08: Security Policies and Lattices</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/notes.html">N-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec09+foundations-and-systems+bell-lapadula-model"><a class="jtd-nav-link" href="/lec/lec09+foundations-and-systems+bell-lapadula-model/annotated.html">A-09: Bell-LaPadula Model</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/notes.html">N-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec10+foundations-and-systems+biba-model-and-other-policies"><a class="jtd-nav-link" href="/lec/lec10+foundations-and-systems+biba-model-and-other-policies/annotated.html">A-10: Biba Model and Other Policies</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/notes.html">N-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec11+foundations-and-systems+access-control-lists"><a class="jtd-nav-link" href="/lec/lec11+foundations-and-systems+access-control-lists/annotated.html">A-11: Access Control Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/notes.html">N-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec12+foundations-and-systems+capability-lists"><a class="jtd-nav-link" href="/lec/lec12+foundations-and-systems+capability-lists/annotated.html">A-12: Capability Lists</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/notes.html">N-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec13+foundations-and-systems+authentication"><a class="jtd-nav-link" href="/lec/lec13+foundations-and-systems+authentication/annotated.html">A-13: Authentication</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/notes.html">N-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec14+software+vulnerability-classes"><a class="jtd-nav-link" href="/lec/lec14+software+vulnerability-classes/annotated.html">A-14: Vulnerability Classes</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/notes.html">N-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec15+software+systems-recap"><a class="jtd-nav-link" href="/lec/lec15+software+systems-recap/annotated.html">A-15: Systems Recap</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/notes.html">N-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec16+software+memory-vulnerabilities"><a class="jtd-nav-link" href="/lec/lec16+software+memory-vulnerabilities/annotated.html">A-16: Memory Vulnerabilities</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/notes.html">N-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec17+software+memory-defenses"><a class="jtd-nav-link" href="/lec/lec17+software+memory-defenses/annotated.html">A-17: Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/notes.html">N-18: Subverting Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec18+software+subverting-memory-defenses"><a class="jtd-nav-link" href="/lec/lec18+software+subverting-memory-defenses/annotated.html">A-18: Subverting Memory Defenses</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec19+software+robust-programming-principles"><a class="jtd-nav-link" href="/lec/lec19+software+robust-programming-principles/notes.html">N-19: Robust Programming Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec19+software+robust-programming-principles"><a class="jtd-nav-link" href="/lec/lec19+software+robust-programming-principles/annotated.html">A-19: Robust Programming Principles</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec20+software+robust-programming-examples"><a class="jtd-nav-link" href="/lec/lec20+software+robust-programming-examples/notes.html">N-20: Robust Programming Examples</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec20+software+robust-programming-examples"><a class="jtd-nav-link" href="/lec/lec20+software+robust-programming-examples/annotated.html">A-20: Robust Programming Examples</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec21+software+malware"><a class="jtd-nav-link" href="/lec/lec21+software+malware/notes.html">N-21: Malware</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec21+software+malware"><a class="jtd-nav-link" href="/lec/lec21+software+malware/annotated.html">A-21: Malware</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec22+cryptography+cryptosystems-and-ciphers"><a class="jtd-nav-link" href="/lec/lec22+cryptography+cryptosystems-and-ciphers/notes.html">N-22: Cryptosystems and Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec22+cryptography+cryptosystems-and-ciphers"><a class="jtd-nav-link" href="/lec/lec22+cryptography+cryptosystems-and-ciphers/annotated.html">A-22: Cryptosystems and Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec23+cryptography+symmetric~otp-and-perfect-secrecy"><a class="jtd-nav-link" href="/lec/lec23+cryptography+symmetric~otp-and-perfect-secrecy/notes.html">N-23: OTP and Perfect Secrecy</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec23+cryptography+symmetric~otp-and-perfect-secrecy"><a class="jtd-nav-link" href="/lec/lec23+cryptography+symmetric~otp-and-perfect-secrecy/annotated.html">A-23: OTP and Perfect Secrecy</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec24+cryptography+symmetric~stream-and-block-ciphers"><a class="jtd-nav-link" href="/lec/lec24+cryptography+symmetric~stream-and-block-ciphers/notes.html">N-24: Stream and Block Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec24+cryptography+symmetric~stream-and-block-ciphers"><a class="jtd-nav-link" href="/lec/lec24+cryptography+symmetric~stream-and-block-ciphers/annotated.html">A-24: Stream and Block Ciphers</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec25+cryptography+symmetric~block-cipher-modes,des-and-aes"><a class="jtd-nav-link" href="/lec/lec25+cryptography+symmetric~block-cipher-modes,des-and-aes/notes.html">N-25: Block Cipher Modes, DES and AES</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec25+cryptography+symmetric~block-cipher-modes,des-and-aes"><a class="jtd-nav-link" href="/lec/lec25+cryptography+symmetric~block-cipher-modes,des-and-aes/annotated.html">A-25: Block Cipher Modes, DES and AES</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec26+cryptography+asymmetric~dhke"><a class="jtd-nav-link" href="/lec/lec26+cryptography+asymmetric~dhke/notes.html">N-26: DHKE</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec26+cryptography+asymmetric~dhke"><a class="jtd-nav-link" href="/lec/lec26+cryptography+asymmetric~dhke/annotated.html">A-26: DHKE</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec27+cryptography+asymmetric~rsa-and-digital-signatures"><a class="jtd-nav-link" href="/lec/lec27+cryptography+asymmetric~rsa-and-digital-signatures/notes.html">N-27: RSA &amp; Digital Signatures</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec27+cryptography+asymmetric~rsa-and-digital-signatures"><a class="jtd-nav-link" href="/lec/lec27+cryptography+asymmetric~rsa-and-digital-signatures/annotated.html">A-27: RSA &amp; Digital Signatures</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec28+cryptography+forgery-and-hashing"><a class="jtd-nav-link" href="/lec/lec28+cryptography+forgery-and-hashing/notes.html">N-28: Forgery &amp; Hashing</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec28+cryptography+forgery-and-hashing"><a class="jtd-nav-link" href="/lec/lec28+cryptography+forgery-and-hashing/annotated.html">A-28: Forgery &amp; Hashing</a></li>
+              <li class="jtd-nav-item" data-nav-id="notes:lec29+cryptography+mac-and-secure-communications"><a class="jtd-nav-link" href="/lec/lec29+cryptography+mac-and-secure-communications/notes.html">N-29: MAC &amp; Secure Communications</a></li>
+              <li class="jtd-nav-item" data-nav-id="annotated:lec29+cryptography+mac-and-secure-communications"><a class="jtd-nav-link" href="/lec/lec29+cryptography+mac-and-secure-communications/annotated.html">A-29: MAC &amp; Secure Communications</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item active" data-nav-id="lab">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-lab"><span class="jtd-nav-section-title">Labs</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-lab">
+              <li class="jtd-nav-item" data-nav-id="lab0"><a class="jtd-nav-link" href="/lab/lab00.html">00: Intro to pwn.college and Bash Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab1"><a class="jtd-nav-link" href="/lab/lab01.html">01: Bash and Python Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab2"><a class="jtd-nav-link" href="/lab/lab02.html">02: Linux Permissions</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab3"><a class="jtd-nav-link" href="/lab/lab03.html">03: Access Control</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab4"><a class="jtd-nav-link" href="/lab/lab04.html">04: Implementing Access Control and Debugging Refresher</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab5"><a class="jtd-nav-link" href="/lab/lab05.html">05: Buffer Overflows</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab6"><a class="jtd-nav-link" href="/lab/lab06.html">06: Control Flow Hijacking</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab7"><a class="jtd-nav-link" href="/lab/lab07.html">07: Symmetric Encryption</a></li>
+              <li class="jtd-nav-item" data-nav-id="lab8"><a class="jtd-nav-link" href="/lab/lab08.html">08: AES &amp; Asymmetric Encryption</a></li>
+              <li class="jtd-nav-item active" data-nav-id="lab9"><a class="jtd-nav-link active" href="/lab/lab09.html">09: (Extra) RSA &amp; Hashing</a></li>
+            </ul>
+          </li>
+          <li class="jtd-nav-item" data-nav-id="hw">
+            <div class="jtd-nav-section"><button class="jtd-nav-section-toggle" type="button" aria-expanded="true" aria-controls="jtd-nav-children-hw"><span class="jtd-nav-section-title">Homework</span><span style="white-space: pre-wrap">&#x20;</span><svg class="jtd-icon jtd-icon-chevron-right" aria-hidden="true"><use href="/assets/icons/symbols.svg#chevron-right"></use></svg></button></div>
+            <ul class="jtd-nav-list" id="jtd-nav-children-hw">
+              <li class="jtd-nav-item" data-nav-id="hw0"><a class="jtd-nav-link" href="/hw/hw00.html">0: Ethics</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw1"><a class="jtd-nav-link" href="/hw/hw01.html">1: Foundations and Systems</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw2"><a class="jtd-nav-link" href="/hw/hw02.html">2: Software</a></li>
+              <li class="jtd-nav-item" data-nav-id="hw3"><a class="jtd-nav-link" href="/hw/hw03.html">3: Cryptography</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-links" aria-label="Auxiliary">
+        <ul class="header-links-list">
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+          <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+        </ul>
+      </nav>
+      <div class="site-footer">CS396 Fall 2026</div>
+    </header>
+    <div class="main" id="top">
+      <div class="main-header main-header-default" id="main-header">
+        <nav class="header-links" aria-label="Auxiliary">
+          <ul class="header-links-list">
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="/" aria-label="home"><svg class="jtd-icon jtd-icon-flowbite-home-outline" aria-hidden="true" style="width: 2em; height: 2em;"><use href="/assets/icons/flowbite.svg#flowbite-home-outline"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://sit.instructure.com/courses/189211" aria-label="canvas"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/canvas.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://www.gradescope.com/courses/1347336" aria-label="gradescope"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/gradescope.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://discord.gg/W6ERvYW3zn" aria-label="discord"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/discord.svg"></use></svg></a></li>
+            <li class="header-links-item"><a class="header-link header-link-icon" target="_blank" rel="noreferrer" href="https://github.com/cs396-stevens" aria-label="github"><svg class="jtd-icon" style="width:1.75em;height:1.75em"><use href="/assets/icons/git-alt.svg"></use></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="main-content-wrap">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-nav-list">
+            <li class="breadcrumb-nav-list-item breadcrumb-nav-root"><a href="/">Home</a></li>
+            <li class="breadcrumb-nav-list-item"><span>Labs</span></li>
+            <li class="breadcrumb-nav-list-item"><a href="/lab/lab09.html">09: (Extra) RSA &amp; Hashing</a></li>
+          </ol>
+        </nav>
+        <div class="main-content" id="main-content">
+          <main class="jtd-page">
+            <h2>Lab 9: (Extra) RSA &amp; Hashing</h2>
+            <h2>RSA</h2>
+            <p>We’ll be doing the first 2 RSA challenges from the asymmetric cryptography section.</p>
+            <p>In the first challenge, the <code>run</code> script will generate the public and private keys for you using PyCryptoDome, encipher the flag using the generated public key, and print it in hex string format.</p>
+            <p>You will use the generated private key to decrypt the flag.</p>
+            <p>The source for the first challenge script is shown below:</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">from</span> Crypto.PublicKey <span style="color: #d73948">import</span> RSA
+
+flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()
+<span style="color: #d73948">assert</span> <span style="color: #4b69c6">len</span>(flag) <span style="color: #d73948">&lt;=</span> <span style="color: #b60157">256</span>
+
+key <span style="color: #d73948">=</span> RSA.<span style="color: #4b69c6">generate</span>(<span style="color: #b60157">2048</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">(public)  n = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">n</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">(public)  e = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">e</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">(private) d = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">d</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+
+ciphertext <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(
+    <span style="color: #4b69c6">int</span>.<span style="color: #4b69c6">from_bytes</span>(flag, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>),
+    key.e, key.n,
+).<span style="color: #4b69c6">to_bytes</span>(<span style="color: #b60157">256</span>, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Flag Ciphertext (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+            <p>In the second challenge, the <code>run</code> script will again encrypt the flag using a generated public key. This time, the script will give you the values of <math><mi>𝑛</mi></math>, <math><mi>𝑝</mi></math>, and <math><mi>𝑞</mi></math>, and you will need to do a little more work to recover the private key and decrypt the flag.</p>
+            <p>The source for the second challenge script is below:</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">from</span> Crypto.PublicKey <span style="color: #d73948">import</span> RSA
+
+flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>, <span style="color: #198810">"</span><span style="color: #198810">rb</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()
+<span style="color: #d73948">assert</span> <span style="color: #4b69c6">len</span>(flag) <span style="color: #d73948">&lt;=</span> <span style="color: #b60157">256</span>
+
+key <span style="color: #d73948">=</span> RSA.<span style="color: #4b69c6">generate</span>(<span style="color: #b60157">2048</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">e = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">e</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">p = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">p</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">q = </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">key</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">q</span><span style="color: #b60157">:#x</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+
+ciphertext <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(
+    <span style="color: #4b69c6">int</span>.<span style="color: #4b69c6">from_bytes</span>(flag, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>),
+    key.e, key.n,
+).<span style="color: #4b69c6">to_bytes</span>(<span style="color: #b60157">256</span>, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Flag Ciphertext (hex): </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">ciphertext</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">hex</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+            <aside id="task1" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 1</div>
+              <div class="jtd-callout-body">
+                <ol>
+                  <li>Complete the <em>RSA 1</em> challenge from the <em>Cryptography</em> module.</li>
+                  <li>
+                    <p>Complete the <em>RSA 2</em> challenge from the <em>Cryptography</em> module.</p>
+                    <ul>
+                      <li>
+                        <details>
+                          <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                          <p>Use the <a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">Extended Euclidean Algorithm</a> to solve for <math><mi>𝑑</mi></math></p>
+                        </details>
+                      </li>
+                      <li>
+                        <details>
+                          <summary><span class="jtd-label jtd-label-default"><em>Hint 2</em></span></summary>
+                          <p>The equation <math><mn>1</mn><mo>=</mo><mi>𝑒</mi><mi>𝑑</mi><mo form="prefix" lspace="0.16666666666666666em" rspace="0.16666666666666666em">mod</mo><mi>𝜑</mi><mrow><mo>(</mo><mi>𝑛</mi><mo>)</mo></mrow></math> can be rewritten in the form of Bézout’s Identity as <math><mi>𝑒</mi><mi>𝑑</mi><mo>+</mo><mi>𝜑</mi><mrow><mo>(</mo><mi>𝑛</mi><mo>)</mo></mrow><mi>𝑦</mi><mo>=</mo><mn>1</mn></math>.</p>
+                        </details>
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+            </aside>
+            <h2>RSA Signatures</h2>
+            <p>This challenge is an RSA forgery problem presented in a worker/dispatcher format.</p>
+            <p>Here, the <code>/challenge/dispatcher</code> script is your “oracle” that will sign any message (given as a command line argument) except the command “flag”.</p>
+            <p>It takes its input as a base64-encoded string, which it will decode into the actual message to be signed. It will then sign the message using a pre-generated private key, encode the signature in base64, and print the result.</p>
+            <p>The <code>dispatcher</code> script is as follows:</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">import</span> sys
+
+<span style="color: #d73948">from</span> base64 <span style="color: #d73948">import</span> b64encode, b64decode
+
+n <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/challenge/key-n</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>(), <span style="color: #b60157">16</span>)
+d <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/challenge/key-d</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>(), <span style="color: #b60157">16</span>)
+
+<span style="color: #d73948">if</span> <span style="color: #4b69c6">len</span>(sys.argv) <span style="color: #d73948">&lt;</span> <span style="color: #b60157">2</span>:
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Usage: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">sys</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">argv</span><span style="color: #8b41b1">[</span><span style="color: #b60157">0</span><span style="color: #8b41b1">]</span><span style="color: #8b41b1">}</span><span style="color: #198810"> [command-b64]</span><span style="color: #198810">"</span>)
+    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)
+
+command <span style="color: #d73948">=</span> <span style="color: #4b69c6">b64decode</span>(sys.argv[<span style="color: #b60157">1</span>].<span style="color: #4b69c6">strip</span>(<span style="color: #198810">"</span><span style="color: #1d6c76">\0</span><span style="color: #198810">"</span>))
+
+<span style="color: #d73948">if</span> <span style="color: #d73948">b</span><span style="color: #198810">"</span><span style="color: #198810">flag</span><span style="color: #198810">"</span> <span style="color: #d73948">in</span> command:
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Command contains 'flag'</span><span style="color: #198810">"</span>)
+    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)
+
+signature <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(
+    <span style="color: #4b69c6">int</span>.<span style="color: #4b69c6">from_bytes</span>(command, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>), d, n
+).<span style="color: #4b69c6">to_bytes</span>(<span style="color: #b60157">256</span>, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>)
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Signed command (b64): </span><span style="color: #8b41b1">{</span><span style="color: #4b69c6">b64encode</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">signature</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">.</span><span style="color: #4b69c6">decode</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+            <p>The base64-encoded, signed command can then be passed as a command line argument to the <code>/challenge/worker</code> script, which decode the signature, then decrypt it using the public key to obtain the original message. Thus, the worker should only accept commands that have been signed by the dispatcher.</p>
+            <p>If this message was “flag”, it will print the flag, otherwise it will do nothing.</p>
+            <p>Note that the original message is not passed to the worker in addition to the signature.</p>
+            <p>The <code>worker</code> script is as follows:</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">import</span> sys
+
+<span style="color: #d73948">from</span> base64 <span style="color: #d73948">import</span> b64decode
+
+n <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/challenge/key-n</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>(), <span style="color: #b60157">16</span>)
+e <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/challenge/key-e</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>(), <span style="color: #b60157">16</span>)
+
+<span style="color: #d73948">if</span> <span style="color: #4b69c6">len</span>(sys.argv) <span style="color: #d73948">&lt;</span> <span style="color: #b60157">2</span>:
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Usage: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">sys</span><span style="color: #8b41b1">.</span><span style="color: #8b41b1">argv</span><span style="color: #8b41b1">[</span><span style="color: #b60157">0</span><span style="color: #8b41b1">]</span><span style="color: #8b41b1">}</span><span style="color: #198810"> [signature-b64]</span><span style="color: #198810">"</span>)
+    sys.<span style="color: #4b69c6">exit</span>(<span style="color: #b60157">1</span>)
+
+signature <span style="color: #d73948">=</span> <span style="color: #4b69c6">b64decode</span>(sys.argv[<span style="color: #b60157">1</span>])
+c <span style="color: #d73948">=</span> <span style="color: #4b69c6">int</span>.<span style="color: #4b69c6">from_bytes</span>(signature, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>)
+<span style="color: #d73948">assert</span> c <span style="color: #d73948">&lt;</span> n, <span style="color: #198810">"</span><span style="color: #198810">Message too big!</span><span style="color: #198810">"</span>
+command <span style="color: #d73948">=</span> <span style="color: #4b69c6">pow</span>(c, e, n).<span style="color: #4b69c6">to_bytes</span>(<span style="color: #b60157">256</span>, <span style="color: #198810">"</span><span style="color: #198810">little</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">rstrip</span>(<span style="color: #d73948">b</span><span style="color: #198810">"</span><span style="color: #1d6c76">\x00</span><span style="color: #198810">"</span>)
+
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">Received signed command: </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">command</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+<span style="color: #d73948">if</span> command <span style="color: #d73948">==</span> <span style="color: #d73948">b</span><span style="color: #198810">"</span><span style="color: #198810">flag</span><span style="color: #198810">"</span>:
+    <span style="color: #4b69c6">print</span>(<span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>())</code></pre>
+            <aside id="task2" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 2</div>
+              <div class="jtd-callout-body">
+                <ol>
+                  <li>
+                    <p>Complete the <em>RSA Signatures</em> challenge in the <em>Cryptography</em> module.</p>
+                    <ul>
+                      <li>
+                        <details>
+                          <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                          <p>You know the target message <math><mi>𝑚</mi></math> to be forged. Your goal is to use the identity <math><mrow><mo>(</mo><msup><mi>𝑥</mi><mi>𝑑</mi></msup><mo>)</mo></mrow><mrow><mo>(</mo><msup><mi>𝑦</mi><mi>𝑑</mi></msup><mo>)</mo></mrow><mo>=</mo><msup><mrow><mo>(</mo><mrow><mi>𝑥</mi><mi>𝑦</mi></mrow><mo>)</mo></mrow><mi>𝑑</mi></msup></math> to generated a forged signature for the target message.</p>
+                        </details>
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+            </aside>
+            <h2>SHA 1</h2>
+            <p>This challenge requires you to find a partial hash collision with the flag under SHA256.</p>
+            <p>The <code>run</code> script is as follows:</p>
+            <pre><code data-lang="py"><span style="color: #74747c">#</span><span style="color: #74747c">!/usr/bin/exec-suid -- /usr/bin/python3 -I</span>
+
+<span style="color: #d73948">import</span> hashlib
+
+flag <span style="color: #d73948">=</span> <span style="color: #4b69c6">open</span>(<span style="color: #198810">"</span><span style="color: #198810">/flag</span><span style="color: #198810">"</span>).<span style="color: #4b69c6">read</span>()
+prefix_length <span style="color: #d73948">=</span> <span style="color: #b60157">6</span>
+flag_hash <span style="color: #d73948">=</span> hashlib.<span style="color: #4b69c6">sha256</span>(flag.<span style="color: #4b69c6">encode</span>(<span style="color: #198810">"</span><span style="color: #198810">latin</span><span style="color: #198810">"</span>)).<span style="color: #4b69c6">hexdigest</span>()
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">flag_hash</span><span style="color: #8b41b1">[</span><span style="color: #8b41b1">:</span><span style="color: #8b41b1">prefix_length</span><span style="color: #8b41b1">]</span><span style="color: #d73948">=</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+
+collision <span style="color: #d73948">=</span> <span style="color: #4b69c6">bytes</span>.<span style="color: #4b69c6">fromhex</span>(<span style="color: #4b69c6">input</span>(<span style="color: #198810">"</span><span style="color: #198810">Colliding input? </span><span style="color: #198810">"</span>).<span style="color: #4b69c6">strip</span>())
+collision_hash <span style="color: #d73948">=</span> hashlib.<span style="color: #4b69c6">sha256</span>(collision).<span style="color: #4b69c6">hexdigest</span>()
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">collision_hash</span><span style="color: #8b41b1">[</span><span style="color: #8b41b1">:</span><span style="color: #8b41b1">prefix_length</span><span style="color: #8b41b1">]</span><span style="color: #d73948">=</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+<span style="color: #d73948">if</span> collision_hash[:prefix_length] <span style="color: #d73948">==</span> flag_hash[:prefix_length]:
+    <span style="color: #4b69c6">print</span>(<span style="color: #198810">"</span><span style="color: #198810">Collided!</span><span style="color: #198810">"</span>)
+    <span style="color: #4b69c6">print</span>(flag)</code></pre>
+            <h3>Python Multiprocessing Example</h3>
+            <p><em>Note: this may not work on your local machine because Python’s multiprocessing module is notoriously finicky.</em> <em>If you would like to test multiprocessing locally, use the <a href="https://github.com/uqfoundation/multiprocess">multiprocess</a> external library, which is a drop-in replacement that solves a lot of issues.</em></p>
+            <pre><code data-lang="py"><span style="color: #d73948">from</span> multiprocessing.pool <span style="color: #d73948">import</span> Pool
+
+<span style="color: #74747c">#</span><span style="color: #74747c"> define a worker function to be run in each process</span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> it will take a starting value, and count all of the </span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> numbers divisible by 7 in the specified range.</span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> </span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> as a rule of thumb, you'll want your workers doing a significant</span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> amount of CPU-bound work, since there is a cost associated with</span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> initializing processes.</span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> hence our choice of job size 1 million.</span>
+<span style="color: #d73948">def</span> <span style="color: #4b69c6">worker</span>(init: <span style="color: #4b69c6">int</span>):
+    start, end <span style="color: #d73948">=</span> init <span style="color: #d73948">*</span> <span style="color: #b60157">1000000</span>, (init <span style="color: #d73948">+</span> <span style="color: #b60157">1</span>) <span style="color: #d73948">*</span> <span style="color: #b60157">1000000</span>
+    <span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810">counting from </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">start</span><span style="color: #8b41b1">}</span><span style="color: #198810"> to </span><span style="color: #8b41b1">{</span><span style="color: #8b41b1">end</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)
+    count <span style="color: #d73948">=</span> <span style="color: #b60157">0</span>
+    <span style="color: #d73948">for</span> i <span style="color: #d73948">in</span> <span style="color: #4b69c6">range</span>(start, end):
+        <span style="color: #d73948">if</span> i <span style="color: #d73948">%</span> <span style="color: #b60157">7</span> <span style="color: #d73948">==</span> <span style="color: #b60157">0</span>:
+            count <span style="color: #d73948">+=</span> <span style="color: #b60157">1</span>
+    <span style="color: #d73948">return</span> count
+
+<span style="color: #74747c">#</span><span style="color: #74747c"> number of processes should be &lt;= number of available cpus</span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> because there isn't really any point in creating more if they'll</span>
+<span style="color: #74747c">#</span><span style="color: #74747c"> just be suspended anyways.</span>
+<span style="color: #d73948">with</span> <span style="color: #4b69c6">Pool</span>(processes<span style="color: #d73948">=</span><span style="color: #b60157">10</span>) <span style="color: #d73948">as</span> pool:
+    <span style="color: #74747c">#</span><span style="color: #74747c"> pool.map will assign the values of the second, iterable parameter</span>
+    <span style="color: #74747c">#</span><span style="color: #74747c"> to the first parameter, a function that takes a single argument.</span>
+    <span style="color: #74747c">#</span><span style="color: #74747c"> the return values are stored in a list sorted in the same order</span>
+    <span style="color: #74747c">#</span><span style="color: #74747c"> as the arguments given.</span>
+    results <span style="color: #d73948">=</span> pool.<span style="color: #4b69c6">map</span>(worker, <span style="color: #4b69c6">range</span>(<span style="color: #b60157">10</span>))
+
+<span style="color: #4b69c6">print</span>(<span style="color: #d73948">f</span><span style="color: #198810">"</span><span style="color: #198810"># of #'s divisible by 7 below 10 million: </span><span style="color: #8b41b1">{</span><span style="color: #4b69c6">sum</span><span style="color: #8b41b1">(</span><span style="color: #8b41b1">results</span><span style="color: #8b41b1">)</span><span style="color: #8b41b1">}</span><span style="color: #198810">"</span>)</code></pre>
+            <aside id="task3" class="jtd-callout jtd-callout-task" data-kind="task">
+              <div class="jtd-callout-title">Task 3</div>
+              <div class="jtd-callout-body">
+                <ol>
+                  <li>
+                    <p>Complete the <em>SHA 1</em> challenge in the <em>Cryptography</em> module.</p>
+                    <ul>
+                      <li>
+                        <details>
+                          <summary><span class="jtd-label jtd-label-default"><em>Hint 1</em></span></summary>
+                          <p>SHA256 will take any byte input. One way to start your search is to simply start counting up from 0 by converting the counter variable to bytes and hashing it.</p>
+                        </details>
+                      </li>
+                      <li>
+                        <details>
+                          <summary><span class="jtd-label jtd-label-default"><em>Hint 2</em></span></summary>
+                          <p>Counting up sequentially can take a very long time. You might save some time parallelizing your search with Python’s <a href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing library</a> and putting the container’s 40 available cores to use. See above for an example that uses multiprocessing to count the number of numbers divisible by 7 between 0 and 10 million. (Multiprocessing can have unexpected side effects when errors occur, and if your script continues to crash after you’ve solved the issue, you may need to restart the challenge container.)</p>
+                        </details>
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+            </aside>
+            <h2>Post-Lab</h2>
+            <p>There is no postlab for this lab.</p>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/site.js">
+    </script>
+  </body>
+</html>
